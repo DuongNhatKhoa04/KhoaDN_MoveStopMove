@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6c71a4cf824d93ad1527847d233f55, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  speed: 0
-  acceleration: 0
-  attackSpeed: 0
-  attackRangeRadius: 0
+  speed: 20
+  acceleration: 10
+  attackSpeed: 1
+  attackRangeRadius: 1

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MoveStopMove.Extensions
+namespace MoveStopMove.Extensions.HSM
 {
     public class StateMachine
     {

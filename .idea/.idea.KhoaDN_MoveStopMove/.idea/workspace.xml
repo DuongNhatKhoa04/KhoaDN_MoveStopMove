@@ -5,39 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Abstracts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Abstracts/Character.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Abstracts/Character.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Controllers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Controllers/PlayerC.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Controllers/PlayerC.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Enums.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/ObjectPooling.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IDamageable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IDamageable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IInitializable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IInitializable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IMoveable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IMoveable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IPausable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IPausable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IResettable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IResettable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Models.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Models/PlayerM.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Models/PlayerM.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AbilityData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AbilityData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Views.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/ControlProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/ControlProvider.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Player.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Player.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/PlayerStateDriver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/PlayerStateDriver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Command.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Command/Command.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Command/Command.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachineBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachineBuilder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer/IMyObserver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer/IMyObserver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Singleton.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Singleton/Singleton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Singleton/Singleton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/CommandManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/CommandManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/EventManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/EventManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/GamePlayManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/GamePlayManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AnimationData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Abstracts/Character.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Abstracts/Character.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Controllers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Controllers/PlayerC.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Controllers/PlayerC.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Enums.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/TransitionSequencer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/TransitionSequencer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IDamageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IDamageable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IInitializable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IInitializable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IMoveable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IMoveable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IPausable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IPausable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IResettable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IResettable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Models.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Models/PlayerM.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Models/PlayerM.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AbilityData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AbilityData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AnimationData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/Animator/Animator_HandTut.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/Animator/Animator_HandTut.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,19 +80,23 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/07698ecf5d574a6e849ece72e6de3fd519c00/2a/b45996de/VerticalGroupAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Abstracts/Character.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Controllers/PlayerC.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/ObservableList.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IDamageable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IInitializable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IMoveable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IPausable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IResettable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/IObservableList.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Models/PlayerM.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/SO/AbilityData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/14/350f5a16/IObserver`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/ControlProvider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/PlayerStateDriver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Command/Command.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachineBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer/IMyObserver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Singleton/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Managers/CommandManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Managers/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Managers/GamePlayManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -74,21 +109,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\app\Tools\IDE\Unity\2022.3.62f2\Editor\Unity.exe" />
@@ -155,12 +190,18 @@
       <updated>1761574034926</updated>
       <workItem from="1761574036863" duration="564000" />
       <workItem from="1761834391819" duration="11939000" />
+      <workItem from="1761890723585" duration="25183000" />
+      <workItem from="1761979324814" duration="2876000" />
+      <workItem from="1762050188905" duration="6696000" />
+      <workItem from="1762058992966" duration="15020000" />
+      <workItem from="1762090416691" duration="4825000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />

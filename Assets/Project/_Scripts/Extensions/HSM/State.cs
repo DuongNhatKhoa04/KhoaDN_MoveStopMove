@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MoveStopMove.Extensions
+namespace MoveStopMove.Extensions.HSM
 {
     public abstract class State
     {
@@ -60,8 +60,11 @@ namespace MoveStopMove.Extensions
         public void Update(float deltaTime)
         {
             State nextState = GetTransition();
-            if (nextState == null) return;
-            Machine.Sequencer.RequestTransition(this, nextState);
+            if (nextState != null)
+            {
+                Machine.Sequencer.RequestTransition(this, nextState);
+                return;
+            }
 
             ActiveChild?.Update(deltaTime);
             OnUpdate(deltaTime);
