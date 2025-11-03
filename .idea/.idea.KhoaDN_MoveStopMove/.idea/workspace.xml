@@ -5,70 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/ControlProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/ControlProvider.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Player.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Player.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/PlayerStateDriver.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/PlayerStateDriver.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Command.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Command/Command.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Command/Command.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachineBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachineBuilder.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer/IMyObserver.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer/IMyObserver.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Singleton.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Singleton/Singleton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Singleton/Singleton.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/CommandManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/CommandManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/EventManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/EventManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/GamePlayManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/GamePlayManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AnimationData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/Activities.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/Activities.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/Sequences.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/Sequences.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Abstracts/Character.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Abstracts/Character.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Controllers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Controllers/PlayerC.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Controllers/PlayerC.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Enums.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animation/AC_Character.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animation/AC_Character.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Character.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/State.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/TransitionSequencer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/TransitionSequencer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IDamageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IDamageable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IInitializable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IInitializable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IMoveable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IMoveable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IPausable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IPausable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IResettable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/Character/IResettable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Models/PlayerM.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Models/PlayerM.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AbilityData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AbilityData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/AnimationData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/Animator/Animator_HandTut.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/Animator/Animator_HandTut.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +35,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/ControlProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/PlayerStateDriver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Command/Command.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/Activities.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/Sequences.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachineBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -94,7 +46,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Managers/CommandManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Managers/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Managers/GamePlayManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -194,7 +145,8 @@
       <workItem from="1761979324814" duration="2876000" />
       <workItem from="1762050188905" duration="6696000" />
       <workItem from="1762058992966" duration="15020000" />
-      <workItem from="1762090416691" duration="4825000" />
+      <workItem from="1762090416691" duration="5379000" />
+      <workItem from="1762156276673" duration="9004000" />
     </task>
     <servers />
   </component>

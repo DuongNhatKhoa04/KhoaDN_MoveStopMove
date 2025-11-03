@@ -34,7 +34,8 @@ namespace MoveStopMove.Extensions.HSM
         public void Tick(float deltaTime)
         {
             if (!m_started) Start();
-            InternalTick(deltaTime);
+            //InternalTick(deltaTime);
+            Sequencer.Tick(deltaTime);
         }
 
         public void InternalTick(float deltaTime) => Root.Update(deltaTime);

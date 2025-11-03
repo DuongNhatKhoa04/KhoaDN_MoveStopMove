@@ -845,7 +845,20 @@ MonoBehaviour:
   startOffset: 0.1
   animator: {fileID: 817141070839476188}
   currentAnimation: 0
-  playerData: {fileID: 11400000, guid: 639cf133c28853c4fbb7b537bb36c044, type: 2}
+  context:
+    rb: {fileID: 7085712225366441179}
+    col: {fileID: 2194656855493659349}
+    animator: {fileID: 817141070839476188}
+    currentAnimation: 0
+    speed: 6
+    acceleration: 40
+    attackSpeed: 0
+    attackRangeRadius: 0
+    direction: {x: 0, y: 0, z: 0}
+    isMoving: 0
+    isGrounded: 0
+    danceButtonPressed: 0
+    ultimateButtonPressed: 0
 --- !u!1 &2366073265148285487
 GameObject:
   m_ObjectHideFlags: 0

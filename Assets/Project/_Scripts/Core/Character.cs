@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 namespace MoveStopMove.Core
 {
     [Serializable]
-    public struct CharacterContext
+    public class CharacterContext
     {
         public Rigidbody rb;
         public CapsuleCollider col;
@@ -21,6 +21,7 @@ namespace MoveStopMove.Core
 
         public float speed;
         public float acceleration;
+
         public float attackSpeed;
         public float attackRangeRadius;
 
@@ -47,7 +48,9 @@ namespace MoveStopMove.Core
         [SerializeField] protected Animator animator;
         [SerializeField] protected EAnim currentAnimation;
 
+        [Header("Character Data")]
         [SerializeField] protected CharacterContext context;
+
         protected string LastPath;
         protected StateMachine Machine;
         protected State Root;

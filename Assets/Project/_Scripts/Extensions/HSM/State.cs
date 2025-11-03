@@ -13,6 +13,9 @@ namespace MoveStopMove.Extensions.HSM
 
         public State ActiveChild;
 
+        private readonly List<IActivity> m_activities = new();
+        public IReadOnlyList<IActivity> Activities => m_activities;
+
         #endregion
 
         #region -- Methods --
@@ -21,6 +24,12 @@ namespace MoveStopMove.Extensions.HSM
         {
             Machine = machine;
             Parent = parent;
+        }
+
+        public void Add(IActivity activity)
+        {
+            if (activity != null)
+                m_activities.Add(activity);
         }
 
         /// <summary>
