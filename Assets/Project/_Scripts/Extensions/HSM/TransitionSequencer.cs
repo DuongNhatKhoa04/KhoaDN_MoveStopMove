@@ -27,6 +27,12 @@ namespace MoveStopMove.Extensions.HSM
             Machine = machine;
         }
 
+        /// <summary>
+        /// From chain-state (exit-chain or enter-chain), collecting all Activity need to run
+        /// </summary>
+        /// <param name="chain">Chain-State</param>
+        /// <param name="deactivate">Activity</param>
+        /// <returns></returns>
         private static List<PhaseStep> GatherPhaseStep(List<State> chain, bool deactivate)
         {
             var steps = new List<PhaseStep>();
@@ -54,6 +60,12 @@ namespace MoveStopMove.Extensions.HSM
             return steps;
         }
 
+        /// <summary>
+        /// Create list of state need to exit
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="lca"></param>
+        /// <returns></returns>
         private static List<State> StateToExit(State from, State lca)
         {
             var list = new List<State>();
@@ -61,6 +73,12 @@ namespace MoveStopMove.Extensions.HSM
             return list;
         }
 
+        /// <summary>
+        /// Create a list of state need to enter
+        /// </summary>
+        /// <param name="to"></param>
+        /// <param name="lca"></param>
+        /// <returns></returns>
         private static List<State> StateToEnter(State to, State lca)
         {
             var stack = new Stack<State>();
@@ -79,8 +97,11 @@ namespace MoveStopMove.Extensions.HSM
 
             if (to == null || from == to) return;
 
-            if (m_sequencer == null) return;
-            m_pending = (from, to);
+            if (m_sequencer != null)
+            {
+                m_pending = (from, to);
+                return;
+            }
             BeginTransition(from, to);
         }
 
@@ -88,7 +109,7 @@ namespace MoveStopMove.Extensions.HSM
         {
             var lca = LowestCommonAncestor(from, to);
             var exitChain = StateToExit(from, lca);
-            var enterChain = StateToEnter(from, lca);
+            var enterChain = StateToEnter(to, lca);
 
             // Deactivate
             var exitSteps = GatherPhaseStep(exitChain, true);
@@ -108,11 +129,14 @@ namespace MoveStopMove.Extensions.HSM
                 m_sequencer = UseSequential
                     ? new SequentialPhase(enterSteps, m_tokenSource.Token)
                     : new ParallelPhase(enterSteps, m_tokenSource.Token);
-                m_sequencer = new NoopPhase();
+                //m_sequencer = new NoopPhase();
                 m_sequencer.Start();
             };
         }
 
+        /// <summary>
+        /// Clearing sequencer, if there are any request pending, do it
+        /// </summary>
         private void EndTransition()
         {
             m_sequencer = null;
@@ -125,6 +149,10 @@ namespace MoveStopMove.Extensions.HSM
             }
         }
 
+        /// <summary>
+        /// If there are any sequencer, update it. If not, call Machine for normal update
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public void Tick(float deltaTime)
         {
             if (m_sequencer != null)
@@ -133,9 +161,9 @@ namespace MoveStopMove.Extensions.HSM
 
                 if (m_nextPhase != null)
                 {
-                    var n = m_nextPhase;
+                    var next = m_nextPhase;
                     m_nextPhase = null;
-                    n();
+                    next();
                 }
                 else
                 {

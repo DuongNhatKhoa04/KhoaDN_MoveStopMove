@@ -18,6 +18,10 @@ namespace MoveStopMove.Extensions.HSM
             m_root = root;
         }
 
+        /// <summary>
+        /// Creating State Machine
+        /// </summary>
+        /// <returns>New State Machine</returns>
         public StateMachine Build()
         {
             var machine = new StateMachine(m_root);
@@ -25,6 +29,12 @@ namespace MoveStopMove.Extensions.HSM
             return machine;
         }
 
+        /// <summary>
+        /// Following field type State to put reference of this machine to node and leaf state
+        /// </summary>
+        /// <param name="currentState"></param>
+        /// <param name="machine"></param>
+        /// <param name="visited"></param>
         private void Wire(State currentState, StateMachine machine, HashSet<State> visited)
         {
             if (currentState == null) return;
@@ -34,7 +44,7 @@ namespace MoveStopMove.Extensions.HSM
                         | BindingFlags.Public
                         | BindingFlags.NonPublic
                         | BindingFlags.FlattenHierarchy;
-            var machineField = typeof(State).GetField("m_machine", flags);
+            var machineField = typeof(State).GetField("Machine", flags);
             if (machineField != null) machineField.SetValue(currentState, machine);
 
             foreach (var f in currentState.GetType().GetFields(flags))

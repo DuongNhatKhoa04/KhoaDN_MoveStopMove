@@ -23,6 +23,9 @@ namespace MoveStopMove.Extensions.HSM
             Sequencer = new (this);
         }
 
+        /// <summary>
+        /// Ensuring that will enter root state when the state machine start
+        /// </summary>
         public void Start()
         {
             if (m_started) return;
@@ -31,6 +34,10 @@ namespace MoveStopMove.Extensions.HSM
             Root.Enter();
         }
 
+        /// <summary>
+        /// First time will start and after that will pass permission for Sequencer
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public void Tick(float deltaTime)
         {
             if (!m_started) Start();
@@ -38,6 +45,10 @@ namespace MoveStopMove.Extensions.HSM
             Sequencer.Tick(deltaTime);
         }
 
+        /// <summary>
+        /// Normal update without transition
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public void InternalTick(float deltaTime) => Root.Update(deltaTime);
 
         /// <summary>

@@ -5,7 +5,7 @@ namespace MoveStopMove.Interfaces
     public interface IMoveable
     {
         public bool IsGrounded();
-        public void Movement(Vector3 direction, float speed);
+        public void Moving(Vector3 direction, float speed, float acceleration);
         public void Stop();
     }
 

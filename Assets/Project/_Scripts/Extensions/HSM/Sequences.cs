@@ -11,6 +11,9 @@ namespace MoveStopMove.Extensions.HSM
         public bool Update();
     }
 
+    /// <summary>
+    /// Useful for no sequence step
+    /// </summary>
     public class NoopPhase : ISequence
     {
         #region -- Properties --
@@ -29,6 +32,9 @@ namespace MoveStopMove.Extensions.HSM
 
     public delegate Task PhaseStep(CancellationToken cancelToken);
 
+    /// <summary>
+    /// Async task in PhaseStep
+    /// </summary>
     public class SequentialPhase : ISequence
     {
         private readonly List<PhaseStep> m_phaseSteps;
@@ -65,6 +71,9 @@ namespace MoveStopMove.Extensions.HSM
         }
     }
 
+    /// <summary>
+    /// Parallel all task in PhaseStep
+    /// </summary>
     public class ParallelPhase : ISequence
     {
         private readonly List<PhaseStep> m_phaseSteps;

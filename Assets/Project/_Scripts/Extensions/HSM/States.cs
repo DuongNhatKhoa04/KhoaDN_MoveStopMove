@@ -1,4 +1,4 @@
-using MoveStopMove.Core;
+/*using MoveStopMove.Core;
 using MoveStopMove.SO;
 
 namespace MoveStopMove.Extensions.HSM
@@ -119,4 +119,4 @@ namespace MoveStopMove.Extensions.HSM
     }
 
     #endregion
-}
+}*/

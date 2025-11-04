@@ -26,6 +26,10 @@ namespace MoveStopMove.Extensions.HSM
             Parent = parent;
         }
 
+        /// <summary>
+        /// Add Activity into state for Sequencer
+        /// </summary>
+        /// <param name="activity">Activity</param>
         public void Add(IActivity activity)
         {
             if (activity != null)
@@ -50,6 +54,9 @@ namespace MoveStopMove.Extensions.HSM
         protected virtual void OnUpdate(float deltaTime) { }
         #endregion
 
+        /// <summary>
+        /// If current state have parent, set itself to child and enter state
+        /// </summary>
         public void Enter()
         {
             if (Parent != null) Parent.ActiveChild = this;
@@ -59,6 +66,9 @@ namespace MoveStopMove.Extensions.HSM
             initState?.Enter();
         }
 
+        /// <summary>
+        /// Exiting form child state first, then delete child and exit
+        /// </summary>
         public void Exit()
         {
             ActiveChild?.Exit();
@@ -66,6 +76,11 @@ namespace MoveStopMove.Extensions.HSM
             OnExit();
         }
 
+        /// <summary>
+        /// If current state need to change, request Sequencer for transition.
+        /// If not, update child state and call OnUpdate
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public void Update(float deltaTime)
         {
             State nextState = GetTransition();
