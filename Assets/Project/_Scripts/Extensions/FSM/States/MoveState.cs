@@ -4,7 +4,7 @@ using MoveStopMove.SO;
 
 namespace MoveStopMove.Extensions.FSM.States
 {
-    public class MoveState : GroundedState
+    public class MoveState : PlayerGroundedState
     {
         public MoveState(Character player, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
             : base(player, stateMachine, playerData, animation) { }

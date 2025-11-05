@@ -4,20 +4,16 @@ using MoveStopMove.SO;
 
 namespace MoveStopMove.Extensions.FSM.States
 {
-    public class IdleState : GroundedState
+    public class PlayerIdleState : PlayerGroundedState
     {
+        private bool m_hasEnemyInRange;
 
-        private float countdown;           // thời gian đếm ngược còn lại (giây)
-        private const float kInitialCD = 3f;
-
-        public IdleState(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
+        public PlayerIdleState(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
             : base(character, stateMachine, playerData, animation) { }
 
         public override void Enter()
         {
             base.Enter();
-            countdown = kInitialCD;        // bắt đầu 3-2-1 mỗi khi vào Idle
-            Core.Movement.Stop();          // đứng yên khi đếm
         }
 
         public override void LogicUpdate()
@@ -32,12 +28,12 @@ namespace MoveStopMove.Extensions.FSM.States
             }
 
             // Không có input: tiếp tục đếm
-            if (countdown > 0f)
+            /*if (countdown > 0f)
             {
                 //countdown -= Time.deltaTime;
                 // TODO (tuỳ bạn): phát UI 3-2-1 tại đây nếu cần
                 return;
-            }
+            }*/
 
             // Hết đếm: nếu có mục tiêu trong tầm -> Attack ngay
             if (HasTargetInRange())
@@ -54,8 +50,6 @@ namespace MoveStopMove.Extensions.FSM.States
 
         private bool HasTargetInRange()
         {
-            // Gợi ý: thay bằng Core.Combat.HasTargetInRange() nếu có sẵn trong project của bạn.
-            // Ở đây để mẫu stub an toàn:
             return Core.Combat != null; //&& Core.Combat.HasTargetInRange();
         }
     }

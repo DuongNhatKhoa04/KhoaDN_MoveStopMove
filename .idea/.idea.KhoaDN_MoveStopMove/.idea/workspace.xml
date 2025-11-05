@@ -5,76 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Core.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Core.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Combat.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Combat.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/CoreComponents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/CoreComponents.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Movement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Movement.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Data.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Enemies.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/CharacterState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/CharacterState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/FiniteStateMachine.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/FiniteStateMachine.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/AttackState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/AttackState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/DanceState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/DanceState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/DeadState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/DeadState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/GroundedState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/GroundedState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/IdleState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/IdleState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/MoveState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/MoveState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/WinState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/WinState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Data.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Data/PlayerData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Data/PlayerData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Player.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerAbilityState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerAbilityState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerAttackState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerAttackState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerGroundedState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerGroundedState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerIdleState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerIdleState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerMoveState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/PlayerStates/PlayerMoveState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/CharacterData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/CharacterData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Character.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Abstracts.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Player.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/PlayerStateDriver.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/PlayerStateDriver.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/Sequences.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/Sequences.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/State.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachineBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/StateMachineBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/States.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/TransitionSequencer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/HSM/TransitionSequencer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/PlayerData.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Views.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Combat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Combat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/AttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/GroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/GroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/MoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/FSM/States/MoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/EventManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Character/Character_Optimieze2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Character/Character_Optimieze2.fbx.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +159,10 @@
       <workItem from="1762156276673" duration="24811000" />
       <workItem from="1762248691108" duration="20163000" />
       <workItem from="1762276241351" duration="770000" />
-      <workItem from="1762277296404" duration="321000" />
+      <workItem from="1762277296404" duration="1938000" />
+      <workItem from="1762315411191" duration="2526000" />
+      <workItem from="1762336235127" duration="1645000" />
+      <workItem from="1762344195743" duration="885000" />
     </task>
     <servers />
   </component>

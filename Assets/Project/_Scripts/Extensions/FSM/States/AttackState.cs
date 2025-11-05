@@ -6,7 +6,7 @@ using MoveStopMove.SO;
 
 namespace MoveStopMove.Extensions.FSM.States
 {
-    public class AttackState : GroundedState
+    public class AttackState : PlayerGroundedState
     {
         public AttackState(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
             : base(character, stateMachine, playerData, animation) { }

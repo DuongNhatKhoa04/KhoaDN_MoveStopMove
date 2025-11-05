@@ -22,7 +22,7 @@ namespace MoveStopMove.Core
 
         public MainCore Core => core;
         public FiniteStateMachine StateMachine { get; private set; }
-        public IdleState CharacterIdleState { get; private set; }
+        public PlayerIdleState CharacterIdleState { get; private set; }
         public MoveState CharacterMoveState { get; private set; }
         public AttackState CharacterAttackState {  get; private set; }
 
@@ -34,7 +34,7 @@ namespace MoveStopMove.Core
 
             StateMachine = new FiniteStateMachine();
 
-            CharacterIdleState = new IdleState(this, StateMachine, characterData, EAnim.Idle);
+            CharacterIdleState = new PlayerIdleState(this, StateMachine, characterData, EAnim.Idle);
             CharacterMoveState = new MoveState(this, StateMachine, characterData, EAnim.Run);
             CharacterAttackState = new AttackState(this, StateMachine, characterData, EAnim.Attack);
         }

@@ -1,9 +1,36 @@
 using System;
 using System.Collections.Generic;
 using MoveStopMove.Extensions.Observer;
+using UnityEngine;
 
 namespace MoveStopMove.Managers
 {
+    public struct CharacterKilled
+    {
+        public GameObject Killer;
+        public GameObject Victim;
+        public float IncreaseAttackRangeBy;
+
+        public CharacterKilled(GameObject killer, GameObject victim, float rangeBonus)
+        {
+            Killer = killer;
+            Victim = victim;
+            IncreaseAttackRangeBy = rangeBonus;
+        }
+    }
+
+    public struct HitEvent
+    {
+        public GameObject Attacker;
+        public GameObject Target;
+
+        public HitEvent(GameObject attacker, GameObject target)
+        {
+            Attacker = attacker;
+            Target = target;
+        }
+    }
+
     public static class EventManager
     {
         #region -- Fields --

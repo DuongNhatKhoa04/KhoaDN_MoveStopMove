@@ -8,13 +8,13 @@ using UnityEngine;
 
 namespace MoveStopMove.Extensions.FSM.States
 {
-    public class GroundedState : State
+    public class PlayerGroundedState : State
     {
         protected Vector3 Direction;
         protected bool IsGrounded;
         protected bool IsMoving;
 
-        public GroundedState(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
+        public PlayerGroundedState(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
             : base(character, stateMachine, playerData, animation) { }
 
         public override void DoChecks()
