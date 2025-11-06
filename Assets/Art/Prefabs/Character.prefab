@@ -1109,10 +1109,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: {fileID: 9197125406035445246}
+  weapon: {fileID: 0}
+  poolMaxSize: 50
   projectilePrefab: {fileID: 5025411617103235581, guid: ac92a486a4bb24448bff2a64639de992, type: 3}
   weaponSpawnPoint: {fileID: 5933756228417936357}
   projectileSpeed: 20
-  useRigidbodyVelocity: 0
+  safeSpawnDistance: 1
 --- !u!1 &3254370854981852324
 GameObject:
   m_ObjectHideFlags: 0

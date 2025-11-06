@@ -26,9 +26,10 @@ namespace MoveStopMove.Core.CoreComponents
 
         private IObjectPool<ProjectileBase> m_projectilePool;
 
-        private void Awake()
+        public AttackRange GetAttackRange => attackRange;
+
+        private new void Awake()
         {
-            // Khởi tạo pool nếu Weapon có sử dụng projectile
             if (weapon != null && weapon is WeaponBase normalWeapon)
             {
                 m_projectilePool = new ObjectPool<ProjectileBase>(
@@ -44,7 +45,6 @@ namespace MoveStopMove.Core.CoreComponents
 
         private void Update()
         {
-            // Giả lập input — nhấn Space để tấn công mục tiêu đầu tiên
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 var targetEntry = attackRange.PeekEntry();
@@ -59,7 +59,6 @@ namespace MoveStopMove.Core.CoreComponents
 
                 Debug.Log($"Tấn công {target.name} bằng {weapon.GetActiveWeaponMode()}");
 
-                // Gọi tấn công thông qua Weapon
                 weapon.Attack(targetPosition);
             }
         }

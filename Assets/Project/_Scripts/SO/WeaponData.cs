@@ -26,12 +26,17 @@ namespace MoveStopMove.SO
     {
         [Header("Type")]
         public EWeaponAttackType weaponType = EWeaponAttackType.Normal;
+
         [Header("Buff")]
         public float rangeIncrease = 0.2f;
         public float attackSpeedIncrease = 0f;
         public float movementIncrease = 1f;
         public float maxAttackRange = 8f;
+
         [Header("Special Skill")]
         public ESpecialSkill specialSkill = ESpecialSkill.None;
+
+        [Header("Shopping")]
+        public int price;
     }
 }

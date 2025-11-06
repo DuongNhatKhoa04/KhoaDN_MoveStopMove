@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 0
   rangeIncrease: 0.2
-  attackSpeedIncrease: 0
+  attackSpeedIncrease: 3
   movementIncrease: 1
-  maxAttackRange: 8
+  maxAttackRange: 6
   specialSkill: 4
+  price: 150

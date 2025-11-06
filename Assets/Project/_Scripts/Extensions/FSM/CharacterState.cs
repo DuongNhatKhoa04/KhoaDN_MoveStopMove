@@ -14,10 +14,7 @@ namespace MoveStopMove.Extensions.FSM
         protected FiniteStateMachine StateMachine;
         protected CharacterData PlayerData;
 
-        protected bool IsAnimationFinished;
         protected bool IsExitingState;
-
-        protected float StartTime;
 
         private EAnim m_animation;
 
@@ -34,17 +31,11 @@ namespace MoveStopMove.Extensions.FSM
         {
             DoChecks();
             Character.SetAnimationTrigger(m_animation);
-            StartTime = Time.time;
-            //Debug.Log(animBoolName);
-            IsAnimationFinished = false;
-            IsExitingState = false;
         }
 
         public virtual void Exit()
         {
             Character.ResetAnimationTrigger(m_animation);
-            //Player.Anim.SetBool(animBoolName, false);
-            IsExitingState = true;
         }
 
         public virtual void LogicUpdate()
@@ -59,8 +50,9 @@ namespace MoveStopMove.Extensions.FSM
 
         public virtual void DoChecks() { }
 
-        public virtual void AnimationTrigger() { }
-
-        public virtual void AnimationFinishTrigger() => IsAnimationFinished = true;
+        protected bool HasTargetInRange()
+        {
+            return Core.Combat.GetAttackRange.PeekEntry() != null;
+        }
     }
 }

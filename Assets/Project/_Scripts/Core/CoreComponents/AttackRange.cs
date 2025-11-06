@@ -32,22 +32,26 @@ namespace MoveStopMove.Core.CoreComponents
         private readonly Queue<TargetEntry> m_targetQueue = new();
         private readonly HashSet<GameObject> m_set = new();
 
-        private void Awake()
+        private new void Awake()
         {
             lineRenderer.loop = true;
             lineRenderer.useWorldSpace = false;
             lineRenderer.positionCount = segments;
+        }
 
+        public void InitRange(float r)
+        {
+            sphereCol.radius = Mathf.Max(0f, r);
             Redraw();
         }
 
-        public void SetRange(float r)
+        public void IncreaseRange(float r)
         {
             sphereCol.radius += Mathf.Max(0f, r);
             Redraw();
         }
 
-        private void Redraw()
+        public void Redraw()
         {
             float r = sphereCol.radius;
             float step = 2f * Mathf.PI / segments;
@@ -61,7 +65,7 @@ namespace MoveStopMove.Core.CoreComponents
             lineRenderer.SetPositions(pts);
         }
 
-        private void SetVisual(bool enable)
+        public void SetVisual(bool enable)
         {
             lineRenderer.enabled = enable;
         }
@@ -87,7 +91,7 @@ namespace MoveStopMove.Core.CoreComponents
             {
                 var entry = new TargetEntry(go, go.transform.position);
                 m_targetQueue.Enqueue(entry);
-                //Debug.Log($"[ENTER] {go.name} vào vùng tấn công của {name}");
+                Debug.Log($"[ENTER] {go.name} vào vùng tấn công của {name}");
             }
         }
 
@@ -108,7 +112,7 @@ namespace MoveStopMove.Core.CoreComponents
                     m_targetQueue.Enqueue(enemy);
                 }
 
-                //Debug.Log($"[EXIT] {go.name} rời vùng tấn công của {name}");
+                Debug.Log($"[EXIT] {go.name} rời vùng tấn công của {name}");
             }
         }
 
@@ -131,17 +135,17 @@ namespace MoveStopMove.Core.CoreComponents
         {
             while (m_targetQueue.Count > 0)
             {
-                var e = m_targetQueue.Dequeue();
-                if (e.Target == null)
+                var enemy = m_targetQueue.Dequeue();
+                if (enemy.Target == null)
                 {
-                    m_set.Remove(e.Target);
+                    m_set.Remove(enemy.Target);
                     continue;
                 }
-                if (!m_set.Remove(e.Target))
+                if (!m_set.Remove(enemy.Target))
                 {
                     continue;
                 }
-                return e;
+                return enemy;
             }
             return null;
         }

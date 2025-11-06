@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b9663932f04e149844fe93d9991073, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: 81c4b0ad59844dc384c96d42f1d947c7, type: 3}
+  m_Name: CharacterData
   m_EditorClassIdentifier: 
-  speed: 6
-  acceleration: 60
+  speed: 0
+  acceleration: 0
   attackSpeed: 0
   attackRangeRadius: 0
+  currentPantSkin: {fileID: 0}
+  currentSkinSet: {fileID: 0}

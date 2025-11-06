@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MoveStopMove.Weapon
 {
-    [System.Serializable]
+    [Serializable]
     public class WeaponMode
     {
         public bool normal = true;

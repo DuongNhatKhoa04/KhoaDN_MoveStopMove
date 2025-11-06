@@ -1,3 +1,4 @@
+using MoveStopMove.Core;
 using UnityEngine;
 
 namespace MoveStopMove.Interfaces
@@ -29,5 +30,12 @@ namespace MoveStopMove.Interfaces
     public interface IResettable
     {
         public void Reset();
+    }
+
+    public interface IDecoratable
+    {
+        public void EquipWeapon();
+        public void EquipPant();
+        public void EquipSkinSet();
     }
 }

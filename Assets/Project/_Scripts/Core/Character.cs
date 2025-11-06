@@ -30,8 +30,23 @@ namespace MoveStopMove.Core
 
         public virtual void Initialize()
         {
+            InitAttackRange(characterData.attackRangeRadius);
             animator.SetTrigger(AnimHashes.Map[currentAnimation]);
+            InitStateMachine();
+        }
 
+        private void InitAttackRange(float initRange)
+        {
+            core.Combat.GetAttackRange.InitRange(initRange);
+        }
+
+        protected void UpdateRange(float rangeIncrease)
+        {
+            core.Combat.GetAttackRange.InitRange(rangeIncrease);
+        }
+
+        private void InitStateMachine()
+        {
             StateMachine = new FiniteStateMachine();
 
             CharacterIdleState = new PlayerIdleState(this, StateMachine, characterData, EAnim.Idle);
@@ -61,5 +76,59 @@ namespace MoveStopMove.Core
         }
 
         #endregion
+    }
+
+    public abstract class CharacterDecorator : IDecoratable
+    {
+        private IDecoratable m_decoratable;
+        public SkinnedMeshRenderer PantsRenderer { private get; set; }
+        public SkinnedMeshRenderer SkinSetRenderer { private get; set; }
+        public Texture2D PantTexture { private get; set; }
+        public Texture2D SkinSetTexture { private get; set; }
+
+        private static readonly int s_mainTex = Shader.PropertyToID("_MainTex");
+
+        protected CharacterDecorator(IDecoratable inner)
+        {
+            m_decoratable = inner;
+        }
+
+        public virtual void EquipWeapon()
+        {
+            m_decoratable.EquipWeapon();
+        }
+
+        public virtual void EquipPant()
+        {
+            m_decoratable.EquipPant();
+            SetAlbedoForMaterial(PantsRenderer,PantTexture);
+        }
+
+        public void EquipSkinSet()
+        {
+            m_decoratable.EquipSkinSet();
+            SetAlbedoForMaterial(SkinSetRenderer,SkinSetTexture);
+        }
+
+        private void SetAlbedoForMaterial(SkinnedMeshRenderer skinMesh,Texture2D texture)
+        {
+            if (!skinMesh || !texture) return;
+
+            var materialArray = skinMesh.materials;
+            if (materialArray.Length == 0) return;
+
+            var material = materialArray[0];
+
+            material.SetTexture(s_mainTex, texture);
+
+            PantsRenderer.materials = materialArray;
+        }
+    }
+
+    public sealed class NullDecoratable : IDecoratable
+    {
+        public void EquipWeapon() { }
+        public void EquipPant() { }
+        public void EquipSkinSet() { }
     }
 }

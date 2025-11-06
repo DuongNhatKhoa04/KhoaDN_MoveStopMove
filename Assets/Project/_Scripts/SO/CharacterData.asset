@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   acceleration: 60
-  attackSpeed: 0
-  attackRangeRadius: 0
+  attackSpeed: 1
+  attackRangeRadius: 4

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e427b234a624e56b895eb36812c8801, type: 3}
   m_Name: Arrow_Data
   m_EditorClassIdentifier: 
-  weaponType: 0
-  rangeIncrease: 0.1
-  attackSpeedIncrease: 0
+  weaponType: 1
+  rangeIncrease: 0.2
+  attackSpeedIncrease: 2
   movementIncrease: 1
-  maxAttackRange: 8
+  maxAttackRange: 12
   specialSkill: 4
+  price: 150

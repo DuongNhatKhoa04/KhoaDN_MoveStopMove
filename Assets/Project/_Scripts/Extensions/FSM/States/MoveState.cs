@@ -1,6 +1,7 @@
 using MoveStopMove.Core;
 using MoveStopMove.Extensions.Helpers;
 using MoveStopMove.SO;
+using UnityEngine;
 
 namespace MoveStopMove.Extensions.FSM.States
 {
@@ -15,14 +16,12 @@ namespace MoveStopMove.Extensions.FSM.States
 
             if (IsMoving)
             {
-                // Tiếp tục di chuyển
-                TickMovement();
-                return;
+                Core.Movement.Moving(Direction, PlayerData.speed, PlayerData.acceleration);
             }
-
-            // Thả joystick: dừng lại và chuyển ngay sang AttackState
-            Core.Movement.Stop();
-            StateMachine.ChangeState(Character.CharacterAttackState);
+            else
+            {
+                StateMachine.ChangeState(Character.CharacterIdleState);
+            }
         }
     }
 }

@@ -31,19 +31,5 @@ namespace MoveStopMove.Extensions.FSM.States
             Direction = ControlProvider.Instance.CheckDirection();
             IsMoving = ControlProvider.Instance.IsMoving(Direction);
         }
-
-        protected void TickMovement()
-        {
-            if (!IsGrounded) return;
-
-            if (IsMoving)
-            {
-                Core.Movement.Moving(Direction, PlayerData.speed, PlayerData.acceleration);
-            }
-            else
-            {
-                Core.Movement.Stop();
-            }
-        }
     }
 }

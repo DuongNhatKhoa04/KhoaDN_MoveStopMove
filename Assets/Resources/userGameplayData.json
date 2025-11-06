@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "currentLevel": 0,
+  "coins": 0,
+  "unlockedSkin":
+  [
+    "default"
+  ],
+  "lockedSkin":
+  [
+    "devil",
+    "angel",
+    "deadpool",
+    "thor"
+  ],
+  "unlockedPant":
+  [
+    "default"
+  ],
+  "lockedPant":
+  [
+    "batman",
+    "chambi",
+    "comy",
+    "dabao",
+    "onion",
+    "pokemon",
+    "rainbow",
+    "skull",
+    "vantim"
+  ],
+  "unlockedWeapon":
+  [
+    "default"
+  ],
+  "lockedWeapon":
+  [
+    "axe_0",
+    "axe_1",
+    "boomerang",
+    "candy_0",
+    "candy_1",
+    "harmer",
+    "knife",
+    "uzi",
+    "z"
+  ],
+  "equippedPant": "default",
+  "equippedSkin": "default",
+  "equippedWeapon": "default",
+  "settings": {
+    "masterVolume": 100.0,
+    "sfxVolume": 100.0,
+    "musicVolume": 100.0
+  }
+}
