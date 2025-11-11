@@ -1,6 +1,8 @@
 using System.IO;
 using MoveStopMove.Core;
 using MoveStopMove.Core.CoreComponents;
+using MoveStopMove.DataPersistence;
+using MoveStopMove.DataPersistence.Data;
 using MoveStopMove.Extensions.FSM;
 using MoveStopMove.Extensions.FSM.States;
 using MoveStopMove.Extensions.Helpers;
@@ -11,7 +13,7 @@ using UnityEngine;
 
 namespace MoveStopMove.MainCharacter
 {
-    public class Player : Character
+    public class Player : Character, IDataPersistence
     {
         #region -- Fields --
 
@@ -25,6 +27,8 @@ namespace MoveStopMove.MainCharacter
 
         private IDecoratable m_decoratorChain;
 
+        private GameData m_playerData;
+
         #endregion
 
         #region -- Methods --
@@ -37,6 +41,7 @@ namespace MoveStopMove.MainCharacter
                 PantsRenderer = pantsRenderer,
                 PantTexture = pantsAlbedoTexture
             };
+            m_playerData = GameData.CreateDefault();
         }
 
         private void Start()
@@ -55,55 +60,16 @@ namespace MoveStopMove.MainCharacter
             StateMachine.CurrentState.PhysicsUpdate();
         }
 
-        [ContextMenu("Print full save JSON to Console")]
-        public void PrintFullJson()
-        {
-            if (SaveManager.Instance == null) { Debug.LogWarning("SaveManager not initialized"); return; }
-            string json = SaveManager.Instance.ExportToJson();
-            Debug.Log($"=== Save JSON ===\n{json}");
-        }
-
-        [ContextMenu("Print summary (coins + equipped)")]
-        public void PrintSummary()
-        {
-            if (SaveManager.Instance == null) { Debug.LogWarning("SaveManager not initialized"); return; }
-            var d = SaveManager.Instance.Data;
-            Debug.Log($"Coins: {d.coins}\nEquippedPant: {d.equippedPant}\nEquippedSkin: {d.equippedSkin}\nEquippedWeapon: {d.equippedWeapon}");
-        }
-
-        [ContextMenu("Print unlocked lists")]
-        public void PrintUnlockedLists()
-        {
-            if (SaveManager.Instance == null) { Debug.LogWarning("SaveManager not initialized"); return; }
-            var d = SaveManager.Instance.Data;
-            Debug.Log($"Unlocked Pants ({d.unlockedPant?.Count ?? 0}): {string.Join(", ", d.unlockedPant ?? new System.Collections.Generic.List<string>())}");
-            Debug.Log($"Unlocked Skins ({d.unlockedSkin?.Count ?? 0}): {string.Join(", ", d.unlockedSkin ?? new System.Collections.Generic.List<string>())}");
-            Debug.Log($"Unlocked Weapons ({d.unlockedWeapon?.Count ?? 0}): {string.Join(", ", d.unlockedWeapon ?? new System.Collections.Generic.List<string>())}");
-        }
-
-        [ContextMenu("Export save.json to Desktop")]
-        public void ExportToDesktop()
-        {
-            if (SaveManager.Instance == null) { Debug.LogWarning("SaveManager not initialized"); return; }
-            string desktop = System.Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory);
-            string path = Path.Combine(desktop, "exported_save.json");
-            File.WriteAllText(path, SaveManager.Instance.ExportToJson());
-            Debug.Log("Exported save to " + path);
-        }
-
-        [ContextMenu("Open persistent save folder (Editor)")]
-        public void OpenPersistentFolder()
-        {
-            string path = SaveManager.Instance?.GetPersistentSavePath();
-            if (string.IsNullOrEmpty(path)) { Debug.LogWarning("No save path available"); return; }
-
-        #if UNITY_EDITOR
-            UnityEditor.EditorUtility.RevealInFinder(path);
-        #else
-            Application.OpenURL("file://" + System.IO.Path.GetDirectoryName(path));
-        #endif
-        }
-
         #endregion
+
+        public void LoadData(GameData data)
+        {
+            m_playerData = data;
+        }
+
+        public void SaveData(GameData data)
+        {
+            data = m_playerData;
+        }
     }
 }

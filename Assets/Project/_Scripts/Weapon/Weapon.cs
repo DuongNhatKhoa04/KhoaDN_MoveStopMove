@@ -1,119 +1,46 @@
-using System;
-using MoveStopMove.Core.CoreComponents;
 using MoveStopMove.Extensions.ObjectPooling;
-using MoveStopMove.Managers;
+using MoveStopMove.SO;
 using UnityEngine;
+using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 namespace MoveStopMove.Weapon
 {
-    [Serializable]
-    public class WeaponMode
+    public class Weapon : WeaponBase
     {
-        public bool normal = true;
-        public bool canPierce;
-        public bool chainable;
-        public bool returnable;
+        [Header("Projectile Settings")]
+        [SerializeField] private float projectileSpeed = 20f;
 
-        public void ValidateMode()
+        private IObjectPool<ProjectileBase> m_projectilePool;
+        private Transform m_firePoint;
+
+        public void Initialize()
         {
-            int trueCount = 0;
 
-            if (normal) trueCount++;
-            if (canPierce) trueCount++;
-            if (chainable) trueCount++;
-            if (returnable) trueCount++;
+        }
 
-            if (trueCount > 1)
+        public override void Attack(Vector3 targetPosition)
+        {
+            if (projectileObjectPool == null)
             {
-                if (canPierce)
-                {
-                    chainable = false;
-                    returnable = false;
-                    normal = false;
-                }
-                else if (chainable)
-                {
-                    canPierce = false;
-                    returnable = false;
-                    normal = false;
-                }
-                else if (returnable)
-                {
-                    canPierce = false;
-                    chainable = false;
-                    normal = false;
-                }
-                else if (normal)
-                {
-                    canPierce = false;
-                    chainable = false;
-                    returnable = false;
-                }
+                /*Debug.LogWarning("Weapon: projectilePrefab chưa được gán!");*/
+                return;
             }
-        }
 
-        public string GetActiveMode()
-        {
-            if (canPierce) return "Piercing";
-            if (chainable) return "Chainable";
-            if (returnable) return "Returnable";
-            return "Normal";
-        }
-    }
+            Vector3 spawnPos = m_firePoint ? m_firePoint.position : transform.position;
+            Vector3 dir = (targetPosition - spawnPos).normalized;
 
-    public abstract class WeaponBase : MonoBehaviour
-    {
-        [Header("Base Settings")]
-        [SerializeField] protected GameObject attacker;
+            // Lấy projectile từ pool
+            ProjectileBase projectile = m_projectilePool?.Get() ?? Instantiate(projectileObjectPool.projectilePrefab);
+            projectile.transform.SetPositionAndRotation(spawnPos, Quaternion.LookRotation(dir));
+            projectile.Initialize(attacker, targetPosition);
 
-        [Header("Pierce Settings")]
-        [SerializeField] protected int maxPierce = 1;
+            // Nếu projectile có rigidbody thì set vận tốc
+            var rb = projectile.GetComponent<Rigidbody>();
+            if (rb != null)
+                rb.velocity = dir * projectileSpeed;
 
-        [SerializeField] protected WeaponMode weaponMode;
-
-        [SerializeField] protected ProjectileObjectPool projectilePooling;
-
-        protected int PierceCount;
-        protected bool Returning;
-        protected bool Chaining;
-
-        public ProjectileObjectPool ProjectilePooling => projectilePooling;
-
-        protected virtual void OnValidate()
-        {
-            if (weaponMode != null)
-                weaponMode.ValidateMode();
-        }
-
-        protected virtual void Awake()
-        {
-            PierceCount = 0;
-            Returning = false;
-            Chaining = false;
-
-            weaponMode?.ValidateMode();
-        }
-
-        public abstract void Attack(Vector3 targetPosition);
-
-        protected virtual void OnTriggerEnter(Collider other)
-        {
-            if (other.attachedRigidbody == null) return;
-
-            var target = other.attachedRigidbody.gameObject;
-            if (target == attacker) return;
-
-            OnHitTarget(target);
-        }
-
-        protected virtual void OnHitTarget(GameObject target)
-        {
-            EventManager.Notify(new HitEvent(attacker, target));
-        }
-
-        public string GetActiveWeaponMode()
-        {
-            return weaponMode?.GetActiveMode() ?? "Normal";
+            Debug.Log($"NormalWeapon: Bắn từ {spawnPos} tới {targetPosition}");
         }
     }
 }

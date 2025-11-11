@@ -27,6 +27,9 @@ namespace MoveStopMove.SO
         [Header("Type")]
         public EWeaponAttackType weaponType = EWeaponAttackType.Normal;
 
+        [Header("Prefab")]
+        public GameObject prefab;
+
         [Header("Buff")]
         public float rangeIncrease = 0.2f;
         public float attackSpeedIncrease = 0f;

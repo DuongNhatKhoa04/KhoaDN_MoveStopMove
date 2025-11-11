@@ -32,14 +32,14 @@ namespace MoveStopMove.Core.CoreComponents
         {
             if (weapon != null && weapon is WeaponBase normalWeapon)
             {
-                m_projectilePool = new ObjectPool<ProjectileBase>(
+                /*m_projectilePool = new ObjectPool<ProjectileBase>(
                     weapon.ProjectilePooling.CreateProjectile,
                     weapon.ProjectilePooling.OnGetProjectile,
                     weapon.ProjectilePooling.OnReleaseProjectile,
                     weapon.ProjectilePooling.OnDestroyProjectile,
                     maxSize: poolMaxSize
                 );
-                weapon.ProjectilePooling.SetPool(m_projectilePool);
+                weapon.ProjectilePooling.SetPool(m_projectilePool);*/
             }
         }
 
@@ -57,7 +57,7 @@ namespace MoveStopMove.Core.CoreComponents
                 var target = targetEntry.Value.Target;
                 Vector3 targetPosition = AttackRange.GetTargetPosition(targetEntry.Value);
 
-                Debug.Log($"Tấn công {target.name} bằng {weapon.GetActiveWeaponMode()}");
+                //Debug.Log($"Tấn công {target.name} bằng {weapon.GetActiveWeaponMode()}");
 
                 weapon.Attack(targetPosition);
             }

@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e427b234a624e56b895eb36812c8801, type: 3}
-  m_Name: Axe_1_Data
+  m_Name: knife
   m_EditorClassIdentifier: 
-  weaponType: 0
+  weaponType: 1
+  prefab: {fileID: 6065692588273772179, guid: 6472b2c5dcfd1d34080dd07f4a7dc7b3, type: 3}
   rangeIncrease: 0.2
-  attackSpeedIncrease: -0.4
-  movementIncrease: 0.5
-  maxAttackRange: 8
-  specialSkill: 3
+  attackSpeedIncrease: 2
+  movementIncrease: 1
+  maxAttackRange: 10
+  specialSkill: 2
   price: 200

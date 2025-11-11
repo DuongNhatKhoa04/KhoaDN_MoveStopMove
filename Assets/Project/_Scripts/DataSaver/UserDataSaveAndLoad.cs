@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MoveStopMove.DataSaver
 {
     [Serializable]
-    public class SaveData
+    public class PlayerSaveData
     {
         public int version = 1;
 
@@ -20,9 +20,13 @@ namespace MoveStopMove.DataSaver
         public List<string> unlockedWeapon = new();
         public List<string> lockedWeapon = new();
 
+        public List<string> unlockedHair = new();
+        public List<string> lockedHair = new();
+
         public string equippedPant;
         public string equippedSkin;
         public string equippedWeapon;
+        public string equippedHair;
 
         public PlayerSettings settings = new();
     }

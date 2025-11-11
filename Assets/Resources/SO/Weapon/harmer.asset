@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e427b234a624e56b895eb36812c8801, type: 3}
-  m_Name: Candy_1_Data
+  m_Name: harmer
   m_EditorClassIdentifier: 
-  weaponType: 2
+  weaponType: 0
+  prefab: {fileID: 7120861879876326208, guid: 8dffaa80e037e9a47bc334100aef6e73, type: 3}
   rangeIncrease: 0.2
-  attackSpeedIncrease: 0
+  attackSpeedIncrease: -0.5
   movementIncrease: 1
   maxAttackRange: 8
-  specialSkill: 0
+  specialSkill: 1
   price: 200

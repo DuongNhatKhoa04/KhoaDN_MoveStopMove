@@ -1,5 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using MoveStopMove.DataSaver;
+using MoveStopMove.Extensions.ObjectPooling;
+using MoveStopMove.SO;
+using MoveStopMove.Weapon;
 using UnityEngine;
 
 namespace MoveStopMove.Extensions.Helpers
@@ -67,6 +72,74 @@ namespace MoveStopMove.Extensions.Helpers
 
             Debug.LogError(typeof(T) + " not implemented on " + name);
             return default;
+        }
+    }
+
+    public static class WeaponBinder
+    {
+        public const string SO_WEAPON_PATH = "SO/Weapon";
+        private static readonly Dictionary<string, WeaponData> cache = new();
+
+        public static void ResetCacheOnPlay()
+        {
+            cache.Clear();
+        }
+
+        public static WeaponData GetWeaponDataById(string weaponId)
+        {
+            if (string.IsNullOrEmpty(weaponId))
+            {
+                Debug.LogError("CachedWeaponDataProvider: weaponId rỗng.");
+                return null;
+            }
+
+            if (cache.TryGetValue(weaponId, out WeaponData cached)) return cached;
+
+            WeaponData loaded = Resources.Load<WeaponData>($"{SO_WEAPON_PATH}/{weaponId}");
+            if (loaded == null)
+            {
+                Debug.LogError($"CachedWeaponDataProvider: Không tìm thấy WeaponData '{weaponId}' trong Resources/{SO_WEAPON_PATH}");
+                return null;
+            }
+
+            cache[weaponId] = loaded;
+            return loaded;
+        }
+    }
+
+    public static class PlayerSaveLoader
+    {
+        public static PlayerSaveData LoadFromJsonString(string jsonString)
+        {
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                Debug.LogError("PlayerSaveLoader: Chuỗi JSON rỗng.");
+                return null;
+            }
+            return JsonUtility.FromJson<PlayerSaveData>(jsonString);
+        }
+
+        public static PlayerSaveData LoadFromPersistentFile(string fileName = "userGameplayData.json")
+        {
+            string filePath = Path.Combine(Application.persistentDataPath, fileName);
+            if (!File.Exists(filePath))
+            {
+                Debug.LogError($"PlayerSaveLoader: Không tìm thấy file {filePath}");
+                return null;
+            }
+            string jsonString = File.ReadAllText(filePath);
+            return LoadFromJsonString(jsonString);
+        }
+
+        public static PlayerSaveData LoadFromResourcesText(string resourcesPath)
+        {
+            TextAsset textAsset = Resources.Load<TextAsset>(resourcesPath);
+            if (textAsset == null)
+            {
+                Debug.LogError($"PlayerSaveLoader: Không tìm thấy TextAsset tại Resources/{resourcesPath}");
+                return null;
+            }
+            return LoadFromJsonString(textAsset.text);
         }
     }
 }
