@@ -5,77 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/Data.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/Data/GameData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/Data/GameData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/DataPersistenceManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/DataPersistenceManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/FileDataHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/FileDataHandler.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/IDataPersistence.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/IDataPersistence.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/SerializableTypes.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/SerializableTypes/SerializableDictionary.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/SerializableTypes/SerializableDictionary.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer/events.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer/events.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Strategy.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Strategy/IAttackStrategy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Strategy/IAttackStrategy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/HairDecorator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/HairDecorator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/GameShop.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/GameShop/Shop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/GameShop/Shop.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/PlayerInventory.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/PlayerInventory/Inventory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/PlayerInventory/Inventory.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Character.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Z.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Z.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Combat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Combat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/DataSaver/UserDataSaveAndLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataSaver/UserDataSaveAndLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Helpers/Helper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Arrow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Axe_0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Axe_0.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Axe_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Axe_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Hammer.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Hammer.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/boomerang.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/boomerang.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/candy_0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/candy_0.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/candy_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/candy_1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/knife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/knife.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/uzi.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/uzi.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/PantDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/PantDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/WeaponDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/WeaponDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/Data/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/Data/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/DataPersistenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/DataPersistenceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/FileDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/FileDataHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/SaveDataManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/SaveData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Managers/SaveDataManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Arrow_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Arrow_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Axe_0_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Axe_0_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Axe_1_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Axe_1_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Boomerang_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Boomerang_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Candy_0_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Candy_0_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Candy_1_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Candy_1_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Harmer_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Harmer_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Knife_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Knife_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Uzi_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Uzi_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Z_Data.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon/Z_Data.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/WeaponData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/WeaponData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Weapon/NormalWeapon.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Weapon/NormalWeapon.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Weapon/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Weapon/Weapon.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Weapon/Weapon.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/userGameplayData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/userGameplayData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/arrow.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/arrow.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/axe_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/axe_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/axe_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/axe_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/boomerang.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/boomerang.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/candy_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/candy_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/candy_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/candy_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/harmer.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/harmer.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/knife.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/knife.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/uzi.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/uzi.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/z.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/z.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 10.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 10.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 4.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 5.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 5.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 8.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 8.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 9.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.001 9.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 4.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 7.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.002 7.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.003 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.003 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.003 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.003 2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.003 5.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.003 5.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.003 6.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/Weapon/Materials/Material.003 6.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/CharSkin/SetFull/Set 5/Materials/lambert1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/CharSkin/SetFull/Set 5/Materials/lambert1.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +86,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Combat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/CoreComponents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/FullSetSkinDecorator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/HairDecorator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/PantDecorator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/WeaponDecorator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -134,6 +116,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Observer/events.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Singleton/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Extensions/Strategy/IAttackStrategy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/GameShop/Shop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Data/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Player.cs" root0="FORCE_HIGHLIGHTING" />
@@ -141,6 +124,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Managers/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Managers/GamePlayManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Managers/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/PlayerInventory/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/SO/CharacterData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/SO/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Weapon/ChainableWeapon.cs" root0="FORCE_HIGHLIGHTING" />
@@ -263,7 +247,9 @@
       <workItem from="1762653967869" duration="4939000" />
       <workItem from="1762751864301" duration="1558000" />
       <workItem from="1762789329070" duration="3305000" />
-      <workItem from="1762822507350" duration="7731000" />
+      <workItem from="1762822507350" duration="8089000" />
+      <workItem from="1762834240486" duration="1984000" />
+      <workItem from="1762858357939" duration="22826000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4209c9542df7545aeaa8bb61ab4abd, type: 3}
+  m_Name: deadpool
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1104576651828240858, guid: f451508159f63164e8986f302343e0f1, type: 3}
+  icon: {fileID: 2800000, guid: 7965f490c2ec6044d854d957fe85186e, type: 3}
+  pant: {fileID: 0}
+  skin: {fileID: 2800000, guid: a3ff2f99f0cfd604792f99788a31f3a9, type: 3}
+  rangeIncrease: 0.2
+  attackSpeedIncrease: 0
+  movementIncrease: 1
+  price: 0

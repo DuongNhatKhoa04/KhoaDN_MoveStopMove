@@ -81,15 +81,16 @@ namespace MoveStopMove.Core
     public abstract class CharacterDecorator : IDecoratable
     {
         private IDecoratable m_decoratable;
-        public SkinnedMeshRenderer PantsRenderer { private get; set; }
-        public SkinnedMeshRenderer SkinSetRenderer { private get; set; }
-        public Texture2D PantTexture { private get; set; }
-        public Texture2D SkinSetTexture { private get; set; }
+        public SkinnedMeshRenderer PantsRenderer { get; set; }
+        public SkinnedMeshRenderer SkinSetRenderer { get; set; }
+        public Texture2D PantTexture { get; set; }
+        public Texture2D SkinSetTexture { get; set; }
 
         private static readonly int s_mainTex = Shader.PropertyToID("_MainTex");
 
         protected CharacterDecorator(IDecoratable inner)
         {
+            Debug.Log("CharacterDecorator");
             m_decoratable = inner;
         }
 
@@ -112,16 +113,28 @@ namespace MoveStopMove.Core
 
         private void SetAlbedoForMaterial(SkinnedMeshRenderer skinMesh,Texture2D texture)
         {
-            if (!skinMesh || !texture) return;
+            if (!skinMesh)
+            {
+                Debug.LogWarning("SetAlbedoForMaterial: SkinnedMeshRenderer bị null!");
+                return;
+            }
+
+            if (!texture)
+            {
+                Debug.LogWarning($"SetAlbedoForMaterial: Texture null trên {skinMesh.name}");
+                return;
+            }
 
             var materialArray = skinMesh.materials;
-            if (materialArray.Length == 0) return;
+            if (materialArray.Length == 0)
+            {
+                Debug.LogWarning($"SetAlbedoForMaterial: {skinMesh.name} không có materials!");
+                return;
+            }
 
             var material = materialArray[0];
-
             material.SetTexture(s_mainTex, texture);
-
-            PantsRenderer.materials = materialArray;
+            skinMesh.materials = materialArray;
         }
     }
 

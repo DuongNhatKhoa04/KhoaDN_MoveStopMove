@@ -26,14 +26,12 @@ namespace MoveStopMove.DataPersistence
         /// <returns>Game data</returns>
         public GameData Load()
         {
-            // use Path.Combine to account for different OS's having different path separators
             string fullPath = Path.Combine(m_dataDirPath, m_dataFileName);
             GameData loadedData = null;
             if (File.Exists(fullPath))
             {
                 try
                 {
-                    // load the serialized data from the file
                     string dataToLoad = "";
                     using (FileStream stream = new FileStream(fullPath, FileMode.Open))
                     {
@@ -43,13 +41,11 @@ namespace MoveStopMove.DataPersistence
                         }
                     }
 
-                    // optionally decrypt the data
                     if (m_useEncryption)
                     {
                         dataToLoad = EncryptDecrypt(dataToLoad);
                     }
 
-                    // deserialize the data from Json back into the C# object
                     loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
                 }
                 catch (Exception e)
@@ -66,23 +62,18 @@ namespace MoveStopMove.DataPersistence
         /// <param name="data">Game data</param>
         public void Save(GameData data)
         {
-            // use Path.Combine to account for different OS's having different path separators
             string fullPath = Path.Combine(m_dataDirPath, m_dataFileName);
             try
             {
-                // create the directory the file will be written to if it doesn't already exist
                 Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
 
-                // serialize the C# game data object into Json
                 string dataToStore = JsonUtility.ToJson(data, true);
 
-                // optionally encrypt the data
                 if (m_useEncryption)
                 {
                     dataToStore = EncryptDecrypt(dataToStore);
                 }
 
-                // write the serialized data to the file
                 using (FileStream stream = new FileStream(fullPath, FileMode.Create))
                 {
                     using (StreamWriter writer = new StreamWriter(stream))

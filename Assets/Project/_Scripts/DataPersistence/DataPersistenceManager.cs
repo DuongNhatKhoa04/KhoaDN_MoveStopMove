@@ -18,12 +18,26 @@ namespace MoveStopMove.DataPersistence
         private List<IDataPersistence> m_dataPersistenceObjects;
         private FileDataHandler m_dataHandler;
 
+        public GameData PlayerGameData
+        {
+            get => m_gameData;
+            set => m_gameData = value;
+        }
 
-        private void Start()
+        private void Awake()
         {
             this.m_dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
             this.m_dataPersistenceObjects = FindAllDataPersistenceObjects();
             LoadGame();
+            // Debug.Log(PlayerGameData.equippedPant);
+        }
+
+        private void Start()
+        {
+            /*this.m_dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+            this.m_dataPersistenceObjects = FindAllDataPersistenceObjects();
+            LoadGame();
+            Debug.Log(PlayerGameData.equippedPant);*/ //JsonUtility.ToJson(m_gameData, true));
         }
 
         /// <summary>
@@ -31,7 +45,7 @@ namespace MoveStopMove.DataPersistence
         /// </summary>
         public void NewGame()
         {
-            this.m_gameData = new GameData();
+            this.m_gameData = GameData.CreateDefault();
         }
 
         /// <summary>
@@ -39,17 +53,14 @@ namespace MoveStopMove.DataPersistence
         /// </summary>
         public void LoadGame()
         {
-            // load any saved data from a file using the data handler
             this.m_gameData = m_dataHandler.Load();
 
-            // if no data can be loaded, initialize to a new game
             if (this.m_gameData == null)
             {
                 Debug.Log("No data was found. Initializing data to defaults.");
                 NewGame();
             }
 
-            // push the loaded data to all other scripts that need it
             foreach (IDataPersistence dataPersistenceObj in m_dataPersistenceObjects)
             {
                 dataPersistenceObj.LoadData(m_gameData);
@@ -61,13 +72,11 @@ namespace MoveStopMove.DataPersistence
         /// </summary>
         public void SaveGame()
         {
-            // pass the data to other scripts so they can update it
             foreach (IDataPersistence dataPersistenceObj in m_dataPersistenceObjects)
             {
                 dataPersistenceObj.SaveData(m_gameData);
             }
 
-            // save that data to a file using the data handler
             m_dataHandler.Save(m_gameData);
         }
 

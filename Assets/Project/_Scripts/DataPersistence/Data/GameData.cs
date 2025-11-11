@@ -6,30 +6,43 @@ namespace MoveStopMove.DataPersistence.Data
     [Serializable]
     public class GameData
     {
-        public long lastUpdated;
+        #region - Player -
+
         public int coins;
         public int kills;
-
-        public List<string> unlockedSkin = new();
-        public List<string> lockedSkin = new();
-
-        public List<string> unlockedPant = new();
-        public List<string> lockedPant = new();
-
-        public List<string> unlockedHair = new();
-        public List<string> lockedHair = new();
-
-        public List<string> unlockedWeapon = new();
-        public List<string> lockedWeapon = new();
 
         public string equippedSkin;
         public string equippedPant;
         public string equippedHair;
         public string equippedWeapon;
 
+        #endregion
+
+        #region - Inventory -
+
+        public List<string> unlockedSkin = new();
+        public List<string> unlockedPant = new();
+        public List<string> unlockedHair = new();
+        public List<string> unlockedWeapon = new();
+
+        #endregion
+
+        #region - Shop -
+
+        public List<string> lockedSkin = new();
+        public List<string> lockedPant = new();
+        public List<string> lockedHair = new();
+        public List<string> lockedWeapon = new();
+
+        #endregion
+
+        #region - System -
+
         public float masterVolume = 100f;
         public float sfxVolume = 100f;
         public float musicVolume = 100f;
+
+        #endregion
 
         public static GameData CreateDefault()
         {

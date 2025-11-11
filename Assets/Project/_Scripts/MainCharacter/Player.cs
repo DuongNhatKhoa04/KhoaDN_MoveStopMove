@@ -1,14 +1,9 @@
-using System.IO;
+using System.Net.Mime;
 using MoveStopMove.Core;
 using MoveStopMove.Core.CoreComponents;
 using MoveStopMove.DataPersistence;
 using MoveStopMove.DataPersistence.Data;
-using MoveStopMove.Extensions.FSM;
-using MoveStopMove.Extensions.FSM.States;
-using MoveStopMove.Extensions.Helpers;
 using MoveStopMove.Interfaces;
-using MoveStopMove.MainCharacter.Data;
-using MoveStopMove.Manager;
 using UnityEngine;
 
 namespace MoveStopMove.MainCharacter
@@ -21,13 +16,12 @@ namespace MoveStopMove.MainCharacter
         private bool m_isMoving;
         private bool m_isGrounded;
 
-        [Header("Pants Skin Test")]
+        [Header("Pants")]
         [SerializeField] private SkinnedMeshRenderer pantsRenderer;
-        [SerializeField] private Texture2D pantsAlbedoTexture;
+        [SerializeField] private SkinnedMeshRenderer skinRenderers;
+        //[SerializeField] private Texture2D pantsAlbedoTexture;
 
         private IDecoratable m_decoratorChain;
-
-        private GameData m_playerData;
 
         #endregion
 
@@ -36,18 +30,24 @@ namespace MoveStopMove.MainCharacter
         private void Awake()
         {
             base.Initialize();
-            m_decoratorChain = new WeaponDecorator(new FullSetSkinDecorator(new PantDecorator(new NullDecoratable())))
-            {
-                PantsRenderer = pantsRenderer,
-                PantTexture = pantsAlbedoTexture
-            };
-            m_playerData = GameData.CreateDefault();
+
         }
 
         private void Start()
         {
             StateMachine.Initialize(CharacterIdleState);
+            m_decoratorChain = new PantDecorator(
+                                    new NullDecoratable())
+            {
+                PantsRenderer = pantsRenderer,
+                PantTexture = GetPantTexture(DataPersistenceManager.Instance.PlayerGameData.equippedPant)
+            };
+
+
             m_decoratorChain.EquipPant();
+
+            /*Debug.Log(DataPersistenceManager.Instance.PlayerGameData.equippedPant);
+            Debug.Log(GetPantTexture(DataPersistenceManager.Instance.PlayerGameData.equippedPant));*/
         }
 
         private void Update()
@@ -64,12 +64,29 @@ namespace MoveStopMove.MainCharacter
 
         public void LoadData(GameData data)
         {
-            m_playerData = data;
+            Debug.Log("Loaded Pant: " + data.equippedPant);
         }
 
         public void SaveData(GameData data)
         {
-            data = m_playerData;
+            data.equippedPant = "chambi";
+        }
+
+        private Texture2D GetPantTexture(string pantName)
+        {
+            PantData pantSo = Resources.Load<PantData>($"SO/Pants/{pantName}");
+            if (pantSo != null)
+            {
+                return pantSo.texture;
+            }
+
+            Debug.LogWarning($"PantData {pantName} not found!");
+            return null;
+        }
+
+        private void GetHair()
+        {
+
         }
     }
 }
