@@ -80,13 +80,16 @@ namespace MoveStopMove.Core
 
     public abstract class CharacterDecorator : IDecoratable
     {
-        private IDecoratable m_decoratable;
+        private readonly IDecoratable m_decoratable;
+        private static readonly int s_mainTex = Shader.PropertyToID("_MainTex");
+
         public SkinnedMeshRenderer PantsRenderer { get; set; }
         public SkinnedMeshRenderer SkinSetRenderer { get; set; }
         public Texture2D PantTexture { get; set; }
         public Texture2D SkinSetTexture { get; set; }
 
-        private static readonly int s_mainTex = Shader.PropertyToID("_MainTex");
+        public Material SkinMaterial { get; set; }
+        public Material DefaultSkinMaterial { get; set; }
 
         protected CharacterDecorator(IDecoratable inner)
         {
@@ -102,16 +105,31 @@ namespace MoveStopMove.Core
         public virtual void EquipPant()
         {
             m_decoratable.EquipPant();
-            SetAlbedoForMaterial(PantsRenderer,PantTexture);
+            //SetAlbedoForMaterial(PantsRenderer,PantTexture);
         }
 
-        public void EquipSkinSet()
+        public virtual void EquipSkin()
         {
-            m_decoratable.EquipSkinSet();
-            SetAlbedoForMaterial(SkinSetRenderer,SkinSetTexture);
+            m_decoratable.EquipSkin();
+            //SetAlbedoForMaterial(SkinSetRenderer,SkinSetTexture);
         }
 
-        private void SetAlbedoForMaterial(SkinnedMeshRenderer skinMesh,Texture2D texture)
+        public virtual void EquipHair()
+        {
+            //m_decoratable.EquipHair();
+        }
+
+        public virtual void EquipTail()
+        {
+
+        }
+
+        public virtual void EquipWing()
+        {
+
+        }
+
+        protected void SetAlbedoForMaterial(SkinnedMeshRenderer skinMesh,Texture2D texture)
         {
             if (!skinMesh)
             {
@@ -133,8 +151,25 @@ namespace MoveStopMove.Core
             }
 
             var material = materialArray[0];
+
             material.SetTexture(s_mainTex, texture);
             skinMesh.materials = materialArray;
+        }
+
+        protected void SetNewMaterialForSkin(bool isEquippedSkin = false)
+        {
+            if (isEquippedSkin)
+            {
+                var materialArray = SkinSetRenderer.materials;
+                materialArray[0] = SkinMaterial;
+                SkinSetRenderer.materials = materialArray;
+            }
+            else
+            {
+                var materialArray = SkinSetRenderer.materials;
+                materialArray[0] = DefaultSkinMaterial;
+                SkinSetRenderer.materials = materialArray;
+            }
         }
     }
 
@@ -142,6 +177,6 @@ namespace MoveStopMove.Core
     {
         public void EquipWeapon() { }
         public void EquipPant() { }
-        public void EquipSkinSet() { }
+        public void EquipSkin() { }
     }
 }

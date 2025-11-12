@@ -5,58 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/HairDecorator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/HairDecorator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/GameShop.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/GameShop/Shop.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/GameShop/Shop.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/PlayerInventory.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/PlayerInventory/Inventory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/PlayerInventory/Inventory.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/SkinDecorator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/SkinDecorator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/TailDecorator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/TailDecorator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/WingDecorator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/WingDecorator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Character.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Arrow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Axe_0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Axe_0.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Axe_1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Axe_1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Hammer.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/Hammer.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/boomerang.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/boomerang.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/candy_0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/candy_0.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/candy_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/candy_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/knife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/knife.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/uzi.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Weapon/uzi.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/FullSetSkinDecorator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/FullSetSkinDecorator.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/PantDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/PantDecorator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/WeaponDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/WeaponDecorator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/Data/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/Data/GameData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/DataPersistenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/DataPersistenceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/FileDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/FileDataHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/Interfaces/interfaces.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/MainCharacter/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/Weapon.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/arrow.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/arrow.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/axe_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/axe_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/axe_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/axe_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/boomerang.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/boomerang.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/candy_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/candy_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/candy_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/candy_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/harmer.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/harmer.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/knife.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/knife.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/uzi.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/uzi.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/z.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Weapon/z.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/SkinData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Scripts/SO/SkinData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Skins/angel.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Skins/angel.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Skins/devil.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Skins/devil.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Skins/thor.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Skins/thor.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/CharSkin/SetFull/Set 5/Materials/lambert1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Internship_BT4_MoveStopMove/3D/CharSkin/SetFull/Set 5/Materials/lambert1.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,11 +53,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/AttackRange.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Combat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/CoreComponents.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/FullSetSkinDecorator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/HairDecorator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/PantDecorator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/SkinDecorator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/TailDecorator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/WeaponDecorator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/Core/CoreComponents/WingDecorator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/Data/GameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/DataPersistenceManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Scripts/DataPersistence/FileDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -147,21 +117,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\app\Tools\IDE\Unity\2022.3.62f2\Editor\Unity.exe" />
@@ -249,7 +219,8 @@
       <workItem from="1762789329070" duration="3305000" />
       <workItem from="1762822507350" duration="8089000" />
       <workItem from="1762834240486" duration="1984000" />
-      <workItem from="1762858357939" duration="22826000" />
+      <workItem from="1762858357939" duration="23125000" />
+      <workItem from="1762915506196" duration="21459000" />
     </task>
     <servers />
   </component>

@@ -17,8 +17,18 @@ namespace MoveStopMove
         [Header("Pant")]
         [CanBeNull] public Texture2D pant;
 
-        [Header("Skin")]
+        [Header("Skin Texture")]
         [CanBeNull] public Texture2D skin;
+
+        [Header("Skin Material")]
+        [CanBeNull] public Material material;
+
+        [Header("Skin Features")]
+        public bool hasHair;
+        public bool hasPant;
+        public bool hasTail;
+        public bool hasWing;
+        public bool hasSkin;
 
         [Header("Buff")]
         public float rangeIncrease = 0.2f;

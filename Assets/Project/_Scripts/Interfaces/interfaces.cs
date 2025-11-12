@@ -36,6 +36,6 @@ namespace MoveStopMove.Interfaces
     {
         public void EquipWeapon();
         public void EquipPant();
-        public void EquipSkinSet();
+        public void EquipSkin();
     }
 }

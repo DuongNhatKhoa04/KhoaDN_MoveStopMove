@@ -16,6 +16,12 @@ MonoBehaviour:
   icon: {fileID: 2800000, guid: 0363a7557b133774f99bf84dcf6fcbed, type: 3}
   pant: {fileID: 0}
   skin: {fileID: 2800000, guid: d5033692f0be42f43b2e631a32b7049b, type: 3}
+  material: {fileID: 0}
+  hasHair: 1
+  hasPant: 0
+  hasTail: 0
+  hasWing: 0
+  hasSkin: 1
   rangeIncrease: 0.2
   attackSpeedIncrease: 0
   movementIncrease: 1

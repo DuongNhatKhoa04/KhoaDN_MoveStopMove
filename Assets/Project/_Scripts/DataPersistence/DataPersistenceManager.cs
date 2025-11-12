@@ -29,15 +29,6 @@ namespace MoveStopMove.DataPersistence
             this.m_dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
             this.m_dataPersistenceObjects = FindAllDataPersistenceObjects();
             LoadGame();
-            // Debug.Log(PlayerGameData.equippedPant);
-        }
-
-        private void Start()
-        {
-            /*this.m_dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
-            this.m_dataPersistenceObjects = FindAllDataPersistenceObjects();
-            LoadGame();
-            Debug.Log(PlayerGameData.equippedPant);*/ //JsonUtility.ToJson(m_gameData, true));
         }
 
         /// <summary>
