@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using MoveStopMove.DataSaver;
-using MoveStopMove.Extensions.ObjectPooling;
 using MoveStopMove.SO;
-using MoveStopMove.Weapon;
 using UnityEngine;
 
 namespace MoveStopMove.Extensions.Helpers
@@ -77,7 +73,7 @@ namespace MoveStopMove.Extensions.Helpers
 
     public static class WeaponBinder
     {
-        public const string SO_WEAPON_PATH = "SO/Weapon";
+        public const string SO_WEAPON_PATH = "SO/Weapons";
         private static readonly Dictionary<string, WeaponData> cache = new();
 
         public static void ResetCacheOnPlay()
@@ -98,7 +94,8 @@ namespace MoveStopMove.Extensions.Helpers
             WeaponData loaded = Resources.Load<WeaponData>($"{SO_WEAPON_PATH}/{weaponId}");
             if (loaded == null)
             {
-                Debug.LogError($"CachedWeaponDataProvider: Không tìm thấy WeaponData '{weaponId}' trong Resources/{SO_WEAPON_PATH}");
+                Debug.LogError($"CachedWeaponDataProvider: Không tìm thấy WeaponData '{weaponId}' " +
+                               $"trong Resources/{SO_WEAPON_PATH}");
                 return null;
             }
 
@@ -109,37 +106,89 @@ namespace MoveStopMove.Extensions.Helpers
 
     public static class PlayerSaveLoader
     {
-        public static PlayerSaveData LoadFromJsonString(string jsonString)
+        public static readonly string SO_WEAPON_PATH = "SO/Weapons";
+        public static readonly string SO_PANTS_PATH = "SO/Pants";
+        public static readonly string SO_HAIRS_PATH = "SO/Hairs";
+        public static readonly string SO_CUSTOMS_PATH = "SO/Customs";
+
+        private static readonly int s_mainTex = Shader.PropertyToID("_MainTex");
+
+        /// <summary>
+        /// Load and save TData to TResult
+        /// </summary>
+        /// <param name="itemName">Item need to load</param>
+        /// <param name="path">Path of item - SO/{item}</param>
+        /// <param name="selector">Transfer func TData to TResult</param>
+        /// <typeparam name="TData">ScriptableObject</typeparam>
+        /// <typeparam name="TResult">Data type you want to get</typeparam>
+        /// <returns>If data found, return data type input. If not, return data type with default value</returns>
+        public static TResult GetDecoratorData<TData, TResult>(string itemName, string path,
+                                                                Func<TData, TResult> selector)
+            where TData : ScriptableObject
         {
-            if (string.IsNullOrEmpty(jsonString))
+            TData dataSo = Resources.Load<TData>($"{path}/{itemName}");
+
+            if (dataSo != null)
             {
-                Debug.LogError("PlayerSaveLoader: Chuỗi JSON rỗng.");
-                return null;
+                return selector(dataSo);
             }
-            return JsonUtility.FromJson<PlayerSaveData>(jsonString);
+
+            Debug.LogWarning($"[GetDecoratorData] Không tìm thấy {typeof(TData).Name} tại {path}/{itemName}");
+            return default;
         }
 
-        public static PlayerSaveData LoadFromPersistentFile(string fileName = "userGameplayData.json")
+        public static void CheckSkinToApply(bool hasSkinTexture)
         {
-            string filePath = Path.Combine(Application.persistentDataPath, fileName);
-            if (!File.Exists(filePath))
+            if (hasSkinTexture)
             {
-                Debug.LogError($"PlayerSaveLoader: Không tìm thấy file {filePath}");
-                return null;
+
             }
-            string jsonString = File.ReadAllText(filePath);
-            return LoadFromJsonString(jsonString);
         }
 
-        public static PlayerSaveData LoadFromResourcesText(string resourcesPath)
+        public static void SetAlbedoForMaterial(SkinnedMeshRenderer skinMesh,Texture2D texture)
         {
-            TextAsset textAsset = Resources.Load<TextAsset>(resourcesPath);
-            if (textAsset == null)
+            if (!skinMesh)
             {
-                Debug.LogError($"PlayerSaveLoader: Không tìm thấy TextAsset tại Resources/{resourcesPath}");
-                return null;
+                Debug.LogWarning("SetAlbedoForMaterial: SkinnedMeshRenderer bị null!");
+                return;
             }
-            return LoadFromJsonString(textAsset.text);
+
+            if (!texture)
+            {
+                Debug.LogWarning($"SetAlbedoForMaterial: Texture null trên {skinMesh.name}");
+                return;
+            }
+
+            var materialArray = skinMesh.materials;
+            if (materialArray.Length == 0)
+            {
+                Debug.LogWarning($"SetAlbedoForMaterial: {skinMesh.name} không có materials!");
+                return;
+            }
+
+            var material = materialArray[0];
+
+            material.SetTexture(s_mainTex, texture);
+            skinMesh.materials = materialArray;
+        }
+
+        public static void SetNewMaterialForSkin(SkinnedMeshRenderer skinMesh, Material skinMaterial)
+        {
+            /*if (isEquippedSkin)
+            {
+                var materialArray = skinMesh.materials;
+                materialArray[0] = SkinMaterial;
+                skinMesh.materials = materialArray;
+            }
+            else
+            {
+                var materialArray = skinMesh.materials;
+                materialArray[0] = DefaultSkinMaterial;
+                skinMesh.materials = materialArray;
+            }*/
+            var materialArray = skinMesh.materials;
+            materialArray[0] = skinMaterial;
+            skinMesh.materials = materialArray;
         }
     }
 }

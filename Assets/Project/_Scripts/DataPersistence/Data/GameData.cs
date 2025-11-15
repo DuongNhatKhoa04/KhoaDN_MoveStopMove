@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace MoveStopMove.DataPersistence.Data
 {
@@ -11,7 +12,7 @@ namespace MoveStopMove.DataPersistence.Data
         public int coins;
         public int kills;
 
-        public string equippedSkin;
+        public string equippedCustom;
         public string equippedPant;
         public string equippedHair;
         public string equippedWeapon;
@@ -20,7 +21,7 @@ namespace MoveStopMove.DataPersistence.Data
 
         #region - Inventory -
 
-        public List<string> unlockedSkin = new();
+        public List<string> unlockedCustom = new();
         public List<string> unlockedPant = new();
         public List<string> unlockedHair = new();
         public List<string> unlockedWeapon = new();
@@ -29,7 +30,7 @@ namespace MoveStopMove.DataPersistence.Data
 
         #region - Shop -
 
-        public List<string> lockedSkin = new();
+        public List<string> lockedCustom = new();
         public List<string> lockedPant = new();
         public List<string> lockedHair = new();
         public List<string> lockedWeapon = new();
@@ -51,22 +52,34 @@ namespace MoveStopMove.DataPersistence.Data
             startingData.coins = 0;
             startingData.kills = 0;
 
-            startingData.unlockedSkin.AddRange(new[] { "none" });
+            startingData.unlockedCustom.AddRange(new[] { "none" });
+            //startingData.unlockedCustom.AddRange(new[] { "devil" });
+            //startingData.unlockedCustom.AddRange(new[] { "angel" });
+            //startingData.unlockedCustom.AddRange(new[] { "thor" });
             startingData.unlockedPant.AddRange(new[] { "chambi" });
             startingData.unlockedHair.AddRange(new[] { "arrow" });
             startingData.unlockedWeapon.AddRange(new[] { "z" });
 
-            startingData.lockedSkin.AddRange(new[]
-                { "devil", "angel", "deadpool", "thor" });
+            startingData.lockedCustom.AddRange(new[]
+                { "devil", "angel", "thor" });
+            /*startingData.lockedCustom.AddRange(new[]
+                { "none", "angel", "thor" });*/
+            /*startingData.lockedCustom.AddRange(new[]
+                { "none", "devil", "thor" });*/
+            /*startingData.lockedCustom.AddRange(new[]
+                { "none", "angel", "devil" });*/
             startingData.lockedPant.AddRange(new[]
-                { "batman", "comy", "dabao", "onion", "pokemon", "rainbow", "skull", "vantim" });
+                { "batman", "comy", "dabao", "onion", "pokemon", "rainbow", "skull", "vantim", "none" });
             startingData.lockedHair.AddRange(new[]
-                { "cowboy", "ear", "hat", "cap", "hat_yellow", "headphone", "horn" });
+                { "cowboy", "ear", "hat", "cap", "hat_yellow", "headphone", "horn", "none" });
             startingData.lockedWeapon.AddRange(new[]
                 { "arrow", "axe_0", "axe_1", "boomerang", "candy_0", "candy_1", "harmer", "knife", "uzi" });
 
 
-            startingData.equippedSkin   = "none";
+            startingData.equippedCustom = "none";
+            //startingData.equippedCustom   = "devil";
+            //startingData.equippedCustom   = "angel";
+            //startingData.equippedCustom   = "thor";
             startingData.equippedPant   = "chambi";
             startingData.equippedHair   = "arrow";
             startingData.equippedWeapon = "z";

@@ -187,8 +187,8 @@ namespace MoveStopMove.Manager
             }
 
             // Sửa theo kiểu dữ liệu bạn định nghĩa trong PlayerSaveData (khuyến nghị List<string>)
-            data.unlockedSkin   ??= new List<string>();
-            data.lockedSkin     ??= new List<string>();
+            data.unlockedCustom   ??= new List<string>();
+            data.lockedCustom     ??= new List<string>();
             data.unlockedPant   ??= new List<string>();
             data.lockedPant     ??= new List<string>();
             data.unlockedWeapon ??= new List<string>();
@@ -198,7 +198,7 @@ namespace MoveStopMove.Manager
 
             data.settings ??= new PlayerSettings();
 
-            if (string.IsNullOrWhiteSpace(data.equippedSkin))   data.equippedSkin   = null;
+            if (string.IsNullOrWhiteSpace(data.equippedCustom))   data.equippedCustom   = null;
             if (string.IsNullOrWhiteSpace(data.equippedPant))   data.equippedPant   = null;
             if (string.IsNullOrWhiteSpace(data.equippedWeapon)) data.equippedWeapon = null;
             if (string.IsNullOrWhiteSpace(data.equippedHair))   data.equippedHair   = null;

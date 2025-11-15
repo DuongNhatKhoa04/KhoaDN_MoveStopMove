@@ -24,7 +24,6 @@ namespace MoveStopMove.Extensions.FSM.States
             {
                 if (!HasTargetInRange())
                 {
-                    Debug.Log("Hi");
                     StateMachine.ChangeState(Character.CharacterIdleState);
                 }
             }

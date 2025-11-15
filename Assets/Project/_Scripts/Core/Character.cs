@@ -1,3 +1,4 @@
+using System;
 using MoveStopMove.Extensions.FSM;
 using MoveStopMove.Extensions.FSM.States;
 using MoveStopMove.Extensions.Helpers;
@@ -20,11 +21,15 @@ namespace MoveStopMove.Core
 
         #endregion
 
+        #region -- Properties --
+
         public MainCore Core => core;
         public FiniteStateMachine StateMachine { get; private set; }
         public PlayerIdleState CharacterIdleState { get; private set; }
         public MoveState CharacterMoveState { get; private set; }
         public AttackState CharacterAttackState {  get; private set; }
+
+        #endregion
 
         #region -- Methods --
 
@@ -80,103 +85,88 @@ namespace MoveStopMove.Core
 
     public abstract class CharacterDecorator : IDecoratable
     {
-        private readonly IDecoratable m_decoratable;
+        #region -- Fields --
+
+        private IDecoratable m_inner;
         private static readonly int s_mainTex = Shader.PropertyToID("_MainTex");
 
-        public SkinnedMeshRenderer PantsRenderer { get; set; }
-        public SkinnedMeshRenderer SkinSetRenderer { get; set; }
-        public Texture2D PantTexture { get; set; }
-        public Texture2D SkinSetTexture { get; set; }
+        #endregion
 
-        public Material SkinMaterial { get; set; }
-        public Material DefaultSkinMaterial { get; set; }
+        #region -- Properties --
+
+        public bool HasHairInSkin { get; set; }
+        public bool HasPantInSkin { get; set; }
+        public bool HasTailInSkin { get; set; }
+        public bool HasWingInSkin { get; set; }
+        public SkinnedMeshRenderer PantsRenderer { get; set; }
+        public Texture2D PantTexture { get; set; }
+
+        #endregion
+
+        #region -- Methods --
 
         protected CharacterDecorator(IDecoratable inner)
         {
-            Debug.Log("CharacterDecorator");
-            m_decoratable = inner;
+            m_inner = inner;
         }
 
         public virtual void EquipWeapon()
         {
-            m_decoratable.EquipWeapon();
-        }
-
-        public virtual void EquipPant()
-        {
-            m_decoratable.EquipPant();
-            //SetAlbedoForMaterial(PantsRenderer,PantTexture);
-        }
-
-        public virtual void EquipSkin()
-        {
-            m_decoratable.EquipSkin();
-            //SetAlbedoForMaterial(SkinSetRenderer,SkinSetTexture);
+            m_inner.EquipWeapon();
         }
 
         public virtual void EquipHair()
         {
-            //m_decoratable.EquipHair();
-        }
-
-        public virtual void EquipTail()
-        {
-
+            m_inner.EquipHair();
         }
 
         public virtual void EquipWing()
         {
-
+            m_inner.EquipWing();
         }
 
-        protected void SetAlbedoForMaterial(SkinnedMeshRenderer skinMesh,Texture2D texture)
+        public virtual void EquipTail()
         {
-            if (!skinMesh)
-            {
-                Debug.LogWarning("SetAlbedoForMaterial: SkinnedMeshRenderer bị null!");
-                return;
-            }
-
-            if (!texture)
-            {
-                Debug.LogWarning($"SetAlbedoForMaterial: Texture null trên {skinMesh.name}");
-                return;
-            }
-
-            var materialArray = skinMesh.materials;
-            if (materialArray.Length == 0)
-            {
-                Debug.LogWarning($"SetAlbedoForMaterial: {skinMesh.name} không có materials!");
-                return;
-            }
-
-            var material = materialArray[0];
-
-            material.SetTexture(s_mainTex, texture);
-            skinMesh.materials = materialArray;
+            m_inner.EquipTail();
         }
 
-        protected void SetNewMaterialForSkin(bool isEquippedSkin = false)
+        public virtual void EquipPant()
         {
-            if (isEquippedSkin)
-            {
-                var materialArray = SkinSetRenderer.materials;
-                materialArray[0] = SkinMaterial;
-                SkinSetRenderer.materials = materialArray;
-            }
-            else
-            {
-                var materialArray = SkinSetRenderer.materials;
-                materialArray[0] = DefaultSkinMaterial;
-                SkinSetRenderer.materials = materialArray;
-            }
+            m_inner.EquipPant();
         }
+
+        public virtual void EquipSkin()
+        {
+            m_inner.EquipSkin();
+        }
+
+        #endregion
     }
 
     public sealed class NullDecoratable : IDecoratable
     {
         public void EquipWeapon() { }
+        public void EquipHair() { }
+        public void EquipWing() { }
+        public void EquipTail() { }
         public void EquipPant() { }
         public void EquipSkin() { }
+    }
+
+    [Serializable]
+    public struct CustomVisualContext
+    {
+        public CustomData customData;
+
+        public bool hasTextureInSkin;
+        public Texture2D skinTexture;
+        public Material skinMaterial;
+
+        public Texture2D pantTexture;
+
+        public GameObject weaponPrefab;
+        public GameObject hairPrefab;
+        public GameObject wingPrefab;
+        public GameObject tailPrefab;
     }
 }

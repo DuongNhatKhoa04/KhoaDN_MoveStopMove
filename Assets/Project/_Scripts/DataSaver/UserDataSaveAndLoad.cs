@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace MoveStopMove.DataSaver
 {
@@ -11,8 +12,8 @@ namespace MoveStopMove.DataSaver
         public int currentLevel = 0;
         public int coins = 0;
 
-        public List<string> unlockedSkin = new();
-        public List<string> lockedSkin = new();
+        public List<string> unlockedCustom = new();
+        public List<string> lockedCustom = new();
 
         public List<string> unlockedPant = new();
         public List<string> lockedPant = new();
@@ -24,7 +25,7 @@ namespace MoveStopMove.DataSaver
         public List<string> lockedHair = new();
 
         public string equippedPant;
-        public string equippedSkin;
+        public string equippedCustom;
         public string equippedWeapon;
         public string equippedHair;
 

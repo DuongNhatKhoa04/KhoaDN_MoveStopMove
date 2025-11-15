@@ -1,7 +1,9 @@
+using MoveStopMove.Core;
+using MoveStopMove.Extensions.Helpers;
 using MoveStopMove.Interfaces;
 using UnityEngine;
 
-namespace MoveStopMove.Core.CoreComponents
+namespace MoveStopMove.Extensions.Decorator
 {
     public class PantDecorator : CharacterDecorator
     {
@@ -13,7 +15,7 @@ namespace MoveStopMove.Core.CoreComponents
         public override void EquipPant()
         {
             base.EquipPant();
-            SetAlbedoForMaterial(PantsRenderer,PantTexture);
+            PlayerSaveLoader.SetAlbedoForMaterial(PantsRenderer, PantTexture);
         }
     }
 }

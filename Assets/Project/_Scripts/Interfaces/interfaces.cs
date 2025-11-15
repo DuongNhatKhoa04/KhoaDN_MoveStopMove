@@ -35,6 +35,9 @@ namespace MoveStopMove.Interfaces
     public interface IDecoratable
     {
         public void EquipWeapon();
+        public void EquipHair();
+        public void EquipWing();
+        public void EquipTail();
         public void EquipPant();
         public void EquipSkin();
     }

@@ -1,11 +1,11 @@
-using System.Net.Mime;
 using MoveStopMove.Core;
-using MoveStopMove.Core.CoreComponents;
 using MoveStopMove.DataPersistence;
 using MoveStopMove.DataPersistence.Data;
+using MoveStopMove.Extensions.Decorator;
+using MoveStopMove.Extensions.Helpers;
 using MoveStopMove.Interfaces;
+using MoveStopMove.SO;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MoveStopMove.MainCharacter
 {
@@ -13,16 +13,33 @@ namespace MoveStopMove.MainCharacter
     {
         #region -- Fields --
 
+        [Header("Skinned Mesh Renderer")]
+        [SerializeField] private SkinnedMeshRenderer pantsRenderer;
+        [SerializeField] private SkinnedMeshRenderer skinRenderers;
+
+        [SerializeField] private Material defaultSkinMaterial;
+
+        [Header("Attachment Decorator")]
+        [SerializeField] private GameObject weaponAttachment;
+        [SerializeField] private GameObject hairAttachment;
+        [SerializeField] private GameObject wingAttachment;
+        [SerializeField] private GameObject tailAttachment;
+
         private Vector3 m_direction;
         private bool m_isMoving;
         private bool m_isGrounded;
 
-        [Header("Pants")]
-        [SerializeField] private SkinnedMeshRenderer pantsRenderer;
-        [SerializeField] private SkinnedMeshRenderer skinRenderers;
-        [SerializeField] private Material defaultSkinMaterial;
-
         private IDecoratable m_decoratorChain;
+
+        private WeaponDecorator m_weaponDecorator;
+        private HairDecorator m_hairDecorator;
+        private WingDecorator m_wingDecorator;
+        private TailDecorator m_tailDecorator;
+        private PantDecorator m_pantDecorator;
+        private SkinDecorator m_skinDecorator;
+
+        private CustomVisualContext m_customContext;
+        private GameData m_gameData;
 
         #endregion
 
@@ -35,12 +52,12 @@ namespace MoveStopMove.MainCharacter
 
         private void Start()
         {
-            StateMachine.Initialize(CharacterIdleState);
-            DecorateCharacter();
-            m_decoratorChain.EquipPant();
+            m_gameData = DataPersistenceManager.Instance.PlayerGameData;
+            m_customContext = BuildCustomContext(m_gameData.equippedCustom);
 
-            /*Debug.Log(DataPersistenceManager.Instance.PlayerGameData.equippedPant);
-            Debug.Log(GetPantTexture(DataPersistenceManager.Instance.PlayerGameData.equippedPant));*/
+            StateMachine.Initialize(CharacterIdleState);
+
+            InitializationDecorator();
         }
 
         private void Update()
@@ -53,11 +70,76 @@ namespace MoveStopMove.MainCharacter
             StateMachine.CurrentState.PhysicsUpdate();
         }
 
-        #endregion
+        private void InitializationDecorator()
+        {
+            var nullDecorator = new NullDecoratable();
+            var data = m_gameData;
+
+            m_skinDecorator = new SkinDecorator(nullDecorator)
+            {
+                SkinSetRenderer     = skinRenderers,
+                DefaultSkinMaterial = defaultSkinMaterial,
+                SkinMaterial        = m_customContext.skinMaterial,
+                SkinTexture         = m_customContext.skinTexture,
+                HasTexture          = m_customContext.hasTextureInSkin,
+            };
+
+            var pantTexture = m_customContext.pantTexture;
+            if (pantTexture == null && !string.IsNullOrEmpty(m_gameData.equippedPant) && data.equippedPant != "none")
+            {
+                pantTexture = GetPantTexture(data.equippedPant);
+            }
+
+            m_pantDecorator = new PantDecorator(m_skinDecorator)
+            {
+                PantsRenderer = pantsRenderer,
+                PantTexture   = pantTexture
+            };
+
+            m_tailDecorator = new TailDecorator(m_pantDecorator)
+            {
+                TailAttachment = tailAttachment,
+                TailPrefab     = GetTailPrefab()
+            };
+
+            m_wingDecorator = new WingDecorator(m_tailDecorator)
+            {
+                WingAttachment = wingAttachment,
+                WingPrefab     = GetWingPrefab()
+            };
+
+            m_hairDecorator = new HairDecorator(m_wingDecorator)
+            {
+                HairAttachment = hairAttachment,
+                HairPrefab     = GetHairPrefab()
+            };
+
+            m_weaponDecorator = new WeaponDecorator(m_hairDecorator)
+            {
+                WeaponAttachment = weaponAttachment,
+                WeaponPrefab     = GetWeaponPrefab()
+            };
+
+            m_decoratorChain = m_weaponDecorator;
+
+            m_decoratorChain.EquipSkin();
+            m_decoratorChain.EquipPant();
+            m_decoratorChain.EquipHair();
+            m_decoratorChain.EquipWing();
+            m_decoratorChain.EquipTail();
+            m_decoratorChain.EquipWeapon();
+        }
+
+        private void ApplyVisual()
+        {
+
+        }
+
+        #region - Player Data -
 
         public void LoadData(GameData data)
         {
-            Debug.Log("Loaded Pant: " + data.equippedPant);
+            Debug.Log("Loaded Pant: " + data);
         }
 
         public void SaveData(GameData data)
@@ -65,63 +147,193 @@ namespace MoveStopMove.MainCharacter
             data.equippedPant = "chambi";
         }
 
+        #endregion
+
+        #region - Get data for decoration -
+
+        #region - Weapon -
+
+        private GameObject GetWeaponPrefab()
+        {
+            GameObject prefab = null;
+
+            if (m_customContext.weaponPrefab != null)
+            {
+                prefab = m_customContext.weaponPrefab;
+                return prefab;
+            }
+
+            prefab = GetWeaponObject(m_gameData.equippedWeapon);
+            return prefab;
+        }
+
+        private GameObject GetWeaponObject(string weaponName)
+        {
+            return PlayerSaveLoader.GetDecoratorData<WeaponData, GameObject>(
+                weaponName,
+                PlayerSaveLoader.SO_WEAPON_PATH,
+                data => data.prefab);
+        }
+
+        #endregion
+
+        #region - Hair -
+
+        private GameObject GetHairPrefab()
+        {
+            GameObject prefab = null;
+
+            if (m_customContext.hairPrefab != null)
+            {
+                prefab = m_customContext.hairPrefab;
+                return prefab;
+            }
+
+            prefab = GetHairObject(m_gameData.equippedHair);
+            return prefab;
+        }
+
+        private GameObject GetHairObject(string hairName)
+        {
+            if (hairName == "none") return null;
+
+            return PlayerSaveLoader.GetDecoratorData<HairData, GameObject>(
+                hairName,
+                PlayerSaveLoader.SO_HAIRS_PATH,
+                data => data.prefab);
+        }
+
+        #endregion
+
+        #region - Wing -
+
+        private GameObject GetWingPrefab()
+        {
+            GameObject prefab = null;
+
+            if (m_customContext.wingPrefab == null) return null;
+
+            prefab = m_customContext.wingPrefab;
+            return prefab;
+        }
+
+        #endregion
+
+        #region - Tail -
+
+        private GameObject GetTailPrefab()
+        {
+            GameObject prefab = null;
+
+            if (m_customContext.tailPrefab == null) return null;
+
+            prefab = m_customContext.tailPrefab;
+            return prefab;
+        }
+
+        #endregion
+
+        #region - Pant -
+
         private Texture2D GetPantTexture(string pantName)
         {
-            /*PantData pantSo = Resources.Load<PantData>($"SO/Pants/{pantName}");
-            if (pantSo != null)
+            if (pantName == "none") return null;
+
+            return PlayerSaveLoader.GetDecoratorData<PantData, Texture2D>(
+                pantName,
+                PlayerSaveLoader.SO_PANTS_PATH,
+                data => data.texture);
+        }
+
+        #endregion
+
+        #region - Skin -
+
+        private CustomVisualContext BuildCustomContext(string customName)
+        {
+            var context = new CustomVisualContext();
+
+            if (customName == "none")
             {
-                return pantSo.texture;
+                context.customData = null;
+
+                context.hasTextureInSkin = false;
+                context.skinTexture = null;
+                context.skinMaterial = defaultSkinMaterial;
+
+                context.pantTexture = null;
+
+                context.weaponPrefab = null;
+                context.hairPrefab = null;
+                context.wingPrefab = null;
+                context.tailPrefab = null;
+
+                return context;
             }
 
-            Debug.LogWarning($"PantData {pantName} not found!");
-            return null;*/
-            return GetDecoratorData<PantData, Texture2D>(pantName, "SO/Pants", data => data.texture);
-        }
+            var customData = PlayerSaveLoader.GetDecoratorData<CustomData, CustomData>(
+                customName,
+                PlayerSaveLoader.SO_CUSTOMS_PATH,
+                data => data);
 
+            context.customData = customData;
 
-        private TResult GetDecoratorData<TData, TResult>(string itemName, string path,
-                                                            System.Func<TData, TResult> selector)
-            where TData : ScriptableObject
-        {
-            TData dataSo = Resources.Load<TData>($"{path}/{itemName}");
-
-            if (dataSo != null)
+            if (customData == null)
             {
-                return selector(dataSo);
+                context.skinMaterial = defaultSkinMaterial;
+                context.hasTextureInSkin = false;
+                return context;
             }
 
-            Debug.LogWarning($"[GetDecoratorData] Không tìm thấy {typeof(TData).Name} tại {path}/{itemName}");
-            return default;
+            context.hasTextureInSkin = customData.hasSkinTexture && customData.skinTexture != null;
+
+            if (context.hasTextureInSkin)
+            {
+                context.skinTexture = customData.skinTexture;
+                context.skinMaterial = defaultSkinMaterial;
+            }
+            else
+            {
+                context.skinTexture = null;
+                context.skinMaterial = customData.skinMaterial;
+            }
+
+            context.pantTexture = customData.hasPant ? customData.pant : null;
+            context.weaponPrefab = customData.hasWeapon ? customData.weaponPrefab : null;
+            context.hairPrefab = customData.hasHair ? customData.hairPrefab : null;
+            context.wingPrefab = customData.hasWing ? customData.wingPrefab : null;
+            context.tailPrefab = customData.hasTail ? customData.tailPrefab : null;
+
+            return context;
         }
 
-        private void DecorateCharacter()
+        #endregion
+
+        #endregion
+
+        #region - Change custom in runtime -
+
+        public void ChangePant(string pantName, bool save = true)
         {
-            /*m_decoratorChain = new WeaponDecorator(new HairDecorator(new WingDecorator(new TailDecorator(new PantDecorator(new SkinDecorator(new NullDecoratable()))))))
+            var newPantTexture = GetPantTexture(pantName);
+            if (newPantTexture == null)
             {
-                DefaultSkinMaterial = defaultSkinMaterial,
-                PantsRenderer = pantsRenderer,
-                PantTexture = GetPantTexture(DataPersistenceManager.Instance.PlayerGameData.equippedPant)
-            };*/
+                Debug.LogWarning($"[Player] Pant '{pantName}' not found.");
+                return;
+            }
 
-            var nullDecor = new NullDecoratable();
-            var skinDecorator = new SkinDecorator(nullDecor)
-            {
-                SkinSetRenderer = skinRenderers,
-                DefaultSkinMaterial = defaultSkinMaterial
-            };
+            m_pantDecorator.PantTexture = newPantTexture;
 
-            var pantDecorator = new PantDecorator(skinDecorator)
-            {
-                PantsRenderer = pantsRenderer,
-                PantTexture = GetPantTexture(DataPersistenceManager.Instance.PlayerGameData.equippedPant)
-            };
+            m_decoratorChain.EquipPant();
 
-            var tailDecorator = new TailDecorator(pantDecorator);
-            var wingDecorator = new WingDecorator(tailDecorator);
-            var hairDecorator = new HairDecorator(wingDecorator);
-            var weaponDecorator = new WeaponDecorator(hairDecorator);
+            if (!save) return;
 
-            m_decoratorChain = weaponDecorator;
+            DataPersistenceManager.Instance.PlayerGameData.equippedPant = pantName;
+            DataPersistenceManager.Instance.SaveGame();
         }
+
+        #endregion
+
+        #endregion
     }
 }
