@@ -1,5 +1,10 @@
 using System;
 using System.Collections.Generic;
+using MoveStopMove.Core;
+using MoveStopMove.DataPersistence.Data;
+using MoveStopMove.Extensions.Decorator;
+using MoveStopMove.Interfaces;
+using MoveStopMove.MainCharacter;
 using MoveStopMove.SO;
 using UnityEngine;
 
@@ -68,39 +73,6 @@ namespace MoveStopMove.Extensions.Helpers
 
             Debug.LogError(typeof(T) + " not implemented on " + name);
             return default;
-        }
-    }
-
-    public static class WeaponBinder
-    {
-        public const string SO_WEAPON_PATH = "SO/Weapons";
-        private static readonly Dictionary<string, WeaponData> cache = new();
-
-        public static void ResetCacheOnPlay()
-        {
-            cache.Clear();
-        }
-
-        public static WeaponData GetWeaponDataById(string weaponId)
-        {
-            if (string.IsNullOrEmpty(weaponId))
-            {
-                Debug.LogError("CachedWeaponDataProvider: weaponId rỗng.");
-                return null;
-            }
-
-            if (cache.TryGetValue(weaponId, out WeaponData cached)) return cached;
-
-            WeaponData loaded = Resources.Load<WeaponData>($"{SO_WEAPON_PATH}/{weaponId}");
-            if (loaded == null)
-            {
-                Debug.LogError($"CachedWeaponDataProvider: Không tìm thấy WeaponData '{weaponId}' " +
-                               $"trong Resources/{SO_WEAPON_PATH}");
-                return null;
-            }
-
-            cache[weaponId] = loaded;
-            return loaded;
         }
     }
 
@@ -191,4 +163,79 @@ namespace MoveStopMove.Extensions.Helpers
             skinMesh.materials = materialArray;
         }
     }
+
+    #region -- Decorator Builder --
+
+    public static class CharacterDecoratorBuilder
+    {
+        public static IDecoratable Build(
+            GameData gameData,
+            CustomVisualContext customContext,
+            RendererReferences references,
+            AttachmentReferences attachment,
+            IVisualProvider provider)
+        {
+            var nullDeco = new NullDecoratable();
+
+            var skin = new SkinDecorator(nullDeco)
+            {
+                SkinSetRenderer     = references.SkinRenderer,
+                DefaultSkinMaterial = provider.DefaultSkinMaterial,
+                SkinMaterial        = customContext.skinMaterial,
+                SkinTexture         = customContext.skinTexture,
+                HasTexture          = customContext.hasTextureInSkin
+            };
+
+            var pant = new PantDecorator(skin)
+            {
+                PantsRenderer = references.PantsRenderer,
+                PantTexture   = customContext.pantTexture ??
+                                provider.GetPantTextureFromData(gameData.equippedPant)
+            };
+
+            var tail = new TailDecorator(pant)
+            {
+                TailAttachment = attachment.TailAttachment,
+                TailPrefab     = provider.GetTailPrefabFromData()
+            };
+
+            var wing = new WingDecorator(tail)
+            {
+                WingAttachment = attachment.WingAttachment,
+                WingPrefab     = provider.GetWingPrefabFromData()
+            };
+
+            var hair = new HairDecorator(wing)
+            {
+                HairAttachment = attachment.HairAttachment,
+                HairPrefab     = customContext.hairPrefab ??
+                                 provider.GetHairPrefabFromData(gameData.equippedHair)
+            };
+
+            var weapon = new WeaponDecorator(hair)
+            {
+                WeaponAttachment = attachment.WeaponAttachment,
+                WeaponPrefab     = customContext.weaponPrefab ??
+                                   provider.GetWeaponPrefabFromData(gameData.equippedWeapon)
+            };
+
+            return weapon;
+        }
+    }
+
+    public class AttachmentReferences
+    {
+        public GameObject WeaponAttachment;
+        public GameObject HairAttachment;
+        public GameObject WingAttachment;
+        public GameObject TailAttachment;
+    }
+
+    public class RendererReferences
+    {
+        public SkinnedMeshRenderer PantsRenderer;
+        public SkinnedMeshRenderer SkinRenderer;
+    }
+
+    #endregion
 }

@@ -15,22 +15,13 @@ namespace MoveStopMove.Core.CoreComponents
         [SerializeField] private AttackRange attackRange;
         [SerializeField] private WeaponBase weapon;
 
-        [Header("Projectile Pool Settings")]
-        [SerializeField] private int poolMaxSize = 50;
-
-        [Header("Projectile Settings")]
-        [SerializeField] private ProjectileBase projectilePrefab;
-        [SerializeField] private Transform weaponSpawnPoint;
-        [SerializeField] private float projectileSpeed = 20f;
-        [SerializeField] private float safeSpawnDistance = 1.0f;
-
         private IObjectPool<ProjectileBase> m_projectilePool;
 
         public AttackRange GetAttackRange => attackRange;
 
         private new void Awake()
         {
-            if (weapon != null && weapon is WeaponBase normalWeapon)
+            /*if (weapon != null && weapon is WeaponBase normalWeapon)
             {
                 /*m_projectilePool = new ObjectPool<ProjectileBase>(
                     weapon.ProjectilePooling.CreateProjectile,
@@ -39,14 +30,31 @@ namespace MoveStopMove.Core.CoreComponents
                     weapon.ProjectilePooling.OnDestroyProjectile,
                     maxSize: poolMaxSize
                 );
-                weapon.ProjectilePooling.SetPool(m_projectilePool);*/
-            }
+                weapon.ProjectilePooling.SetPool(m_projectilePool);#1#
+            }*/
+        }
+
+        public void SetWeapon(WeaponBase newWeapon)
+        {
+            weapon = newWeapon;
+        }
+
+        public void Attack()
+        {
+            /*if (attackRange.IsEmpty || weapon == null)
+                return;*/
+
+            var targetEntry = attackRange.PeekEntry();
+            var targetPos= AttackRange.GetTargetPosition(targetEntry.Value);
+
+            weapon.Attack(targetPos);
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                Debug.Log("Attack");
                 var targetEntry = attackRange.PeekEntry();
                 if (targetEntry == null)
                 {

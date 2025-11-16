@@ -4,6 +4,7 @@ using MoveStopMove.Extensions.FSM.States;
 using MoveStopMove.Extensions.Helpers;
 using MoveStopMove.Interfaces;
 using MoveStopMove.SO;
+using MoveStopMove.Weapon.Projectile;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -165,6 +166,7 @@ namespace MoveStopMove.Core
         public Texture2D pantTexture;
 
         public GameObject weaponPrefab;
+        public ProjectileBase projectilePrefab;
         public GameObject hairPrefab;
         public GameObject wingPrefab;
         public GameObject tailPrefab;

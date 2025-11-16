@@ -1,12 +1,8 @@
-using System;
 using System.Collections.Generic;
-using MoveStopMove.Extensions.Observer;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MoveStopMove.Core.CoreComponents
 {
-
     public struct TargetEntry
     {
         public GameObject Target;
@@ -20,6 +16,8 @@ namespace MoveStopMove.Core.CoreComponents
     }
     public class AttackRange : CoreComponents
     {
+        #region -- Fields --
+
         [Range(16,256)]
         [SerializeField] private int segments = 64;
         [SerializeField] private float yOffset = 0.02f;
@@ -31,6 +29,10 @@ namespace MoveStopMove.Core.CoreComponents
 
         private readonly Queue<TargetEntry> m_targetQueue = new();
         private readonly HashSet<GameObject> m_set = new();
+
+        #endregion
+
+        #region -- Methods --
 
         private new void Awake()
         {
@@ -163,6 +165,6 @@ namespace MoveStopMove.Core.CoreComponents
             m_set.Clear();
         }
 
-        // public int PendingTargetCount => m_targetQueue.Count;
+        #endregion
     }
 }

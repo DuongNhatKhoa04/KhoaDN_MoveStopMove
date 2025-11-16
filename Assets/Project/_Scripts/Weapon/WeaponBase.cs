@@ -1,40 +1,50 @@
 using MoveStopMove.Extensions.ObjectPooling;
 using MoveStopMove.Managers;
 using MoveStopMove.SO;
+using MoveStopMove.Weapon.Projectile;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace MoveStopMove.Weapon
 {
     public abstract class WeaponBase : MonoBehaviour
     {
+        #region -- Fields --
+
         [Header("Base Settings")]
         [SerializeField] protected GameObject attacker;
 
         [Header("Pierce Settings")]
         [SerializeField] protected int maxPierce = 1;
 
-        //[SerializeField] protected WeaponMode weaponMode;
-
+        [Header("Projectile Pool")]
         [SerializeField] protected ProjectileObjectPool projectileObjectPool;
 
-        //[SerializeField] protected WeaponData weaponSO;
-        //protected PlayerSaveData playerSaveData;
         protected int PierceCount;
         protected bool Returning;
         protected bool Chaining;
 
+        #endregion
+
+        #region -- Properties --
+
         public ProjectileObjectPool ProjectilePooling => projectileObjectPool;
+        public int MaxPierce => maxPierce;
+
+        #endregion
+
+        #region -- Methods --
 
         protected virtual void Awake()
         {
             PierceCount = 0;
-            Returning = false;
-            Chaining = false;
-            /*playerSaveData = new PlayerSaveData();
-            playerSaveData = PlayerSaveLoader.LoadFromResourcesText("userGameplayData");
-            Debug.Log($"{playerSaveData.equippedWeapon}");
-            weaponSO = WeaponBinder.GetWeaponDataById(playerSaveData.equippedWeapon);*/
-            attacker = GameObject.FindGameObjectWithTag("Player");
+            Returning   = false;
+            Chaining    = false;
+
+            if (attacker == null)
+            {
+                attacker = GameObject.FindGameObjectWithTag("Player");
+            }
         }
 
         public abstract void Attack(Vector3 targetPosition);
@@ -68,5 +78,7 @@ namespace MoveStopMove.Weapon
         {
             projectileObjectPool = foundProjectileObjectPool;
         }
+
+        #endregion
     }
 }

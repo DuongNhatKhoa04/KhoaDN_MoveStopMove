@@ -1,10 +1,8 @@
 using MoveStopMove.Core;
 using MoveStopMove.DataPersistence;
 using MoveStopMove.DataPersistence.Data;
-using MoveStopMove.Extensions.Decorator;
 using MoveStopMove.Extensions.Helpers;
 using MoveStopMove.Interfaces;
-using MoveStopMove.SO;
 using UnityEngine;
 
 namespace MoveStopMove.MainCharacter
@@ -31,15 +29,10 @@ namespace MoveStopMove.MainCharacter
 
         private IDecoratable m_decoratorChain;
 
-        private WeaponDecorator m_weaponDecorator;
-        private HairDecorator m_hairDecorator;
-        private WingDecorator m_wingDecorator;
-        private TailDecorator m_tailDecorator;
-        private PantDecorator m_pantDecorator;
-        private SkinDecorator m_skinDecorator;
-
         private CustomVisualContext m_customContext;
         private GameData m_gameData;
+
+        private PlayerVisualProvider m_playerVisualProvider;
 
         #endregion
 
@@ -55,9 +48,38 @@ namespace MoveStopMove.MainCharacter
             m_gameData = DataPersistenceManager.Instance.PlayerGameData;
             m_customContext = BuildCustomContext(m_gameData.equippedCustom);
 
-            StateMachine.Initialize(CharacterIdleState);
+            m_playerVisualProvider = new PlayerVisualProvider(m_customContext, defaultSkinMaterial);
 
-            InitializationDecorator();
+            var renderRefs = new RendererReferences
+            {
+                PantsRenderer = pantsRenderer,
+                SkinRenderer = skinRenderers
+            };
+
+            var attachRefs = new AttachmentReferences
+            {
+                WeaponAttachment = weaponAttachment,
+                HairAttachment = hairAttachment,
+                WingAttachment = wingAttachment,
+                TailAttachment = tailAttachment
+            };
+
+            m_decoratorChain = CharacterDecoratorBuilder.Build(
+                m_gameData,
+                m_customContext,
+                renderRefs,
+                attachRefs,
+                m_playerVisualProvider
+            );
+
+            m_decoratorChain.EquipSkin();
+            m_decoratorChain.EquipPant();
+            m_decoratorChain.EquipHair();
+            m_decoratorChain.EquipWing();
+            m_decoratorChain.EquipTail();
+            m_decoratorChain.EquipWeapon();
+
+            StateMachine.Initialize(CharacterIdleState);
         }
 
         private void Update()
@@ -68,71 +90,6 @@ namespace MoveStopMove.MainCharacter
         private void FixedUpdate()
         {
             StateMachine.CurrentState.PhysicsUpdate();
-        }
-
-        private void InitializationDecorator()
-        {
-            var nullDecorator = new NullDecoratable();
-            var data = m_gameData;
-
-            m_skinDecorator = new SkinDecorator(nullDecorator)
-            {
-                SkinSetRenderer     = skinRenderers,
-                DefaultSkinMaterial = defaultSkinMaterial,
-                SkinMaterial        = m_customContext.skinMaterial,
-                SkinTexture         = m_customContext.skinTexture,
-                HasTexture          = m_customContext.hasTextureInSkin,
-            };
-
-            var pantTexture = m_customContext.pantTexture;
-            if (pantTexture == null && !string.IsNullOrEmpty(m_gameData.equippedPant) && data.equippedPant != "none")
-            {
-                pantTexture = GetPantTexture(data.equippedPant);
-            }
-
-            m_pantDecorator = new PantDecorator(m_skinDecorator)
-            {
-                PantsRenderer = pantsRenderer,
-                PantTexture   = pantTexture
-            };
-
-            m_tailDecorator = new TailDecorator(m_pantDecorator)
-            {
-                TailAttachment = tailAttachment,
-                TailPrefab     = GetTailPrefab()
-            };
-
-            m_wingDecorator = new WingDecorator(m_tailDecorator)
-            {
-                WingAttachment = wingAttachment,
-                WingPrefab     = GetWingPrefab()
-            };
-
-            m_hairDecorator = new HairDecorator(m_wingDecorator)
-            {
-                HairAttachment = hairAttachment,
-                HairPrefab     = GetHairPrefab()
-            };
-
-            m_weaponDecorator = new WeaponDecorator(m_hairDecorator)
-            {
-                WeaponAttachment = weaponAttachment,
-                WeaponPrefab     = GetWeaponPrefab()
-            };
-
-            m_decoratorChain = m_weaponDecorator;
-
-            m_decoratorChain.EquipSkin();
-            m_decoratorChain.EquipPant();
-            m_decoratorChain.EquipHair();
-            m_decoratorChain.EquipWing();
-            m_decoratorChain.EquipTail();
-            m_decoratorChain.EquipWeapon();
-        }
-
-        private void ApplyVisual()
-        {
-
         }
 
         #region - Player Data -
@@ -151,102 +108,6 @@ namespace MoveStopMove.MainCharacter
 
         #region - Get data for decoration -
 
-        #region - Weapon -
-
-        private GameObject GetWeaponPrefab()
-        {
-            GameObject prefab = null;
-
-            if (m_customContext.weaponPrefab != null)
-            {
-                prefab = m_customContext.weaponPrefab;
-                return prefab;
-            }
-
-            prefab = GetWeaponObject(m_gameData.equippedWeapon);
-            return prefab;
-        }
-
-        private GameObject GetWeaponObject(string weaponName)
-        {
-            return PlayerSaveLoader.GetDecoratorData<WeaponData, GameObject>(
-                weaponName,
-                PlayerSaveLoader.SO_WEAPON_PATH,
-                data => data.prefab);
-        }
-
-        #endregion
-
-        #region - Hair -
-
-        private GameObject GetHairPrefab()
-        {
-            GameObject prefab = null;
-
-            if (m_customContext.hairPrefab != null)
-            {
-                prefab = m_customContext.hairPrefab;
-                return prefab;
-            }
-
-            prefab = GetHairObject(m_gameData.equippedHair);
-            return prefab;
-        }
-
-        private GameObject GetHairObject(string hairName)
-        {
-            if (hairName == "none") return null;
-
-            return PlayerSaveLoader.GetDecoratorData<HairData, GameObject>(
-                hairName,
-                PlayerSaveLoader.SO_HAIRS_PATH,
-                data => data.prefab);
-        }
-
-        #endregion
-
-        #region - Wing -
-
-        private GameObject GetWingPrefab()
-        {
-            GameObject prefab = null;
-
-            if (m_customContext.wingPrefab == null) return null;
-
-            prefab = m_customContext.wingPrefab;
-            return prefab;
-        }
-
-        #endregion
-
-        #region - Tail -
-
-        private GameObject GetTailPrefab()
-        {
-            GameObject prefab = null;
-
-            if (m_customContext.tailPrefab == null) return null;
-
-            prefab = m_customContext.tailPrefab;
-            return prefab;
-        }
-
-        #endregion
-
-        #region - Pant -
-
-        private Texture2D GetPantTexture(string pantName)
-        {
-            if (pantName == "none") return null;
-
-            return PlayerSaveLoader.GetDecoratorData<PantData, Texture2D>(
-                pantName,
-                PlayerSaveLoader.SO_PANTS_PATH,
-                data => data.texture);
-        }
-
-        #endregion
-
         #region - Skin -
 
         private CustomVisualContext BuildCustomContext(string customName)
@@ -264,6 +125,7 @@ namespace MoveStopMove.MainCharacter
                 context.pantTexture = null;
 
                 context.weaponPrefab = null;
+                context.projectilePrefab = null;
                 context.hairPrefab = null;
                 context.wingPrefab = null;
                 context.tailPrefab = null;
@@ -300,6 +162,7 @@ namespace MoveStopMove.MainCharacter
 
             context.pantTexture = customData.hasPant ? customData.pant : null;
             context.weaponPrefab = customData.hasWeapon ? customData.weaponPrefab : null;
+            context.projectilePrefab = customData.projectile ? customData.projectile : null;
             context.hairPrefab = customData.hasHair ? customData.hairPrefab : null;
             context.wingPrefab = customData.hasWing ? customData.wingPrefab : null;
             context.tailPrefab = customData.hasTail ? customData.tailPrefab : null;
@@ -308,29 +171,6 @@ namespace MoveStopMove.MainCharacter
         }
 
         #endregion
-
-        #endregion
-
-        #region - Change custom in runtime -
-
-        public void ChangePant(string pantName, bool save = true)
-        {
-            var newPantTexture = GetPantTexture(pantName);
-            if (newPantTexture == null)
-            {
-                Debug.LogWarning($"[Player] Pant '{pantName}' not found.");
-                return;
-            }
-
-            m_pantDecorator.PantTexture = newPantTexture;
-
-            m_decoratorChain.EquipPant();
-
-            if (!save) return;
-
-            DataPersistenceManager.Instance.PlayerGameData.equippedPant = pantName;
-            DataPersistenceManager.Instance.SaveGame();
-        }
 
         #endregion
 

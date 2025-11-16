@@ -1,9 +1,6 @@
 using MoveStopMove.Core;
 using MoveStopMove.Extensions.Helpers;
-using MoveStopMove.MainCharacter;
-using MoveStopMove.MainCharacter.Data;
 using MoveStopMove.SO;
-using UnityEngine;
 
 namespace MoveStopMove.Extensions.FSM.States
 {

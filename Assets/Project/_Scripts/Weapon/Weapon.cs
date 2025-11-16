@@ -1,3 +1,4 @@
+using MoveStopMove.Weapon.Projectile;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -18,9 +19,9 @@ namespace MoveStopMove.Weapon
 
         public override void Attack(Vector3 targetPosition)
         {
-            if (projectileObjectPool == null)
+            /*if (projectileObjectPool == null)
             {
-                /*Debug.LogWarning("Weapon: projectilePrefab chưa được gán!");*/
+                /*Debug.LogWarning("Weapon: projectilePrefab chưa được gán!");#1#
                 return;
             }
 
@@ -37,7 +38,7 @@ namespace MoveStopMove.Weapon
             if (rb != null)
                 rb.velocity = dir * projectileSpeed;
 
-            Debug.Log($"NormalWeapon: Bắn từ {spawnPos} tới {targetPosition}");
+            Debug.Log($"NormalWeapon: Bắn từ {spawnPos} tới {targetPosition}");*/
         }
     }
 }

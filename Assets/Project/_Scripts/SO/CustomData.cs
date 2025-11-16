@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using MoveStopMove.Weapon.Projectile;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,6 +12,7 @@ namespace MoveStopMove
     {
         [Header("Weapon")]
         [CanBeNull] public GameObject weaponPrefab;
+        [CanBeNull] public ProjectileBase projectile;
 
         [Header("Hair")]
         [CanBeNull] public GameObject hairPrefab;

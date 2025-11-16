@@ -1,6 +1,5 @@
-using System;
+using MoveStopMove.Weapon.Projectile;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MoveStopMove.SO
 {
@@ -29,6 +28,9 @@ namespace MoveStopMove.SO
 
         [Header("Prefab")]
         public GameObject prefab;
+
+        [Header("Projectile")]
+        public ProjectileBase projectilePrefab;
 
         [Header("Buff")]
         public float rangeIncrease = 0.2f;

@@ -3,7 +3,7 @@ using MoveStopMove.Managers;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace MoveStopMove.Weapon
+namespace MoveStopMove.Weapon.Projectile
 {
     public abstract class ProjectileBase : MonoBehaviour
     {
@@ -13,7 +13,8 @@ namespace MoveStopMove.Weapon
         [SerializeField] private bool destroyOnHit = true;
 
         protected GameObject Owner;
-        private Vector3 m_targetPosition;
+
+        private Vector3 m_direction;
         private float m_lifetimeTimer;
         private bool m_active;
 
@@ -27,18 +28,30 @@ namespace MoveStopMove.Weapon
         public virtual void Initialize(GameObject attacker, Vector3 targetPos)
         {
             Owner = attacker;
-            m_targetPosition = targetPos;
             m_lifetimeTimer = maxLifetime;
             m_active = true;
 
             gameObject.SetActive(true);
+
+            Vector3 dir = targetPos - transform.position;
+            if (dir.sqrMagnitude < 1e-4f)
+            {
+                dir = transform.forward;
+            }
+            m_direction = dir.normalized;
+            transform.rotation = Quaternion.LookRotation(m_direction);
+
+            if (Owner != null && Owner.TryGetComponent(out Collider ownerCol) && TryGetComponent(out Collider projCol))
+            {
+                Physics.IgnoreCollision(projCol, ownerCol, true);
+            }
         }
 
         protected virtual void Update()
         {
             if (!m_active) return;
 
-            MoveTowards(m_targetPosition);
+            MoveForward();
 
             m_lifetimeTimer -= Time.deltaTime;
             if (m_lifetimeTimer <= 0f)
@@ -47,19 +60,16 @@ namespace MoveStopMove.Weapon
             }
         }
 
-        protected virtual void MoveTowards(Vector3 destination)
+        protected virtual void MoveForward()
         {
-            Vector3 direction = (destination - transform.position).normalized;
-            transform.position += direction * (speed * Time.deltaTime);
-            transform.forward = direction;
+            transform.position += m_direction * (speed * Time.deltaTime);
         }
 
         protected virtual void OnTriggerEnter(Collider other)
         {
             if (!m_active) return;
-            if (other.attachedRigidbody == null) return;
 
-            var target = other.attachedRigidbody.gameObject;
+            GameObject target = other.gameObject;
 
             if (target == Owner) return;
 
@@ -75,18 +85,14 @@ namespace MoveStopMove.Weapon
         protected void ReturnToPool()
         {
             if (!m_active) return;
-            m_active = false;
 
+            m_active = false;
             m_lifetimeTimer = maxLifetime;
 
             if (m_pool != null)
-            {
                 m_pool.Release(this);
-            }
             else
-            {
                 gameObject.SetActive(false);
-            }
         }
 
         protected virtual void OnDisable()
