@@ -6,10 +6,14 @@ namespace MoveStopMove.Weapon
 {
     public class PiercingWeapon : WeaponBase
     {
+        #region -- Fields --
+
         [Header("Spawn Settings")]
         [SerializeField] private Transform firePoint;
 
         private IAttackStrategy m_attackStrategy;
+
+        #endregion
 
         protected override void Awake()
         {
@@ -18,11 +22,6 @@ namespace MoveStopMove.Weapon
             if (firePoint == null)
             {
                 firePoint = transform;
-            }
-
-            if (projectileObjectPool == null)
-            {
-                Debug.LogWarning("[PiercingWeapon] projectileObjectPool chưa được gán trên Inspector.");
             }
 
             m_attackStrategy = new PiercingAttackStrategy(this);
@@ -40,23 +39,16 @@ namespace MoveStopMove.Weapon
 
         public ProjectileBase SpawnPiercingProjectile(Vector3 targetPosition)
         {
-            if (projectileObjectPool == null)
-            {
-                Debug.LogWarning("[PiercingWeapon] projectileObjectPool null.");
-                return null;
-            }
-
             if (firePoint == null)
             {
                 firePoint = transform;
             }
 
-            return projectileObjectPool.Spawn(
-                firePoint.position,
-                firePoint.rotation,
-                attacker,
-                targetPosition
-            );
+            var pooledObject = ProjectileObjectPool.Get();
+
+            pooledObject.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
+            pooledObject.Initialize(attacker, targetPosition);
+            return pooledObject;
         }
     }
 }

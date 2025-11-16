@@ -65,6 +65,7 @@ namespace MoveStopMove.MainCharacter
             };
 
             m_decoratorChain = CharacterDecoratorBuilder.Build(
+                Core,
                 m_gameData,
                 m_customContext,
                 renderRefs,
@@ -107,8 +108,6 @@ namespace MoveStopMove.MainCharacter
         #endregion
 
         #region - Get data for decoration -
-
-        #region - Skin -
 
         private CustomVisualContext BuildCustomContext(string customName)
         {
@@ -169,8 +168,6 @@ namespace MoveStopMove.MainCharacter
 
             return context;
         }
-
-        #endregion
 
         #endregion
 

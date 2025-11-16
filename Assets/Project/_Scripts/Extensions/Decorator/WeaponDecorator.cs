@@ -1,6 +1,7 @@
 using MoveStopMove.Core;
-using MoveStopMove.DataPersistence;
 using MoveStopMove.Interfaces;
+using MoveStopMove.Weapon;
+using MoveStopMove.Weapon.Projectile;
 using UnityEngine;
 
 namespace MoveStopMove.Extensions.Decorator
@@ -8,9 +9,9 @@ namespace MoveStopMove.Extensions.Decorator
     public class WeaponDecorator : CharacterDecorator
     {
         private GameObject m_currentWeapon;
-
         public GameObject WeaponAttachment { get; set; }
         public GameObject WeaponPrefab  { get; set; }
+        public ProjectileBase ProjectilePrefab { get; set; }
 
         public WeaponDecorator(IDecoratable inner) : base(inner)
         {
@@ -20,7 +21,6 @@ namespace MoveStopMove.Extensions.Decorator
         public override void EquipWeapon()
         {
             base.EquipWeapon();
-            //Debug.Log(WeaponPrefab.name);
 
             if (WeaponAttachment == null)
             {
@@ -34,9 +34,10 @@ namespace MoveStopMove.Extensions.Decorator
                 m_currentWeapon = null;
             }
 
-            if (WeaponPrefab != null)
+            if (WeaponPrefab != null && ProjectilePrefab != null)
             {
                 m_currentWeapon = Object.Instantiate(WeaponPrefab, WeaponAttachment.transform);
+                Core.Combat.SetWeapon(m_currentWeapon.GetComponent<WeaponBase>(), ProjectilePrefab);
             }
         }
     }

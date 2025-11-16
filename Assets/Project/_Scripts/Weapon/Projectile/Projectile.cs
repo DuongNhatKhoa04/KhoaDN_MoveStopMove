@@ -1,5 +1,3 @@
-using MoveStopMove.Core.CoreComponents;
-using MoveStopMove.Managers;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -7,6 +5,8 @@ namespace MoveStopMove.Weapon.Projectile
 {
     public abstract class ProjectileBase : MonoBehaviour
     {
+        #region -- Fields --
+
         [Header("Projectile Settings")]
         [SerializeField] private float speed = 10f;
         [SerializeField] private float maxLifetime = 5f;
@@ -18,12 +18,20 @@ namespace MoveStopMove.Weapon.Projectile
         private float m_lifetimeTimer;
         private bool m_active;
 
-        private IObjectPool<ProjectileBase> m_pool;
+        private IObjectPool<ProjectileBase> m_objectPool;
 
-        public void SetPool(IObjectPool<ProjectileBase> objectPool)
+        #endregion
+
+        #region -- Properties --
+
+        public IObjectPool<ProjectileBase> ObjectPool
         {
-            m_pool = objectPool;
+            set => m_objectPool = value;
         }
+
+        #endregion
+
+        #region -- Methods --
 
         public virtual void Initialize(GameObject attacker, Vector3 targetPos)
         {
@@ -89,8 +97,8 @@ namespace MoveStopMove.Weapon.Projectile
             m_active = false;
             m_lifetimeTimer = maxLifetime;
 
-            if (m_pool != null)
-                m_pool.Release(this);
+            if (m_objectPool != null)
+                m_objectPool.Release(this);
             else
                 gameObject.SetActive(false);
         }
@@ -100,5 +108,7 @@ namespace MoveStopMove.Weapon.Projectile
             Owner = null;
             m_active = false;
         }
+
+        #endregion
     }
 }

@@ -6,13 +6,19 @@ namespace MoveStopMove.Weapon.Projectile
 {
     public class PiercingProjectile : ProjectileBase
     {
+        #region -- Fields --
+
         [Header("Piercing Settings")]
-        [SerializeField] private int maxPierceCount = 3;
+        [SerializeField] private int maxPierceCount = 2;
 
         [SerializeField] private LayerMask hittableLayers;
 
         private int m_currentPierceCount;
-        private readonly HashSet<GameObject> m_hitTargets = new HashSet<GameObject>();
+        private readonly HashSet<GameObject> m_hitTargets = new();
+
+        #endregion
+
+        #region -- Methods --
 
         public override void Initialize(GameObject attacker, Vector3 targetPos)
         {
@@ -45,5 +51,7 @@ namespace MoveStopMove.Weapon.Projectile
                 ReturnToPool();
             }
         }
+
+        #endregion
     }
 }

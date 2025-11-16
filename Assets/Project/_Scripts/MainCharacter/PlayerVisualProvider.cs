@@ -1,6 +1,4 @@
-using System;
 using MoveStopMove.Core;
-using MoveStopMove.DataPersistence.Data;
 using MoveStopMove.Extensions.Helpers;
 using MoveStopMove.SO;
 using MoveStopMove.Weapon.Projectile;
@@ -10,9 +8,19 @@ namespace MoveStopMove.MainCharacter
 {
     public class PlayerVisualProvider : IVisualProvider
     {
+        #region -- Fields --
+
         private readonly CustomVisualContext m_customContext;
 
+        #endregion
+
+        #region -- Properties --
+
         public Material DefaultSkinMaterial { get; }
+
+        #endregion
+
+        #region -- Methods --
 
         public PlayerVisualProvider(CustomVisualContext customContext, Material defaultSkinMaterial)
         {
@@ -59,5 +67,7 @@ namespace MoveStopMove.MainCharacter
                        pant, PlayerSaveLoader.SO_PANTS_PATH,
                        d => d.texture);
         }
+
+        #endregion
     }
 }

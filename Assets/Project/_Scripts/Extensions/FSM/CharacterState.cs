@@ -38,10 +38,7 @@ namespace MoveStopMove.Extensions.FSM
             Character.ResetAnimationTrigger(m_animation);
         }
 
-        public virtual void LogicUpdate()
-        {
-
-        }
+        public virtual void LogicUpdate() { }
 
         public virtual void PhysicsUpdate()
         {

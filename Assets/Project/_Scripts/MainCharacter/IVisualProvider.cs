@@ -1,5 +1,3 @@
-using MoveStopMove.Core;
-using MoveStopMove.DataPersistence.Data;
 using MoveStopMove.Weapon.Projectile;
 using UnityEngine;
 

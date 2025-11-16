@@ -5,7 +5,6 @@ using MoveStopMove.DataPersistence.Data;
 using MoveStopMove.Extensions.Decorator;
 using MoveStopMove.Interfaces;
 using MoveStopMove.MainCharacter;
-using MoveStopMove.SO;
 using UnityEngine;
 
 namespace MoveStopMove.Extensions.Helpers
@@ -146,18 +145,6 @@ namespace MoveStopMove.Extensions.Helpers
 
         public static void SetNewMaterialForSkin(SkinnedMeshRenderer skinMesh, Material skinMaterial)
         {
-            /*if (isEquippedSkin)
-            {
-                var materialArray = skinMesh.materials;
-                materialArray[0] = SkinMaterial;
-                skinMesh.materials = materialArray;
-            }
-            else
-            {
-                var materialArray = skinMesh.materials;
-                materialArray[0] = DefaultSkinMaterial;
-                skinMesh.materials = materialArray;
-            }*/
             var materialArray = skinMesh.materials;
             materialArray[0] = skinMaterial;
             skinMesh.materials = materialArray;
@@ -169,6 +156,7 @@ namespace MoveStopMove.Extensions.Helpers
     public static class CharacterDecoratorBuilder
     {
         public static IDecoratable Build(
+            MainCore mainCore,
             GameData gameData,
             CustomVisualContext customContext,
             RendererReferences references,
@@ -216,7 +204,10 @@ namespace MoveStopMove.Extensions.Helpers
             {
                 WeaponAttachment = attachment.WeaponAttachment,
                 WeaponPrefab     = customContext.weaponPrefab ??
-                                   provider.GetWeaponPrefabFromData(gameData.equippedWeapon)
+                                   provider.GetWeaponPrefabFromData(gameData.equippedWeapon),
+                ProjectilePrefab = customContext.projectilePrefab ??
+                                   provider.GetProjectileFromData(gameData.equippedWeapon),
+                Core = mainCore
             };
 
             return weapon;

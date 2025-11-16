@@ -20,6 +20,8 @@ namespace MoveStopMove.Core
         [SerializeField] protected MainCore core;
         [SerializeField] protected CharacterData characterData;
 
+        private int m_lastAttackLoop = -1;
+
         #endregion
 
         #region -- Properties --
@@ -81,6 +83,30 @@ namespace MoveStopMove.Core
             animator.ResetTrigger(AnimHashes.Map[animationName]);
         }
 
+        public bool HasAnimationLooped(EAnim animation, out int loopIndex)
+        {
+            loopIndex = 0;
+
+            var stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+            if (!stateInfo.IsName(animation.ToString()))
+            {
+                m_lastAttackLoop = -1;
+                return false;
+            }
+
+            int currentLoop = Mathf.FloorToInt(stateInfo.normalizedTime);
+
+            if (currentLoop > m_lastAttackLoop)
+            {
+                loopIndex = currentLoop;
+                m_lastAttackLoop = currentLoop;
+                return true;
+            }
+
+            return false;
+        }
+
         #endregion
     }
 
@@ -88,17 +114,14 @@ namespace MoveStopMove.Core
     {
         #region -- Fields --
 
+        public MainCore Core;
+
         private IDecoratable m_inner;
         private static readonly int s_mainTex = Shader.PropertyToID("_MainTex");
 
         #endregion
 
         #region -- Properties --
-
-        public bool HasHairInSkin { get; set; }
-        public bool HasPantInSkin { get; set; }
-        public bool HasTailInSkin { get; set; }
-        public bool HasWingInSkin { get; set; }
         public SkinnedMeshRenderer PantsRenderer { get; set; }
         public Texture2D PantTexture { get; set; }
 

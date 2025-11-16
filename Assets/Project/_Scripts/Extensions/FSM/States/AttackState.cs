@@ -1,6 +1,7 @@
 using MoveStopMove.Core;
 using MoveStopMove.Extensions.Helpers;
 using MoveStopMove.SO;
+using UnityEngine;
 
 namespace MoveStopMove.Extensions.FSM.States
 {
@@ -22,6 +23,12 @@ namespace MoveStopMove.Extensions.FSM.States
                 if (!HasTargetInRange())
                 {
                     StateMachine.ChangeState(Character.CharacterIdleState);
+                }
+
+                if (Character.HasAnimationLooped(EAnim.Attack, out int loop))
+                {
+                    Core.Combat.Attack();
+                    //Debug.Log("Fired at loop: " + loop);
                 }
             }
         }

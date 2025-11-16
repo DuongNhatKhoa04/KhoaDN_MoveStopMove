@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using MoveStopMove.Extensions.ObjectPooling;
-using MoveStopMove.Extensions.Observer;
-using MoveStopMove.Managers;
 using MoveStopMove.Weapon;
-using UnityEngine;
-using UnityEngine.Pool;
 using MoveStopMove.Weapon.Projectile;
+using UnityEngine;
 
 namespace MoveStopMove.Core.CoreComponents
 {
@@ -15,35 +9,21 @@ namespace MoveStopMove.Core.CoreComponents
         [SerializeField] private AttackRange attackRange;
         [SerializeField] private WeaponBase weapon;
 
-        private IObjectPool<ProjectileBase> m_projectilePool;
-
         public AttackRange GetAttackRange => attackRange;
 
         private new void Awake()
         {
-            /*if (weapon != null && weapon is WeaponBase normalWeapon)
-            {
-                /*m_projectilePool = new ObjectPool<ProjectileBase>(
-                    weapon.ProjectilePooling.CreateProjectile,
-                    weapon.ProjectilePooling.OnGetProjectile,
-                    weapon.ProjectilePooling.OnReleaseProjectile,
-                    weapon.ProjectilePooling.OnDestroyProjectile,
-                    maxSize: poolMaxSize
-                );
-                weapon.ProjectilePooling.SetPool(m_projectilePool);#1#
-            }*/
+
         }
 
-        public void SetWeapon(WeaponBase newWeapon)
+        public void SetWeapon(WeaponBase newWeapon, ProjectileBase weaponProjectile)
         {
             weapon = newWeapon;
+            weapon.Projectile = weaponProjectile;
         }
 
         public void Attack()
         {
-            /*if (attackRange.IsEmpty || weapon == null)
-                return;*/
-
             var targetEntry = attackRange.PeekEntry();
             var targetPos= AttackRange.GetTargetPosition(targetEntry.Value);
 

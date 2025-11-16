@@ -1,4 +1,3 @@
-using MoveStopMove.Extensions.ObjectPooling;
 using MoveStopMove.Managers;
 using MoveStopMove.SO;
 using MoveStopMove.Weapon.Projectile;
@@ -14,11 +13,10 @@ namespace MoveStopMove.Weapon
         [Header("Base Settings")]
         [SerializeField] protected GameObject attacker;
 
-        [Header("Pierce Settings")]
-        [SerializeField] protected int maxPierce = 1;
+        [Header("Projectile")]
+        [SerializeField] protected ProjectileBase projectile;
 
-        [Header("Projectile Pool")]
-        [SerializeField] protected ProjectileObjectPool projectileObjectPool;
+        protected IObjectPool<ProjectileBase> ProjectileObjectPool;
 
         protected int PierceCount;
         protected bool Returning;
@@ -26,12 +24,11 @@ namespace MoveStopMove.Weapon
 
         #endregion
 
-        #region -- Properties --
-
-        public ProjectileObjectPool ProjectilePooling => projectileObjectPool;
-        public int MaxPierce => maxPierce;
-
-        #endregion
+        public ProjectileBase Projectile
+        {
+            get => projectile;
+            set => projectile = value;
+        }
 
         #region -- Methods --
 
@@ -45,6 +42,39 @@ namespace MoveStopMove.Weapon
             {
                 attacker = GameObject.FindGameObjectWithTag("Player");
             }
+
+            ProjectileObjectPool = new ObjectPool<ProjectileBase>
+            (
+                CreateProjectile,
+                OnGetFromPool,
+                OnReleaseToPool,
+                OnDestroyPooledObject,
+                true,
+                20,
+                100
+            );
+        }
+
+        private ProjectileBase CreateProjectile()
+        {
+            var projectInstance = Instantiate(projectile);
+            projectInstance.ObjectPool = ProjectileObjectPool;
+            return projectInstance;
+        }
+
+        private void OnGetFromPool(ProjectileBase pooledObject)
+        {
+            pooledObject.gameObject.SetActive(true);
+        }
+
+        private void OnReleaseToPool(ProjectileBase pooledObject)
+        {
+            pooledObject.gameObject.SetActive(false);
+        }
+
+        private void OnDestroyPooledObject(ProjectileBase pooledObject)
+        {
+            Destroy(pooledObject.gameObject);
         }
 
         public abstract void Attack(Vector3 targetPosition);
@@ -72,11 +102,6 @@ namespace MoveStopMove.Weapon
         public virtual void OnFirePointFound(Transform firePointTransform)
         {
             // Lớp con override nếu cần
-        }
-
-        public virtual void OnProjectilePoolFound(ProjectileObjectPool foundProjectileObjectPool)
-        {
-            projectileObjectPool = foundProjectileObjectPool;
         }
 
         #endregion
