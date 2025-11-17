@@ -10,9 +10,16 @@ namespace MoveStopMove.Extensions.Strategy
 
     public class NormalAttackStrategy : IAttackStrategy
     {
+        private readonly NormalWeapon m_weapon;
+
+        public NormalAttackStrategy(NormalWeapon weapon)
+        {
+            m_weapon = weapon;
+        }
+
         public void PerformAttack(Vector3 targetPosition)
         {
-            throw new System.NotImplementedException();
+            m_weapon.SpawnNormalProjectile(targetPosition);
         }
     }
 
@@ -33,17 +40,31 @@ namespace MoveStopMove.Extensions.Strategy
 
     public class ChainableAttackStrategy : IAttackStrategy
     {
+        private readonly ChainableWeapon m_weapon;
+
+        public ChainableAttackStrategy(ChainableWeapon weapon)
+        {
+            m_weapon = weapon;
+        }
+
         public void PerformAttack(Vector3 targetPosition)
         {
-            throw new System.NotImplementedException();
+            m_weapon.SpawnChainableProjectile(targetPosition);
         }
     }
 
     public class ReturnableAttackStrategy : IAttackStrategy
     {
+        private readonly ReturnableWeapon m_weapon;
+
+        public ReturnableAttackStrategy(ReturnableWeapon weapon)
+        {
+            m_weapon = weapon;
+        }
+
         public void PerformAttack(Vector3 targetPosition)
         {
-            throw new System.NotImplementedException();
+            m_weapon.SpawnReturnableProjectile(targetPosition);
         }
     }
 }

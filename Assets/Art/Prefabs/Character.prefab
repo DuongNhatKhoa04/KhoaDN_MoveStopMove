@@ -1118,6 +1118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: {fileID: 9197125406035445246}
   weapon: {fileID: 0}
+  ownerRoot: {fileID: 7083978417016088795}
+  rotateSpeed: 20
 --- !u!1 &3254370854981852324
 GameObject:
   m_ObjectHideFlags: 0

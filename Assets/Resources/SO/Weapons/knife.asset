@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 1
   prefab: {fileID: 5199341435106671135, guid: 6472b2c5dcfd1d34080dd07f4a7dc7b3, type: 3}
+  projectilePrefab: {fileID: 774558302527113169, guid: 2933ea43e616ca846ac0e2f5613cfa40, type: 3}
   rangeIncrease: 0.2
   attackSpeedIncrease: 2
   movementIncrease: 1
   maxAttackRange: 10
-  specialSkill: 2
+  specialSkill: 4
   price: 200

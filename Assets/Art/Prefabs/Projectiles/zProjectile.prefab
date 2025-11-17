@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3949363073527909922}
   - component: {fileID: 3707842536072924106}
   - component: {fileID: 4652638058277872284}
-  - component: {fileID: 8979051836430798269}
   - component: {fileID: -819241463620813520}
+  - component: {fileID: 7912696346125191112}
   m_Layer: 9
   m_Name: zProjectile
   m_TagString: Untagged
@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672989916720035830}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3949363073527909922
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -108,25 +108,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.082714945, y: 0.081648566, z: 0.007237972}
   m_Center: {x: -0.0000017732382, y: 0.0000037308782, z: 0}
---- !u!114 &8979051836430798269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672989916720035830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf3fe8124384785b291115735005c23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxLifetime: 5
-  destroyOnHit: 1
-  maxPierceCount: 2
-  hittableLayers:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!54 &-819241463620813520
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,3 +135,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7912696346125191112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672989916720035830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3da54acecb34837b0a7856a28b95a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxLifetime: 5
+  destroyOnHit: 1
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 1152
+  weaponName: 

@@ -1,70 +1,46 @@
 using System;
 using System.Collections.Generic;
 using MoveStopMove.Extensions.Observer;
-using UnityEngine;
+using MoveStopMove.Extensions.Singleton;
 
 namespace MoveStopMove.Managers
 {
-    public struct CharacterKilled
-    {
-        public GameObject Killer;
-        public GameObject Victim;
-        public float IncreaseAttackRangeBy;
-
-        public CharacterKilled(GameObject killer, GameObject victim, float rangeBonus)
-        {
-            Killer = killer;
-            Victim = victim;
-            IncreaseAttackRangeBy = rangeBonus;
-        }
-    }
-
-    public struct HitEvent
-    {
-        public GameObject Attacker;
-        public GameObject Target;
-
-        public HitEvent(GameObject attacker, GameObject target)
-        {
-            Attacker = attacker;
-            Target = target;
-        }
-    }
-
-    public static class EventManager
+    public class EventManager : Singleton<EventManager>
     {
         #region -- Fields --
 
-        private static readonly Dictionary<Type, List<object>> s_Observers = new();
+        private static readonly Dictionary<Type, List<object>> s_observers = new();
 
         #endregion
 
         #region -- Methods --
 
-        public static void Subscribe<T>(IMyObserver<T> observer)
+        public void Subscribe<T>(IMyObserver<T> observer)
         {
             var type = typeof(T);
-            if (!s_Observers.ContainsKey(type))
-                s_Observers[type] = new List<object>();
+            if (!s_observers.ContainsKey(type))
+                s_observers[type] = new List<object>();
 
-            if (!s_Observers[type].Contains(observer))
-                s_Observers[type].Add(observer);
+            if (!s_observers[type].Contains(observer))
+                s_observers[type].Add(observer);
         }
 
-        public static void Unsubscribe<T>(IMyObserver<T> observer)
+        public void Unsubscribe<T>(IMyObserver<T> observer)
         {
             var type = typeof(T);
-            if (s_Observers.TryGetValue(type, out var list)) return;
+            if (!s_observers.TryGetValue(type, out var list))
+                return;
+
             list.Remove(observer);
 
             if (list.Count == 0)
-                s_Observers.Remove(type);
+                s_observers.Remove(type);
         }
 
-        public static void Notify<T>(T data)
+        public void Notify<T>(T data)
         {
             var type = typeof(T);
-            if (!s_Observers.TryGetValue(type, out var list)) return;
+            if (!s_observers.TryGetValue(type, out var list)) return;
 
             for (int i = list.Count - 1; i >= 0; i--)
             {
@@ -72,7 +48,7 @@ namespace MoveStopMove.Managers
             }
         }
 
-        public static void Clear() => s_Observers.Clear();
+        public static void Clear() => s_observers.Clear();
 
         #endregion
     }

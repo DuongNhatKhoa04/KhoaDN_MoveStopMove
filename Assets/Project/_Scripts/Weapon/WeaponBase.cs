@@ -1,5 +1,4 @@
-using MoveStopMove.Managers;
-using MoveStopMove.SO;
+using MoveStopMove.Extensions.Strategy;
 using MoveStopMove.Weapon.Projectile;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -16,11 +15,13 @@ namespace MoveStopMove.Weapon
         [Header("Projectile")]
         [SerializeField] protected ProjectileBase projectile;
 
+        [Header("Spawn Settings")]
+        [SerializeField] protected Transform firePoint;
+
+        protected IAttackStrategy AttackStrategy;
         protected IObjectPool<ProjectileBase> ProjectileObjectPool;
 
-        protected int PierceCount;
-        protected bool Returning;
-        protected bool Chaining;
+        private string m_currentWeapon;
 
         #endregion
 
@@ -34,9 +35,7 @@ namespace MoveStopMove.Weapon
 
         protected virtual void Awake()
         {
-            PierceCount = 0;
-            Returning   = false;
-            Chaining    = false;
+            m_currentWeapon = gameObject.name.Replace("(Clone)", "").Trim();
 
             if (attacker == null)
             {
@@ -58,6 +57,7 @@ namespace MoveStopMove.Weapon
         private ProjectileBase CreateProjectile()
         {
             var projectInstance = Instantiate(projectile);
+            projectInstance.weaponName = m_currentWeapon;
             projectInstance.ObjectPool = ProjectileObjectPool;
             return projectInstance;
         }
@@ -78,31 +78,6 @@ namespace MoveStopMove.Weapon
         }
 
         public abstract void Attack(Vector3 targetPosition);
-
-        protected virtual void OnTriggerEnter(Collider other)
-        {
-            if (other.attachedRigidbody == null) return;
-
-            var target = other.attachedRigidbody.gameObject;
-            if (target == attacker) return;
-
-            OnHitTarget(target);
-        }
-
-        protected virtual void OnHitTarget(GameObject target)
-        {
-            EventManager.Notify(new HitEvent(attacker, target));
-        }
-
-        public virtual void SetWeaponScriptableObject(WeaponData newWeaponScriptableObject)
-        {
-            //weaponSO = newWeaponScriptableObject;
-        }
-
-        public virtual void OnFirePointFound(Transform firePointTransform)
-        {
-            // Lớp con override nếu cần
-        }
 
         #endregion
     }

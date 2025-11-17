@@ -8,13 +8,16 @@ namespace MoveStopMove.Weapon.Projectile
         #region -- Fields --
 
         [Header("Projectile Settings")]
-        [SerializeField] private float speed = 10f;
+        [SerializeField] protected float speed = 10f;
         [SerializeField] private float maxLifetime = 5f;
         [SerializeField] private bool destroyOnHit = true;
+        [SerializeField] protected LayerMask hittableLayers;
+
+        public string weaponName;
 
         protected GameObject Owner;
 
-        private Vector3 m_direction;
+        protected Vector3 Direction;
         private float m_lifetimeTimer;
         private bool m_active;
 
@@ -33,28 +36,6 @@ namespace MoveStopMove.Weapon.Projectile
 
         #region -- Methods --
 
-        public virtual void Initialize(GameObject attacker, Vector3 targetPos)
-        {
-            Owner = attacker;
-            m_lifetimeTimer = maxLifetime;
-            m_active = true;
-
-            gameObject.SetActive(true);
-
-            Vector3 dir = targetPos - transform.position;
-            if (dir.sqrMagnitude < 1e-4f)
-            {
-                dir = transform.forward;
-            }
-            m_direction = dir.normalized;
-            transform.rotation = Quaternion.LookRotation(m_direction);
-
-            if (Owner != null && Owner.TryGetComponent(out Collider ownerCol) && TryGetComponent(out Collider projCol))
-            {
-                Physics.IgnoreCollision(projCol, ownerCol, true);
-            }
-        }
-
         protected virtual void Update()
         {
             if (!m_active) return;
@@ -68,16 +49,38 @@ namespace MoveStopMove.Weapon.Projectile
             }
         }
 
+        public virtual void Initialize(GameObject attacker, Vector3 targetPos)
+        {
+            Owner = attacker;
+            m_lifetimeTimer = maxLifetime;
+            m_active = true;
+
+            gameObject.SetActive(true);
+
+            Vector3 dir = targetPos - transform.position;
+            if (dir.sqrMagnitude < 1e-4f)
+            {
+                dir = transform.forward;
+            }
+            Direction = dir.normalized;
+            //transform.rotation = Quaternion.LookRotation(m_direction);
+
+            if (Owner != null && Owner.TryGetComponent(out Collider ownerCol) && TryGetComponent(out Collider projCol))
+            {
+                Physics.IgnoreCollision(projCol, ownerCol, true);
+            }
+        }
+
         protected virtual void MoveForward()
         {
-            transform.position += m_direction * (speed * Time.deltaTime);
+            transform.position += Direction * (speed * Time.deltaTime);
         }
 
         protected virtual void OnTriggerEnter(Collider other)
         {
             if (!m_active) return;
 
-            GameObject target = other.gameObject;
+            var target = other.gameObject;
 
             if (target == Owner) return;
 
@@ -88,6 +91,12 @@ namespace MoveStopMove.Weapon.Projectile
         {
             if (destroyOnHit)
                 ReturnToPool();
+        }
+
+        protected virtual void OnDisable()
+        {
+            Owner = null;
+            m_active = false;
         }
 
         protected void ReturnToPool()
@@ -101,12 +110,6 @@ namespace MoveStopMove.Weapon.Projectile
                 m_objectPool.Release(this);
             else
                 gameObject.SetActive(false);
-        }
-
-        protected virtual void OnDisable()
-        {
-            Owner = null;
-            m_active = false;
         }
 
         #endregion

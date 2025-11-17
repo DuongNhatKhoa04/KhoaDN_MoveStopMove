@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine.Serialization;
 
 namespace MoveStopMove.DataPersistence.Data
 {
@@ -58,7 +57,7 @@ namespace MoveStopMove.DataPersistence.Data
             //startingData.unlockedCustom.AddRange(new[] { "thor" });
             startingData.unlockedPant.AddRange(new[] { "chambi" });
             startingData.unlockedHair.AddRange(new[] { "arrow" });
-            startingData.unlockedWeapon.AddRange(new[] { "z" });
+            startingData.unlockedWeapon.AddRange(new[] { "boomerang" });
 
             startingData.lockedCustom.AddRange(new[]
                 { "devil", "angel", "thor" });
@@ -73,7 +72,7 @@ namespace MoveStopMove.DataPersistence.Data
             startingData.lockedHair.AddRange(new[]
                 { "cowboy", "ear", "hat", "cap", "hat_yellow", "headphone", "horn", "none" });
             startingData.lockedWeapon.AddRange(new[]
-                { "arrow", "axe_0", "axe_1", "boomerang", "candy_0", "candy_1", "harmer", "knife", "uzi" });
+                { "arrow", "axe_0", "axe_1", "z", "candy_0", "candy_1", "harmer", "knife", "uzi" });
 
 
             startingData.equippedCustom = "none";
@@ -82,7 +81,7 @@ namespace MoveStopMove.DataPersistence.Data
             //startingData.equippedCustom   = "thor";
             startingData.equippedPant   = "chambi";
             startingData.equippedHair   = "arrow";
-            startingData.equippedWeapon = "z";
+            startingData.equippedWeapon = "boomerang";
 
             startingData.masterVolume = 100f;
             startingData.sfxVolume    = 100f;

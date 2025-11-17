@@ -1,17 +1,35 @@
+using MoveStopMove.Extensions.Helpers;
+using MoveStopMove.Extensions.Observer;
 using MoveStopMove.Managers;
+using MoveStopMove.SO;
 using UnityEngine;
 
 namespace MoveStopMove.Weapon.Projectile
 {
     public class NormalProjectile : ProjectileBase
     {
+        #region -- Methods --
+
         protected override void OnHitTarget(GameObject target)
         {
-            if (target != null && Owner != null)
-                Debug.Log($"NormalProjectile: {target.name} bị trúng bởi {Owner.name}");
-            base.OnHitTarget(target);
+            if (target == Owner)
+                return;
 
-            EventManager.Notify(new CharacterKilled(Owner, target, 0.2f));
+            if ((hittableLayers.value & (1 << target.layer)) == 0)
+            {
+                return;
+            }
+
+            var attackRangeBuff = PlayerSaveLoader.GetDecoratorData<WeaponData, float>(
+                weaponName,
+                PlayerSaveLoader.SO_WEAPON_PATH,
+                data => data.rangeIncrease);
+
+            EventManager.Instance.Notify(new HitTarget(Owner, attackRangeBuff, target));
+
+            ReturnToPool();
         }
+
+        #endregion
     }
 }

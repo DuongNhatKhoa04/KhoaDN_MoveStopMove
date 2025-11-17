@@ -4,57 +4,59 @@ namespace MoveStopMove.Extensions.Observer
 {
     public readonly struct LevelStart
     {
-        public readonly int levelIndex;
+        public readonly int LevelIndex;
 
         public LevelStart(int levelIndex)
         {
-            this.levelIndex = levelIndex;
+            this.LevelIndex = levelIndex;
         }
     }
 
     public readonly struct LevelCompleted
     {
-        public readonly int levelIndex;
-        public readonly int killCount;
+        public readonly int LevelIndex;
+        public readonly int KillCount;
 
         public LevelCompleted(int levelIndex, int killCount)
         {
-            this.levelIndex = levelIndex;
-            this.killCount = killCount;
+            this.LevelIndex = levelIndex;
+            this.KillCount = killCount;
         }
     }
 
     public readonly struct LevelFailed
     {
-        public readonly int levelIndex;
+        public readonly int LevelIndex;
 
         public LevelFailed(int levelIndex)
         {
-            this.levelIndex = levelIndex;
+            this.LevelIndex = levelIndex;
         }
     }
 
     public readonly struct HitTarget
     {
-        public readonly GameObject victim;
-        public readonly float rangeUpdate;
+        public readonly GameObject Victim;
+        public readonly GameObject Target;
+        public readonly float RangeUpdate;
 
-        public HitTarget(GameObject victim, float rangeUpdate)
+        public HitTarget(GameObject victim, float rangeUpdate, GameObject target)
         {
-            this.victim = victim;
-            this.rangeUpdate = rangeUpdate;
+            this.Victim = victim;
+            this.RangeUpdate = rangeUpdate;
+            this.Target = target;
         }
     }
 
     public readonly struct BuyItem
     {
-        public readonly string itemId;
-        public readonly float price;
+        public readonly string ItemId;
+        public readonly float Price;
 
         public BuyItem(string itemId, float price)
         {
-            this.itemId = itemId;
-            this.price = price;
+            this.ItemId = itemId;
+            this.Price = price;
         }
     }
 

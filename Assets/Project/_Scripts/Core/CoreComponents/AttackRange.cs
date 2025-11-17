@@ -26,7 +26,6 @@ namespace MoveStopMove.Core.CoreComponents
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private LayerMask targetLayer;
 
-
         private readonly Queue<TargetEntry> m_targetQueue = new();
         private readonly HashSet<GameObject> m_set = new();
 
@@ -53,7 +52,7 @@ namespace MoveStopMove.Core.CoreComponents
             Redraw();
         }
 
-        public void Redraw()
+        private void Redraw()
         {
             float r = sphereCol.radius;
             float step = 2f * Mathf.PI / segments;
@@ -72,7 +71,7 @@ namespace MoveStopMove.Core.CoreComponents
             lineRenderer.enabled = enable;
         }
 
-        public bool IsAnyCharacterInRange(GameObject other)
+        private bool IsAnyCharacterInRange(GameObject other)
         {
             if (other == null || other == gameObject) return false;
 
@@ -123,9 +122,13 @@ namespace MoveStopMove.Core.CoreComponents
             while (m_targetQueue.Count > 0)
             {
                 var enemy = m_targetQueue.Peek();
-                if (enemy.Target == null || !m_set.Contains(enemy.Target))
+                if (enemy.Target == null || !enemy.Target.activeInHierarchy || !m_set.Contains(enemy.Target))
                 {
                     m_targetQueue.Dequeue();
+                    if (enemy.Target != null)
+                    {
+                        m_set.Remove(enemy.Target);
+                    }
                     continue;
                 }
                 return enemy;
@@ -138,9 +141,12 @@ namespace MoveStopMove.Core.CoreComponents
             while (m_targetQueue.Count > 0)
             {
                 var enemy = m_targetQueue.Dequeue();
-                if (enemy.Target == null)
+                if (enemy.Target == null || !enemy.Target.activeInHierarchy)
                 {
-                    m_set.Remove(enemy.Target);
+                    if (enemy.Target != null)
+                    {
+                        m_set.Remove(enemy.Target);
+                    }
                     continue;
                 }
                 if (!m_set.Remove(enemy.Target))
@@ -154,8 +160,11 @@ namespace MoveStopMove.Core.CoreComponents
 
         public static Vector3 GetTargetPosition(TargetEntry entry, bool useCurrentIfAlive = true)
         {
-            if (useCurrentIfAlive && entry.Target != null)
+            if (useCurrentIfAlive && entry.Target != null && entry.Target.activeInHierarchy)
+            {
                 return entry.Target.transform.position;
+            }
+
             return entry.EnterPosition;
         }
 

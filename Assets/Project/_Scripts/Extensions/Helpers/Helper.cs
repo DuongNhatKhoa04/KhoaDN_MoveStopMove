@@ -75,6 +75,8 @@ namespace MoveStopMove.Extensions.Helpers
         }
     }
 
+    #region -- Save and Load data --
+
     public static class PlayerSaveLoader
     {
         public static readonly string SO_WEAPON_PATH = "SO/Weapons";
@@ -94,7 +96,7 @@ namespace MoveStopMove.Extensions.Helpers
         /// <typeparam name="TResult">Data type you want to get</typeparam>
         /// <returns>If data found, return data type input. If not, return data type with default value</returns>
         public static TResult GetDecoratorData<TData, TResult>(string itemName, string path,
-                                                                Func<TData, TResult> selector)
+            Func<TData, TResult> selector)
             where TData : ScriptableObject
         {
             TData dataSo = Resources.Load<TData>($"{path}/{itemName}");
@@ -106,14 +108,6 @@ namespace MoveStopMove.Extensions.Helpers
 
             Debug.LogWarning($"[GetDecoratorData] Không tìm thấy {typeof(TData).Name} tại {path}/{itemName}");
             return default;
-        }
-
-        public static void CheckSkinToApply(bool hasSkinTexture)
-        {
-            if (hasSkinTexture)
-            {
-
-            }
         }
 
         public static void SetAlbedoForMaterial(SkinnedMeshRenderer skinMesh,Texture2D texture)
@@ -150,6 +144,8 @@ namespace MoveStopMove.Extensions.Helpers
             skinMesh.materials = materialArray;
         }
     }
+
+    #endregion
 
     #region -- Decorator Builder --
 

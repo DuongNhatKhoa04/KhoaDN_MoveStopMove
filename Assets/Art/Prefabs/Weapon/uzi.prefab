@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 674041156713675308}
   - component: {fileID: 9138783311352562836}
   - component: {fileID: 4904533290381106622}
+  - component: {fileID: 8780808723172926147}
   m_Layer: 0
   m_Name: uzi
   m_TagString: Untagged
@@ -84,3 +85,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8780808723172926147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794044768617164155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c7e9438c754a2f8a306a22acc08fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacker: {fileID: 0}
+  projectile: {fileID: 0}
+  firePoint: {fileID: 0}

@@ -8,10 +8,21 @@ namespace MoveStopMove.Extensions.Decorator
 {
     public class WeaponDecorator : CharacterDecorator
     {
+        #region -- Fields --
+
         private GameObject m_currentWeapon;
+
+        #endregion
+
+        #region -- Properties --
+
         public GameObject WeaponAttachment { get; set; }
         public GameObject WeaponPrefab  { get; set; }
         public ProjectileBase ProjectilePrefab { get; set; }
+
+        #endregion
+
+        #region -- Methods --
 
         public WeaponDecorator(IDecoratable inner) : base(inner)
         {
@@ -40,5 +51,7 @@ namespace MoveStopMove.Extensions.Decorator
                 Core.Combat.SetWeapon(m_currentWeapon.GetComponent<WeaponBase>(), ProjectilePrefab);
             }
         }
+
+        #endregion
     }
 }

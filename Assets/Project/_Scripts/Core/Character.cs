@@ -6,7 +6,7 @@ using MoveStopMove.Interfaces;
 using MoveStopMove.SO;
 using MoveStopMove.Weapon.Projectile;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.Pool;
 
 namespace MoveStopMove.Core
 {
@@ -20,7 +20,14 @@ namespace MoveStopMove.Core
         [SerializeField] protected MainCore core;
         [SerializeField] protected CharacterData characterData;
 
+        protected IObjectPool<Character> CharacterPool;
+
         private int m_lastAttackLoop = -1;
+
+        public IObjectPool<Character> ObjectPool
+        {
+            set => CharacterPool = value;
+        }
 
         #endregion
 
@@ -38,6 +45,7 @@ namespace MoveStopMove.Core
 
         public virtual void Initialize()
         {
+            Debug.Log($"[Initialize] {name} tại {transform.position}");
             InitAttackRange(characterData.attackRangeRadius);
             animator.SetTrigger(AnimHashes.Map[currentAnimation]);
             InitStateMachine();
@@ -83,13 +91,13 @@ namespace MoveStopMove.Core
             animator.ResetTrigger(AnimHashes.Map[animationName]);
         }
 
-        public bool HasAnimationLooped(EAnim animation, out int loopIndex)
+        public bool HasAnimationLooped(EAnim anim, out int loopIndex)
         {
             loopIndex = 0;
 
             var stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
-            if (!stateInfo.IsName(animation.ToString()))
+            if (!stateInfo.IsName(anim.ToString()))
             {
                 m_lastAttackLoop = -1;
                 return false;
@@ -116,7 +124,7 @@ namespace MoveStopMove.Core
 
         public MainCore Core;
 
-        private IDecoratable m_inner;
+        private readonly IDecoratable m_inner;
         private static readonly int s_mainTex = Shader.PropertyToID("_MainTex");
 
         #endregion

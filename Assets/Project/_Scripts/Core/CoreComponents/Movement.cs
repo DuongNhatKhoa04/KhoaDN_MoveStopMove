@@ -1,18 +1,24 @@
 using MoveStopMove.Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MoveStopMove.Core.CoreComponents
 {
     public class Movement : CoreComponents, IMoveable
     {
+        #region -- Fields --
+
         [SerializeField] private Rigidbody rb;
         [SerializeField] private CapsuleCollider col;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private float castDistance = 0.5f;
         [SerializeField] private float startOffset = 0.1f;
+
         private static readonly RaycastHit[] s_hits = new RaycastHit[1];
         private RaycastHit m_groundHit;
+
+        #endregion
+
+        #region -- Methods --
 
         public void Moving(Vector3 direction, float speed, float acceleration)
         {
@@ -75,5 +81,7 @@ namespace MoveStopMove.Core.CoreComponents
 
             return true;
         }
+
+        #endregion
     }
 }

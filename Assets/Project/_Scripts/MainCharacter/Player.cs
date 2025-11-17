@@ -2,12 +2,14 @@ using MoveStopMove.Core;
 using MoveStopMove.DataPersistence;
 using MoveStopMove.DataPersistence.Data;
 using MoveStopMove.Extensions.Helpers;
+using MoveStopMove.Extensions.Observer;
 using MoveStopMove.Interfaces;
+using MoveStopMove.Managers;
 using UnityEngine;
 
 namespace MoveStopMove.MainCharacter
 {
-    public class Player : Character, IDataPersistence
+    public class Player : Character, IDataPersistence, IMyObserver<HitTarget>
     {
         #region -- Fields --
 
@@ -97,7 +99,7 @@ namespace MoveStopMove.MainCharacter
 
         public void LoadData(GameData data)
         {
-            Debug.Log("Loaded Pant: " + data);
+            Debug.Log("Loaded: " + data.equippedWeapon);
         }
 
         public void SaveData(GameData data)
@@ -170,6 +172,26 @@ namespace MoveStopMove.MainCharacter
         }
 
         #endregion
+
+        #endregion
+
+        #region -- Observer --
+
+        private void OnEnable()
+        {
+            EventManager.Instance?.Subscribe<HitTarget>(this);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Instance?.Unsubscribe<HitTarget>(this);
+        }
+
+        public void OnNotify(HitTarget data)
+        {
+            Debug.Log("Defeated " + data.Target + ", increase attack range by " + data.RangeUpdate);
+            core.Combat.GetAttackRange.IncreaseRange(data.RangeUpdate);
+        }
 
         #endregion
     }

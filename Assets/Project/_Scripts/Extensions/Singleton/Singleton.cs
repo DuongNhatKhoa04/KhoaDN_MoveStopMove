@@ -5,12 +5,16 @@ namespace MoveStopMove.Extensions.Singleton
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T s_instance;
+        private static bool s_isQuitting;
         [SerializeField] protected bool dontDestroyOnLoad = true;
 
         public static T Instance
         {
             get
             {
+                if (s_isQuitting)
+                    return null;
+
                 if (s_instance != null) return s_instance;
 
                 s_instance = FindFirstObjectByType<T>();
@@ -25,7 +29,7 @@ namespace MoveStopMove.Extensions.Singleton
 
         private static void SetUpInstance()
         {
-            if (s_instance != null) return;
+            if (s_instance != null  || s_isQuitting) return;
 
             var singleton = new GameObject(typeof(T).Name);
             s_instance = singleton.AddComponent<T>();
@@ -41,6 +45,11 @@ namespace MoveStopMove.Extensions.Singleton
         protected virtual void OnDestroy()
         {
             if (s_instance == this) s_instance = null;
+        }
+
+        protected virtual void OnApplicationQuit()
+        {
+            s_isQuitting = true;
         }
 
         private void RemoveDuplicates()

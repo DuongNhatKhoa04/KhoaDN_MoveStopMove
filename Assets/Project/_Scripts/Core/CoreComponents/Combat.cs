@@ -6,15 +6,23 @@ namespace MoveStopMove.Core.CoreComponents
 {
     public class Combat : CoreComponents
     {
+        #region -- Fields --
+
         [SerializeField] private AttackRange attackRange;
         [SerializeField] private WeaponBase weapon;
 
+        [SerializeField] private Transform ownerRoot;
+        [SerializeField] private float rotateSpeed = 20f;
+
+        #endregion
+
+        #region -- Properties --
+
         public AttackRange GetAttackRange => attackRange;
 
-        private new void Awake()
-        {
+        #endregion
 
-        }
+        #region -- Methods --
 
         public void SetWeapon(WeaponBase newWeapon, ProjectileBase weaponProjectile)
         {
@@ -25,30 +33,40 @@ namespace MoveStopMove.Core.CoreComponents
         public void Attack()
         {
             var targetEntry = attackRange.PeekEntry();
-            var targetPos= AttackRange.GetTargetPosition(targetEntry.Value);
+            if (targetEntry == null)
+            {
+                // Debug.Log("Không có kẻ địch trong vùng tấn công!");
+                return;
+            }
 
+            var targetPos = AttackRange.GetTargetPosition(targetEntry.Value);
+            RotateTowards(targetPos);
             weapon.Attack(targetPos);
         }
 
-        private void Update()
+        public void RotateTowards(Vector3 targetPos)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("Attack");
-                var targetEntry = attackRange.PeekEntry();
-                if (targetEntry == null)
-                {
-                    Debug.Log("Không có kẻ địch trong vùng tấn công!");
-                    return;
-                }
+            if (ownerRoot == null)
+                ownerRoot = transform;
 
-                var target = targetEntry.Value.Target;
-                Vector3 targetPosition = AttackRange.GetTargetPosition(targetEntry.Value);
+            Vector3 dir = targetPos - ownerRoot.position;
 
-                //Debug.Log($"Tấn công {target.name} bằng {weapon.GetActiveWeaponMode()}");
+            dir.y = 0f;
 
-                weapon.Attack(targetPosition);
-            }
+            if (dir.sqrMagnitude < 0.0001f)
+                return;
+
+            Quaternion targetRot = Quaternion.LookRotation(dir.normalized);
+
+            // ownerRoot.rotation = targetRot;
+
+            ownerRoot.rotation = Quaternion.Slerp(
+                ownerRoot.rotation,
+                targetRot,
+                rotateSpeed * Time.deltaTime
+            );
         }
+
+        #endregion
     }
 }

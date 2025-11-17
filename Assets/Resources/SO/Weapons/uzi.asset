@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 0
   prefab: {fileID: 794044768617164155, guid: c41d83ad12314ee4aa04afa1667176fe, type: 3}
+  projectilePrefab: {fileID: 1861360257067132547, guid: f100f275096c6c54993aa9a60d5e324f, type: 3}
   rangeIncrease: 0.2
   attackSpeedIncrease: 3
   movementIncrease: 1

@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using MoveStopMove.Extensions.Helpers;
+using MoveStopMove.Extensions.Observer;
 using MoveStopMove.Managers;
+using MoveStopMove.SO;
 using UnityEngine;
 
 namespace MoveStopMove.Weapon.Projectile
@@ -10,8 +13,6 @@ namespace MoveStopMove.Weapon.Projectile
 
         [Header("Piercing Settings")]
         [SerializeField] private int maxPierceCount = 2;
-
-        [SerializeField] private LayerMask hittableLayers;
 
         private int m_currentPierceCount;
         private readonly HashSet<GameObject> m_hitTargets = new();
@@ -41,8 +42,12 @@ namespace MoveStopMove.Weapon.Projectile
             if (!m_hitTargets.Add(target))
                 return;
 
-            Debug.Log($"[PiercingProjectile] Hit {target.name} ({m_currentPierceCount + 1}/{maxPierceCount})");
-            EventManager.Notify(new HitEvent(Owner, target));
+            var attackRangeBuff = PlayerSaveLoader.GetDecoratorData<WeaponData, float>(
+                weaponName,
+                PlayerSaveLoader.SO_WEAPON_PATH,
+                data => data.rangeIncrease);
+
+            EventManager.Instance.Notify(new HitTarget(Owner, attackRangeBuff, target));
 
             m_currentPierceCount++;
 
