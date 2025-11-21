@@ -1,3 +1,4 @@
+using MoveStopMove.Core.Interfaces;
 using UnityEngine;
 
 namespace MoveStopMove.Core.Events
@@ -13,6 +14,20 @@ namespace MoveStopMove.Core.Events
             this.Victim = victim;
             this.RangeUpdate = rangeUpdate;
             this.Target = target;
+        }
+    }
+
+    public readonly struct CombatHitEvent
+    {
+        public readonly IDamageable Victim;
+        public readonly float RangeUpdate;
+        public readonly int Coin;
+
+        public CombatHitEvent(IDamageable victim, float rangeUpdate, int coin)
+        {
+            Victim = victim;
+            RangeUpdate = rangeUpdate;
+            Coin = coin;
         }
     }
 }

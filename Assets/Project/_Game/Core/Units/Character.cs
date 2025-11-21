@@ -29,10 +29,11 @@ namespace MoveStopMove.Core.Units
         #region -- Properties --
 
         public MainCore Core => core;
-        public FiniteStateMachine StateMachine { get; private set; }
-        public PlayerIdleState CharacterIdleState { get; private set; }
-        public PlayerMoveState CharacterMoveState { get; private set; }
-        public PlayerAttackState CharacterAttackState {  get; private set; }
+        protected FiniteStateMachine StateMachine { get; private set; }
+        public PlayerIdleState PlayerIdleState { get; private set; }
+        public PlayerMoveState PlayerMoveState { get; private set; }
+        public PlayerAttackState PlayerAttackState {  get; private set; }
+        public PlayerDeadState PlayerDeadState { get; private set; }
         public IObjectPool<Character> ObjectPool
         {
             set => CharacterPool = value;
@@ -44,7 +45,7 @@ namespace MoveStopMove.Core.Units
 
         public virtual void Initialize()
         {
-            Debug.Log($"[Initialize] {name} tại {transform.position}");
+            //Debug.Log($"[Initialize] {name} tại {transform.position}");
             InitAttackRange(characterData.attackRangeRadius);
             animator.SetTrigger(AnimHashes.Map[currentAnimation]);
             InitStateMachine();
@@ -64,9 +65,10 @@ namespace MoveStopMove.Core.Units
         {
             StateMachine = new FiniteStateMachine();
 
-            CharacterIdleState = new PlayerIdleState(this, StateMachine, characterData, EAnim.Idle);
-            CharacterMoveState = new PlayerMoveState(this, StateMachine, characterData, EAnim.Run);
-            CharacterAttackState = new PlayerAttackState(this, StateMachine, characterData, EAnim.Attack);
+            PlayerIdleState = new PlayerIdleState(this, StateMachine, characterData, EAnim.Idle);
+            PlayerMoveState = new PlayerMoveState(this, StateMachine, characterData, EAnim.Run);
+            PlayerAttackState = new PlayerAttackState(this, StateMachine, characterData, EAnim.Attack);
+            PlayerDeadState = new PlayerDeadState(this, StateMachine, characterData, EAnim.Dead);
         }
 
         public void ChangeAnimation(EAnim animationName, float speed = 1)

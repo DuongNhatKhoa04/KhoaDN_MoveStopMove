@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MoveStopMove.Core.Units.PlayerCharacter
 {
-    public class Player : Character, IDataPersistence, IMyObserver<HitTarget>
+    public class Player : Character, IDataPersistence, IMyObserver<HitTarget>, IDamageable
     {
         #region -- Fields --
 
@@ -82,7 +82,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
             m_decoratorChain.EquipTail();
             m_decoratorChain.EquipWeapon();
 
-            StateMachine.Initialize(CharacterIdleState);
+            StateMachine.Initialize(PlayerIdleState);
         }
 
         private void Update()
@@ -194,5 +194,10 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         }
 
         #endregion
+
+        public void TakeHit()
+        {
+            StateMachine.ChangeState(PlayerDeadState);
+        }
     }
 }

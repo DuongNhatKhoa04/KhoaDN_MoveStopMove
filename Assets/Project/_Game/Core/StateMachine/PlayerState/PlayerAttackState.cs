@@ -18,13 +18,13 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
 
             if (IsMoving)
             {
-                StateMachine.ChangeState(Character.CharacterMoveState);
+                StateMachine.ChangeState(Character.PlayerMoveState);
             }
             else
             {
                 if (!HasTargetInRange())
                 {
-                    StateMachine.ChangeState(Character.CharacterIdleState);
+                    StateMachine.ChangeState(Character.PlayerIdleState);
                 }
 
                 var entry = Core.Combat.GetAttackRange.PeekEntry();

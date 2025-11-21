@@ -21,7 +21,7 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
             }
             else
             {
-                StateMachine.ChangeState(Character.CharacterIdleState);
+                StateMachine.ChangeState(Character.PlayerIdleState);
             }
         }
 

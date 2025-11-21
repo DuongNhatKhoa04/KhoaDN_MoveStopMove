@@ -29,12 +29,12 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
 
             if (IsMoving)
             {
-                StateMachine.ChangeState(Character.CharacterMoveState);
+                StateMachine.ChangeState(Character.PlayerMoveState);
             }
 
             if (HasTargetInRange() && !IsMoving)
             {
-                StateMachine.ChangeState(Character.CharacterAttackState);
+                StateMachine.ChangeState(Character.PlayerAttackState);
             }
         }
 

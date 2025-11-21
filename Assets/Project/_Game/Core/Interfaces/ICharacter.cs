@@ -21,6 +21,11 @@ namespace MoveStopMove.Core.Interfaces
         public void Resume();
     }
 
+    public interface IDamageable
+    {
+        public void TakeHit();
+    }
+
     public interface IResettable
     {
         public void Reset();
