@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1762359842155301148}
   - component: {fileID: 2010924495771147351}
   - component: {fileID: 77001126151431498}
-  - component: {fileID: 1861360257067132547}
   - component: {fileID: 8680764311283673089}
   - component: {fileID: 151176790337524211}
+  - component: {fileID: 1162722358147578199}
   m_Layer: 9
   m_Name: uziProjectile
   m_TagString: Untagged
@@ -87,25 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1861360257067132547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472704014045043701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3da54acecb34837b0a7856a28b95a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxLifetime: 5
-  destroyOnHit: 1
-  hittableLayers:
-    serializedVersion: 2
-    m_Bits: 1152
-  weaponName: 
 --- !u!54 &8680764311283673089
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,3 +135,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.084843494, y: 0.07816247, z: 0.011851264}
   m_Center: {x: 0.0059030876, y: 0.0027195185, z: 0}
+--- !u!114 &1162722358147578199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472704014045043701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a689e2cad6b44803b05fef3b5ada3564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxLifetime: 5
+  destroyOnHit: 1
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 1152
+  weaponName: uzi

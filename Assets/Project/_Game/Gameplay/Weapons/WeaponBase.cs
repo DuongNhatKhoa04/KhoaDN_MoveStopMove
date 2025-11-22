@@ -40,6 +40,11 @@ namespace MoveStopMove.Gameplay.Weapons
             if (attacker == null)
             {
                 attacker = GameObject.FindGameObjectWithTag("Player");
+
+                if (attacker == null)
+                {
+                    attacker = GameObject.FindGameObjectWithTag("Enemy");
+                }
             }
 
             ProjectileObjectPool = new ObjectPool<ProjectileBase>

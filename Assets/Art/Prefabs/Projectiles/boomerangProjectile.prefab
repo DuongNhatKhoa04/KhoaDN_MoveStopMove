@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8592714273969100999}
   - component: {fileID: 6962785294139816764}
   - component: {fileID: 2600650231648662718}
-  - component: {fileID: 4391077556076870908}
   - component: {fileID: 8283888729152769076}
   - component: {fileID: 2735722423433644806}
+  - component: {fileID: 8023351487186141593}
   m_Layer: 9
   m_Name: boomerangProjectile
   m_TagString: Untagged
@@ -86,29 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4391077556076870908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8171424398976557870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71ece4b1d4d4c6590f8ecbb7cffb951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxLifetime: 5
-  destroyOnHit: 1
-  hittableLayers:
-    serializedVersion: 2
-    m_Bits: 1152
-  weaponName: 
-  forwardDistance: 10
-  heightOffset: 1
-  delayBeforeReturn: 1
-  catchDistance: 1
 --- !u!65 &8283888729152769076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -157,3 +134,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8023351487186141593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8171424398976557870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c5aa20ef842d7841ef94d3122d7e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxLifetime: 5
+  destroyOnHit: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 1152
+  weaponName: boomerang
+  forwardDistance: 10
+  heightOffset: 1
+  delayBeforeReturn: 1
+  catchDistance: 1

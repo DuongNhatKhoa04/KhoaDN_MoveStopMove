@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2823152831195627015}
   - component: {fileID: 8159659449786082416}
   - component: {fileID: 8761965717921379799}
-  - component: {fileID: 7957457660712748536}
+  - component: {fileID: 4577320749524143641}
   m_Layer: 0
   m_Name: axe_0
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7957457660712748536
+--- !u!114 &4577320749524143641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,9 +94,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5827211062882558030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c7e9438c754a2f8a306a22acc08fdf, type: 3}
+  m_Script: {fileID: 11500000, guid: dffbf0479c324f888569c4c27894c61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 4895325813110328770, guid: ce3342085817ccf40867dfbaf7470f5a, type: 3}
   firePoint: {fileID: 0}

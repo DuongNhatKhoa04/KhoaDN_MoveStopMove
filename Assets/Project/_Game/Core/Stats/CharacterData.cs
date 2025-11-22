@@ -5,10 +5,10 @@ namespace MoveStopMove.Core.Stats
     [CreateAssetMenu(fileName = "CharacterData", menuName = "MoveStopMove/CharacterData")]
     public class CharacterData : ScriptableObject
     {
-        public float speed;
-        public float acceleration;
+        public float speed = 5;
+        public float acceleration = 60;
 
-        public float attackSpeed;
-        public float attackRangeRadius;
+        public float attackSpeed = 1;
+        public float attackRangeRadius = 4;
     }
 }

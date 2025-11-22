@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e427b234a624e56b895eb36812c8801, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d998792b0f94f7c942bbc1162315114, type: 3}
   m_Name: axe_1
   m_EditorClassIdentifier: 
-  weaponType: 0
+  weaponType: 1
   prefab: {fileID: 1968879662241784913, guid: bf8301c94615e704c96267877c2ea4db, type: 3}
-  projectilePrefab: {fileID: 1787853666274672240, guid: ea6a8a271bebcd24d9517d9dd0efd37e, type: 3}
+  projectilePrefab: {fileID: 17722557493745945, guid: ea6a8a271bebcd24d9517d9dd0efd37e, type: 3}
   rangeIncrease: 0.2
-  attackSpeedIncrease: -0.4
-  movementIncrease: 0.5
+  attackSpeedIncrease: 0
   maxAttackRange: 8
   specialSkill: 4
   price: 200

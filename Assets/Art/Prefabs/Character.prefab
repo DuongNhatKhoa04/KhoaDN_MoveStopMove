@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 817141070839476188}
   - component: {fileID: 7085712225366441179}
   - component: {fileID: 2194656855493659349}
-  - component: {fileID: 8440170955113071530}
+  - component: {fileID: 2661939932611572001}
   m_Layer: 7
   m_Name: Character
   m_TagString: Player
@@ -858,7 +858,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &8440170955113071530
+--- !u!114 &2661939932611572001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -867,13 +867,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2286801807328451906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c498adede04c2e9c88f69025e8dd46, type: 3}
+  m_Script: {fileID: 11500000, guid: fda3a09f53c7467382b54e9ca885a6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 817141070839476188}
   currentAnimation: 0
-  core: {fileID: 1580717863679915246}
-  characterData: {fileID: 11400000, guid: f5ddeadbdf6777a4883daa0ab6eca324, type: 2}
+  core: {fileID: 3303491538046004475}
+  characterData: {fileID: 11400000, guid: af0b08426f3afa746a80f0fc2295528e, type: 2}
   pantsRenderer: {fileID: 3349428497755629413}
   skinRenderers: {fileID: 7604069505271632380}
   defaultSkinMaterial: {fileID: 2100000, guid: b74fe5d82e187f243b268c0ff1bda3dc, type: 2}
@@ -1081,7 +1081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7881331535354095287}
-  - component: {fileID: 3275289356433336369}
+  - component: {fileID: 6010890212656696367}
   m_Layer: 7
   m_Name: Combat
   m_TagString: Untagged
@@ -1104,7 +1104,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5933756228417936357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3275289356433336369
+--- !u!114 &6010890212656696367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1113,10 +1113,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3157085880402917625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7bf2b54cea64b63877ea2e00b083a9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 97484b1fa9f54527b14c5ff59787b4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: {fileID: 9197125406035445246}
+  attackRange: {fileID: 513670584569504192}
   weapon: {fileID: 0}
   ownerRoot: {fileID: 7083978417016088795}
   rotateSpeed: 20
@@ -1193,7 +1193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5933756228417936357}
-  - component: {fileID: 1580717863679915246}
+  - component: {fileID: 3303491538046004475}
   m_Layer: 7
   m_Name: Core
   m_TagString: Untagged
@@ -1219,7 +1219,7 @@ Transform:
   - {fileID: 96871289422871742}
   m_Father: {fileID: 7083978417016088795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1580717863679915246
+--- !u!114 &3303491538046004475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1228,11 +1228,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3362262250950115823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d53b8c85bea2467080fd69bbaddee247, type: 3}
+  m_Script: {fileID: 11500000, guid: f6f9c2081ce9473890fe54fd65b311b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 4973759686912483154}
-  combat: {fileID: 3275289356433336369}
+  movement: {fileID: 3999962602095375203}
+  combat: {fileID: 6010890212656696367}
 --- !u!1 &3369641166981355160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,7 +1435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5194188243022257479}
-  - component: {fileID: 4973759686912483154}
+  - component: {fileID: 3999962602095375203}
   m_Layer: 7
   m_Name: Movement
   m_TagString: Untagged
@@ -1458,7 +1458,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5933756228417936357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4973759686912483154
+--- !u!114 &3999962602095375203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3995362781886273456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95e24d2968cd499496c76166643f2fcc, type: 3}
+  m_Script: {fileID: 11500000, guid: 000d85cee00549748e20042e5347218a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7085712225366441179}
@@ -1711,7 +1711,7 @@ GameObject:
   - component: {fileID: 96871289422871742}
   - component: {fileID: 356043139276307506}
   - component: {fileID: 711662964059100735}
-  - component: {fileID: 9197125406035445246}
+  - component: {fileID: 513670584569504192}
   m_Layer: 8
   m_Name: AttackRange
   m_TagString: Untagged
@@ -1859,7 +1859,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9197125406035445246
+--- !u!114 &513670584569504192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4926198158332439960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab4d59419d24e62810c51e58d133618, type: 3}
+  m_Script: {fileID: 11500000, guid: e3803d818c0547fe97c3aaf4c143e8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   segments: 64
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 356043139276307506}
   targetLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1024
 --- !u!1 &5089387082078297461
 GameObject:
   m_ObjectHideFlags: 0

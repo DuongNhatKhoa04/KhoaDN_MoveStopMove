@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7977386884633079112}
   - component: {fileID: 787539609504182397}
   - component: {fileID: 7710794782256488261}
-  - component: {fileID: 6441760324694389163}
   - component: {fileID: 7056838224104017704}
   - component: {fileID: 8479826010630980027}
+  - component: {fileID: 7694191360591429775}
   m_Layer: 0
   m_Name: candy_0Projectile
   m_TagString: Untagged
@@ -88,25 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6441760324694389163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396652525751156095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3da54acecb34837b0a7856a28b95a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxLifetime: 5
-  destroyOnHit: 1
-  hittableLayers:
-    serializedVersion: 2
-    m_Bits: 1152
-  weaponName: 
 --- !u!54 &7056838224104017704
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,3 +136,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.011666527, y: 0.02659658, z: 0.011666521}
   m_Center: {x: -0.0000000018626451, y: -0.0023885719, z: 4.656613e-10}
+--- !u!114 &7694191360591429775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396652525751156095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a689e2cad6b44803b05fef3b5ada3564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxLifetime: 5
+  destroyOnHit: 1
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 1152
+  weaponName: candy_0

@@ -9,19 +9,19 @@ namespace MoveStopMove.Core
     {
         #region -- Fields --
 
-        [Header("Enemy Spawn Settings")]
+        /*[Header("Enemy Spawn Settings")]
         [SerializeField] private int enemyCount = 20;
         [SerializeField] private float spawnRadius = 100f;
         [SerializeField] private float minDistanceBetweenEnemies = 2f;
         [SerializeField] private Transform spawnCenter;
 
-        private readonly List<Vector3> m_spawnedPositions = new();
+        private readonly List<Vector3> m_spawnedPositions = new();*/
 
         #endregion
 
         #region -- Methods --
 
-        private void Start()
+        /*private void Start()
         {
             if (spawnCenter == null)
                 spawnCenter = transform;
@@ -82,7 +82,7 @@ namespace MoveStopMove.Core
 
             result = spawnCenter.position;
             return false;
-        }
+        }*/
 
         #endregion
     }

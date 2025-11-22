@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8062204705310684053}
   - component: {fileID: 1002632156157544393}
   - component: {fileID: 4475674504952925298}
-  - component: {fileID: 1787853666274672240}
   - component: {fileID: 1429950071706100989}
   - component: {fileID: 1661283763658177018}
+  - component: {fileID: 17722557493745945}
   m_Layer: 9
   m_Name: axe_1Projectile
   m_TagString: Untagged
@@ -88,25 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1787853666274672240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5152265251765498564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3da54acecb34837b0a7856a28b95a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxLifetime: 5
-  destroyOnHit: 1
-  hittableLayers:
-    serializedVersion: 2
-    m_Bits: 1152
-  weaponName: 
 --- !u!54 &1429950071706100989
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,3 +136,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01718859, y: 0.030933015, z: 0.0032165153}
   m_Center: {x: -0.000048371963, y: -0.0009269321, z: -1.3172494e-17}
+--- !u!114 &17722557493745945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5152265251765498564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccf926633b44cf3bb0400c69f1fba00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxLifetime: 5
+  destroyOnHit: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 1152
+  weaponName: axe_1
+  maxPierceCount: 2

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 656178349289053840}
   - component: {fileID: 6041503596252842488}
   - component: {fileID: 2565670599699518636}
-  - component: {fileID: 5703088460560484904}
   - component: {fileID: 8527692681187189461}
   - component: {fileID: 2859420160728136899}
+  - component: {fileID: -3295165656186029834}
   m_Layer: 9
   m_Name: hammerProjectile
   m_TagString: Untagged
@@ -87,25 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5703088460560484904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5557032563912030826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3da54acecb34837b0a7856a28b95a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxLifetime: 5
-  destroyOnHit: 1
-  hittableLayers:
-    serializedVersion: 2
-    m_Bits: 1152
-  weaponName: 
 --- !u!54 &8527692681187189461
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,3 +135,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01271193, y: 0.02517824, z: 0.0060594548}
   m_Center: {x: 0.000058174133, y: -0.0006495786, z: -9.231064e-18}
+--- !u!114 &-3295165656186029834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557032563912030826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a689e2cad6b44803b05fef3b5ada3564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxLifetime: 5
+  destroyOnHit: 1
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  weaponName: hammer

@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e427b234a624e56b895eb36812c8801, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d998792b0f94f7c942bbc1162315114, type: 3}
   m_Name: knife
   m_EditorClassIdentifier: 
   weaponType: 1
   prefab: {fileID: 5199341435106671135, guid: 6472b2c5dcfd1d34080dd07f4a7dc7b3, type: 3}
-  projectilePrefab: {fileID: 774558302527113169, guid: 2933ea43e616ca846ac0e2f5613cfa40, type: 3}
+  projectilePrefab: {fileID: 623827987171016865, guid: 2933ea43e616ca846ac0e2f5613cfa40, type: 3}
   rangeIncrease: 0.2
-  attackSpeedIncrease: 2
-  movementIncrease: 1
-  maxAttackRange: 10
+  attackSpeedIncrease: 0.5
+  maxAttackRange: 8
   specialSkill: 4
   price: 200

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4209c9542df7545aeaa8bb61ab4abd, type: 3}
+  m_Script: {fileID: 11500000, guid: 732798e4c9934d8ba740bb20282105ee, type: 3}
   m_Name: angel
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 1423065451924409685, guid: b9a37ecaa0b972f4eb814be490cb54bf, type: 3}
-  projectile: {fileID: 8101706597142200888, guid: 5b686b28c60fcae4ba49ff2e82769ae8, type: 3}
+  projectile: {fileID: -7383662562884962604, guid: 5b686b28c60fcae4ba49ff2e82769ae8, type: 3}
   hairPrefab: {fileID: 61133857542862151, guid: 218d85d85d13f864ba09600ccbc5859f, type: 3}
   tailPrefab: {fileID: 0}
   wingPrefab: {fileID: 6928162263383360944, guid: 1f791b4550ae50f438ca2e347b4f6fb8, type: 3}
@@ -28,6 +28,6 @@ MonoBehaviour:
   hasTail: 0
   hasSkinTexture: 0
   rangeIncrease: 0.2
-  attackSpeedIncrease: 0
-  movementIncrease: 1
-  price: 0
+  attackSpeedIncrease: 0.5
+  movementIncrease: 2
+  price: 500

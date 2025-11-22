@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4496075499340013383}
   - component: {fileID: 3576817550378457032}
   - component: {fileID: 7559044597208527102}
-  - component: {fileID: 6034331832840541180}
+  - component: {fileID: 8431122148044746172}
   m_Layer: 9
   m_Name: candy_1Projectile
   m_TagString: Untagged
@@ -135,7 +135,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6034331832840541180
+--- !u!114 &8431122148044746172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,15 +144,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6834528560782015400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7abceac842324be3a6d941ba81500e5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 99ffba9c48564c098b5bee2ebf2bc0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
   maxLifetime: 5
-  destroyOnHit: 1
+  destroyOnHit: 0
   hittableLayers:
     serializedVersion: 2
     m_Bits: 1152
-  weaponName: 
+  weaponName: candy_1
   chainRadius: 5
   maxChains: 1

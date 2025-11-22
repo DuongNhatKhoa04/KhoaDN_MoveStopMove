@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453003a71b62a7148a9e7651ee27344d, type: 3}
+  m_Script: {fileID: 11500000, guid: 60e64632f159460986cf5bff24f1778e, type: 3}
   m_Name: cap
   m_EditorClassIdentifier: 
   prefab: {fileID: 809495636903501565, guid: d49eb920a7c31a24f8ce0956ce5d332b, type: 3}
-  rangeIncrease: 0.2
-  price: 200
+  rangeIncrease: 0.1
+  price: 100

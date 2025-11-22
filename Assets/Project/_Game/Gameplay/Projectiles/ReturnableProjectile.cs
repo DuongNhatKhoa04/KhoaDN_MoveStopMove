@@ -54,6 +54,7 @@ namespace MoveStopMove.Gameplay.Projectiles
             {
                 StopCoroutine(m_returnRoutine);
             }
+
             m_returnRoutine = StartCoroutine(ReturnDelayCoroutine());
 
             transform.eulerAngles = m_baseEuler;
@@ -87,8 +88,7 @@ namespace MoveStopMove.Gameplay.Projectiles
                 speed * Time.deltaTime
             );
 
-            if (!m_goingOut &&
-                Vector3.Distance(transform.position, targetPos) <= catchDistance)
+            if (!m_goingOut && Vector3.Distance(transform.position, targetPos) <= catchDistance)
             {
                 ReturnToPool();
             }
@@ -123,7 +123,7 @@ namespace MoveStopMove.Gameplay.Projectiles
 
             EventManager.Instance.Notify(new HitTarget(Owner, attackRangeBuff, target));
 
-            ReturnToPool();
+            //ReturnToPool();
         }
 
         #endregion

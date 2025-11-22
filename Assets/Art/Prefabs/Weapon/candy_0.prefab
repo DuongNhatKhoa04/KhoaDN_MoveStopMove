@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9140875877922759228}
   - component: {fileID: 4709675188538936561}
   - component: {fileID: 2735810122515942991}
-  - component: {fileID: 702742959630530413}
+  - component: {fileID: 3644554068427867347}
   m_Layer: 0
   m_Name: candy_0
   m_TagString: Untagged
@@ -86,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &702742959630530413
+--- !u!114 &3644554068427867347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,9 +95,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7562629569065298059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c7e9438c754a2f8a306a22acc08fdf, type: 3}
+  m_Script: {fileID: 11500000, guid: dffbf0479c324f888569c4c27894c61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 7694191360591429775, guid: 0a916a907398937439fb3e7b7140f496, type: 3}
   firePoint: {fileID: 0}

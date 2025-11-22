@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4209c9542df7545aeaa8bb61ab4abd, type: 3}
+  m_Script: {fileID: 11500000, guid: 732798e4c9934d8ba740bb20282105ee, type: 3}
   m_Name: thor
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 0}
+  projectile: {fileID: 0}
   hairPrefab: {fileID: 1530621657966739038, guid: f899a741b1c491d4f98400ce56cee6ce, type: 3}
   tailPrefab: {fileID: 0}
   wingPrefab: {fileID: 0}
@@ -28,5 +29,5 @@ MonoBehaviour:
   hasSkinTexture: 1
   rangeIncrease: 0.2
   attackSpeedIncrease: 0
-  movementIncrease: 1
-  price: 0
+  movementIncrease: 2
+  price: 300

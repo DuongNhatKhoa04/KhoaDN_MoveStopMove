@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4209c9542df7545aeaa8bb61ab4abd, type: 3}
+  m_Script: {fileID: 11500000, guid: 732798e4c9934d8ba740bb20282105ee, type: 3}
   m_Name: devil
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 0}
+  projectile: {fileID: 0}
   hairPrefab: {fileID: 3396304531853809223, guid: 306add868f4275a4e8d596bf49907f47, type: 3}
   tailPrefab: {fileID: 4660063173329206594, guid: 825304b82735f4a4a8bc249715cfe5cd, type: 3}
   wingPrefab: {fileID: 8057827398845575366, guid: 615d34c32f1f01940ad98a9e5d236576, type: 3}
@@ -27,6 +28,6 @@ MonoBehaviour:
   hasTail: 1
   hasSkinTexture: 0
   rangeIncrease: 0.2
-  attackSpeedIncrease: 0
-  movementIncrease: 1
-  price: 0
+  attackSpeedIncrease: 0.5
+  movementIncrease: 2
+  price: 500

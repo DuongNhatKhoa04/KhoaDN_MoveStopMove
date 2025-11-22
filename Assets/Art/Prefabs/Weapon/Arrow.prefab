@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5722522819361535225}
   - component: {fileID: 410733425606194461}
   - component: {fileID: 5059056832072810209}
-  - component: {fileID: 471359746355768542}
+  - component: {fileID: -941359210178892839}
   m_Layer: 0
   m_Name: arrow
   m_TagString: Untagged
@@ -86,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &471359746355768542
+--- !u!114 &-941359210178892839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3188084528072477816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841860b041c3418c8e8445b4beaa149d, type: 3}
+  m_Script: {fileID: 11500000, guid: dffbf0479c324f888569c4c27894c61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
-  maxPierce: 1
-  projectileObjectPool: {fileID: 0}
+  projectile: {fileID: -7383662562884962604, guid: 5b686b28c60fcae4ba49ff2e82769ae8, type: 3}
   firePoint: {fileID: 0}

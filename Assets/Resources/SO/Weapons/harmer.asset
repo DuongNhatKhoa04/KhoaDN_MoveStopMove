@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e427b234a624e56b895eb36812c8801, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d998792b0f94f7c942bbc1162315114, type: 3}
   m_Name: harmer
   m_EditorClassIdentifier: 
   weaponType: 0
   prefab: {fileID: 2733733980115772692, guid: 8dffaa80e037e9a47bc334100aef6e73, type: 3}
-  projectilePrefab: {fileID: 5703088460560484904, guid: 37559078aecc892488f8a4a80fe3e045, type: 3}
+  projectilePrefab: {fileID: -3295165656186029834, guid: 37559078aecc892488f8a4a80fe3e045, type: 3}
   rangeIncrease: 0.2
-  attackSpeedIncrease: -0.5
-  movementIncrease: 1
+  attackSpeedIncrease: 0
   maxAttackRange: 8
   specialSkill: 4
-  price: 200
+  price: 100

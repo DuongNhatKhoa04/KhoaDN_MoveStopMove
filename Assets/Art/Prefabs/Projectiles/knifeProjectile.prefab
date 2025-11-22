@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7282342828332801623}
   - component: {fileID: 8305211982564297211}
   - component: {fileID: 8125758947451508636}
-  - component: {fileID: 774558302527113169}
   - component: {fileID: -580103493459150094}
   - component: {fileID: 8134229348362044665}
+  - component: {fileID: 623827987171016865}
   m_Layer: 9
   m_Name: knifeProjectile
   m_TagString: Untagged
@@ -87,26 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &774558302527113169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2349341826948506097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf3fe8124384785b291115735005c23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxLifetime: 5
-  destroyOnHit: 1
-  hittableLayers:
-    serializedVersion: 2
-    m_Bits: 1152
-  weaponName: 
-  maxPierceCount: 2
 --- !u!54 &-580103493459150094
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,3 +135,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0042966595, y: 0.023079038, z: 0.0020119466}
   m_Center: {x: -0.0000026705677, y: -0.000034971632, z: 0}
+--- !u!114 &623827987171016865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349341826948506097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccf926633b44cf3bb0400c69f1fba00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxLifetime: 5
+  destroyOnHit: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 1152
+  weaponName: knife
+  maxPierceCount: 2

@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e427b234a624e56b895eb36812c8801, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d998792b0f94f7c942bbc1162315114, type: 3}
   m_Name: candy_1
   m_EditorClassIdentifier: 
   weaponType: 2
   prefab: {fileID: 2636927562981594127, guid: e841270bbf626f24884a26d359961548, type: 3}
-  projectilePrefab: {fileID: 6034331832840541180, guid: d67a4dba7785d34468c16d3dbd874894, type: 3}
+  projectilePrefab: {fileID: 8431122148044746172, guid: d67a4dba7785d34468c16d3dbd874894, type: 3}
   rangeIncrease: 0.2
   attackSpeedIncrease: 0
-  movementIncrease: 1
   maxAttackRange: 8
   specialSkill: 4
   price: 200

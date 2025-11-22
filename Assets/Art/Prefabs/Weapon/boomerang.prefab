@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8149436279386424535}
   - component: {fileID: 8186805841192540866}
   - component: {fileID: 5483775324803303730}
-  - component: {fileID: 3587965768124155225}
+  - component: {fileID: 3920732481418316855}
   m_Layer: 0
   m_Name: boomerang
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3587965768124155225
+--- !u!114 &3920732481418316855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,9 +93,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5493443044189031942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9b04abb29514dafa3de1532eeca45c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 067f8d9790124479a5f4ae7aa0d3cbc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 8023351487186141593, guid: 37775771ab57df44faa6e09011438e28, type: 3}
   firePoint: {fileID: 0}

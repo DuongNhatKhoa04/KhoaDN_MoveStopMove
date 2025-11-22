@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2547506323673335125}
   - component: {fileID: 8927943980954054814}
   - component: {fileID: 6920840151330620618}
-  - component: {fileID: -8492284051990404034}
+  - component: {fileID: 5762366775361835663}
   m_Layer: 0
   m_Name: knife
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8492284051990404034
+--- !u!114 &5762366775361835663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,10 +94,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5199341435106671135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841860b041c3418c8e8445b4beaa149d, type: 3}
+  m_Script: {fileID: 11500000, guid: cb5bd1ee092c4e96b44a2de70e9646a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
-  maxPierce: 1
-  projectileObjectPool: {fileID: 0}
+  projectile: {fileID: 623827987171016865, guid: 2933ea43e616ca846ac0e2f5613cfa40, type: 3}
   firePoint: {fileID: 0}
