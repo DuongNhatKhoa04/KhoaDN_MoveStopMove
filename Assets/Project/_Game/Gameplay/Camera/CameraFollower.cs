@@ -1,8 +1,9 @@
+using MoveStopMove.Utility.Extension;
 using UnityEngine;
 
 namespace MoveStopMove.Gameplay.Camera
 {
-    public class CameraFollower : MonoBehaviour
+    public class CameraFollower : Singleton<CameraFollower>
     {
         #region -- Fields --
 
@@ -10,7 +11,7 @@ namespace MoveStopMove.Gameplay.Camera
         public Transform target;
 
         [Header("Offset")]
-        public Vector3 offset = new Vector3(0f, 20f, -20f);
+        public Vector3 offset = new Vector3(0f, 5f, -10f);
 
         [Header("Rotation (tilt)")]
         [Range(-89f, 89f)]

@@ -7,7 +7,6 @@ namespace MoveStopMove.Utility.Extension
         #region -- Fields --
 
         private static T s_instance;
-        private static bool s_isQuitting;
         [SerializeField] protected bool dontDestroyOnLoad = true;
 
         #endregion
@@ -18,17 +17,15 @@ namespace MoveStopMove.Utility.Extension
         {
             get
             {
-                if (s_isQuitting)
-                    return null;
+                if (s_instance == null)
+                {
+                    s_instance = FindObjectOfType<T>();
 
-                if (s_instance != null) return s_instance;
-
-                s_instance = FindFirstObjectByType<T>();
-
-                if (s_instance != null) return s_instance;
-
-                SetUpInstance();
-
+                    if (s_instance == null)
+                    {
+                        SetUpInstance();
+                    }
+                }
                 return s_instance;
             }
         }
@@ -42,9 +39,7 @@ namespace MoveStopMove.Utility.Extension
         /// </summary>
         private static void SetUpInstance()
         {
-            if (s_instance != null  || s_isQuitting) return;
-
-            var singleton = new GameObject(typeof(T).Name);
+            GameObject singleton = new GameObject(typeof(T).Name);
             s_instance = singleton.AddComponent<T>();
 
             DontDestroyOnLoad(singleton);
@@ -60,11 +55,6 @@ namespace MoveStopMove.Utility.Extension
             if (s_instance == this) s_instance = null;
         }
 
-        protected virtual void OnApplicationQuit()
-        {
-            s_isQuitting = true;
-        }
-
         /// <summary>
         /// Remove duplicate instances
         /// </summary>
@@ -74,17 +64,20 @@ namespace MoveStopMove.Utility.Extension
             {
                 s_instance = this as T;
 
-                if (!dontDestroyOnLoad) return;
+                if (dontDestroyOnLoad)
+                {
+                    var root = transform.root;
 
-                var root = transform.root;
-
-                if (root != transform)
-                    DontDestroyOnLoad(root);
-                else
-                    DontDestroyOnLoad(this.gameObject);
+                    if (root != transform)
+                        DontDestroyOnLoad(root);
+                    else
+                        DontDestroyOnLoad(this.gameObject);
+                }
             }
             else
+            {
                 Destroy(this.gameObject);
+            }
         }
 
         #endregion

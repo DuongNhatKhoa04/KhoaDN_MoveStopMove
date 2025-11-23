@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: z
   m_EditorClassIdentifier: 
   weaponType: 0
+  icon: {fileID: 21300000, guid: 5efe81d46a1314d499b002fe9f86d60b, type: 3}
   prefab: {fileID: 4442104694290657541, guid: acffab59feea5c3489f272c6396c5844, type: 3}
   projectilePrefab: {fileID: 6310637809295770546, guid: d7925e3a5a976184384503c10bdca486, type: 3}
   rangeIncrease: 0.2

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: knife
   m_EditorClassIdentifier: 
   weaponType: 1
+  icon: {fileID: 21300000, guid: 076411b2f60617d419b9d01fbea7f6f6, type: 3}
   prefab: {fileID: 5199341435106671135, guid: 6472b2c5dcfd1d34080dd07f4a7dc7b3, type: 3}
   projectilePrefab: {fileID: 623827987171016865, guid: 2933ea43e616ca846ac0e2f5613cfa40, type: 3}
   rangeIncrease: 0.2

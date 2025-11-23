@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: harmer
   m_EditorClassIdentifier: 
   weaponType: 0
+  icon: {fileID: 21300000, guid: c2c6732c0a938ad41a4e375cf480bea0, type: 3}
   prefab: {fileID: 2733733980115772692, guid: 8dffaa80e037e9a47bc334100aef6e73, type: 3}
   projectilePrefab: {fileID: -3295165656186029834, guid: 37559078aecc892488f8a4a80fe3e045, type: 3}
   rangeIncrease: 0.2

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e64632f159460986cf5bff24f1778e, type: 3}
   m_Name: ear
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 399c3df8989d8394287099b1436421e0, type: 3}
   prefab: {fileID: 465765618740734685, guid: efbe3ddc9c6e9014db293ae82ceef113, type: 3}
   rangeIncrease: 0.1
   price: 100

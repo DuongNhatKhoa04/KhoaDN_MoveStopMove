@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: uzi
   m_EditorClassIdentifier: 
   weaponType: 0
+  icon: {fileID: 21300000, guid: e1cfb9b7057d5824d99e8d64188f458a, type: 3}
   prefab: {fileID: 794044768617164155, guid: c41d83ad12314ee4aa04afa1667176fe, type: 3}
   projectilePrefab: {fileID: 1162722358147578199, guid: f100f275096c6c54993aa9a60d5e324f, type: 3}
   rangeIncrease: 0.2

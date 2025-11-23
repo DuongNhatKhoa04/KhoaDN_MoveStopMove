@@ -26,6 +26,9 @@ namespace MoveStopMove.Core.Stats
         [Header("Type")]
         public EWeaponAttackType weaponType = EWeaponAttackType.Normal;
 
+        [Header("Icon")]
+        public Sprite icon;
+
         [Header("Prefab")]
         public GameObject prefab;
 

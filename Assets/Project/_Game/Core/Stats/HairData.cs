@@ -5,6 +5,9 @@ namespace MoveStopMove.Core.Stats
     [CreateAssetMenu(fileName = "HairData", menuName = "MoveStopMove/HairData")]
     public class HairData : ScriptableObject
     {
+        [Header("Icon")]
+        public Sprite icon;
+
         [Header("Prefab")]
         public GameObject prefab;
 

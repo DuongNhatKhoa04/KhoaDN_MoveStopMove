@@ -5,6 +5,9 @@ namespace MoveStopMove.Core.Stats
     [CreateAssetMenu(fileName = "PantData", menuName = "MoveStopMove/PantData")]
     public class PantData : ScriptableObject
     {
+        [Header("Icon")]
+        public Sprite icon;
+
         [Header("Texture")]
         public Texture2D texture;
 

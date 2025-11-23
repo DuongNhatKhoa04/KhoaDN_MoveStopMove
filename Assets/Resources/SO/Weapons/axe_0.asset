@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: axe_0
   m_EditorClassIdentifier: 
   weaponType: 0
+  icon: {fileID: 21300000, guid: d5ed40d0c1ed5c5459e1a8908980db41, type: 3}
   prefab: {fileID: 5827211062882558030, guid: 469b5a2dc5158d6408fdbe52387ed1f6, type: 3}
   projectilePrefab: {fileID: 4895325813110328770, guid: ce3342085817ccf40867dfbaf7470f5a, type: 3}
   rangeIncrease: 0.2

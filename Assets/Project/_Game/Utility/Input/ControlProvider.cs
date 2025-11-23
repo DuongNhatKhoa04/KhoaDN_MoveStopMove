@@ -11,6 +11,11 @@ namespace MoveStopMove.Utility.Input
 
         #endregion
 
+        public FixedJoystick FixedJoystick
+        {
+            set => fixedJoystick = value;
+        }
+
         #region -- Methods --
 
         /// <summary>
@@ -19,6 +24,11 @@ namespace MoveStopMove.Utility.Input
         /// <returns>Vector3</returns>
         public Vector3 CheckDirection()
         {
+            if (fixedJoystick == null)
+            {
+                return Vector3.zero;
+            }
+
             return new Vector3(fixedJoystick.Horizontal, 0, fixedJoystick.Vertical);
         }
 
