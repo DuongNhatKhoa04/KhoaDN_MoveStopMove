@@ -66,7 +66,7 @@ namespace MoveStopMove.Core.Appearance
             return m_customContext.pantTexture ??
                    PlayerSaveLoader.GetDecoratorData<PantData, Texture2D>(
                        pant, PlayerSaveLoader.SO_PANTS_PATH,
-                       d => d.texture);
+                       data => data.texture);
         }
 
         #endregion

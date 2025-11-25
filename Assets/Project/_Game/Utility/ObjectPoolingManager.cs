@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using MoveStopMove.Core.Units;
 using MoveStopMove.Utility.Extension;
 using UnityEngine;
@@ -9,72 +10,53 @@ namespace MoveStopMove.Utility
     {
         #region -- Fields --
 
-        [SerializeField] private Character enemy;
-
-        private IObjectPool<Character> m_objectPool;
+        private Dictionary<string, object> m_objectPools = new();
 
         #endregion
 
         #region -- Methods --
 
-        private void Awake()
+        public void CreateObjectPool<T>(T prefab, string poolKey, int initialSize = 20, int maxSize = 100)
+            where T : MonoBehaviour
         {
-            base.Awake();
-
-            m_objectPool = new ObjectPool<Character>
-            (
-                CreateEnemy,
-                OnGetromPool,
-                OnReleaseToPool,
-                OnDestroyPooledObject,
+            var pool = new ObjectPool<T>(
+                () => Instantiate(prefab),
+                entity => entity.gameObject.SetActive(true),
+                entity => entity.gameObject.SetActive(false),
+                entity => Destroy(entity.gameObject),
                 true,
-                20,
-                100
+                initialSize,
+                maxSize
             );
+
+            m_objectPools[poolKey] = pool;
         }
 
-        private Character CreateEnemy()
+        public T GetObjectFromPool<T>(string poolKey) where T : MonoBehaviour
         {
-            if (enemy == null)
+            if (m_objectPools.ContainsKey(poolKey))
             {
-                Debug.LogError("Enemy prefab chưa được gán trong ObjectPoolingManager!");
+                var pool = (ObjectPool<T>)m_objectPools[poolKey];
+                return pool.Get();
+            }
+            else
+            {
+                Debug.LogError($"Pool with key {poolKey} not found.");
                 return null;
             }
-            var enemyInstance = Instantiate(enemy);
-            enemyInstance.ObjectPool = m_objectPool;
-            return enemyInstance;
         }
 
-        private void OnGetromPool(Character pooledObject)
+        public void ReleaseObjectToPool<T>(T obj, string poolKey) where T : MonoBehaviour
         {
-            pooledObject.gameObject.SetActive(true);
-            //pooledObject.Initialize();
-        }
-
-        private void OnReleaseToPool(Character pooledObject)
-        {
-            pooledObject.gameObject.SetActive(false);
-        }
-
-        private void OnDestroyPooledObject(Character pooledObject)
-        {
-            Destroy(pooledObject.gameObject);
-        }
-
-        public Character GetEnemy()
-        {
-            return m_objectPool.Get();
-        }
-
-        public Character SpawnEnemy(Vector3 position)
-        {
-            var enemyInstance = m_objectPool.Get();
-
-            enemyInstance.transform.position = position;
-
-            enemyInstance.Initialize();
-
-            return enemyInstance;
+            if (m_objectPools.ContainsKey(poolKey))
+            {
+                var pool = (ObjectPool<T>)m_objectPools[poolKey];
+                pool.Release(obj);
+            }
+            else
+            {
+                Debug.LogError($"Pool with key {poolKey} not found.");
+            }
         }
 
         #endregion

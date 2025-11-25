@@ -61,7 +61,7 @@ namespace MoveStopMove.Gameplay.SaveLoad.Data
             startingData.coins = 0;
             startingData.kills = 0;
 
-            startingData.unlockedCustom.AddRange(new[] { "none" });
+            startingData.unlockedCustom.Clear();
             //startingData.unlockedCustom.AddRange(new[] { "devil" });
             //startingData.unlockedCustom.AddRange(new[] { "angel" });
             //startingData.unlockedCustom.AddRange(new[] { "thor" });
@@ -78,14 +78,14 @@ namespace MoveStopMove.Gameplay.SaveLoad.Data
             /*startingData.lockedCustom.AddRange(new[]
                 { "none", "angel", "devil" });*/
             startingData.lockedPant.AddRange(new[]
-                { "batman", "comy", "dabao", "onion", "pokemon", "rainbow", "skull", "vantim", "none" });
+                { "batman", "comy", "dabao", "onion", "pokemon", "rainbow", "skull", "vantim" });
             startingData.lockedHair.AddRange(new[]
-                { "cowboy", "ear", "hat", "cap", "hat_yellow", "headphone", "horn", "none" });
+                { "cowboy", "ear", "hat", "cap", "hat_yellow", "headphone" });
             startingData.lockedWeapon.AddRange(new[]
                 { "arrow", "axe_0", "axe_1", "z", "candy_0", "candy_1", "harmer", "knife", "uzi" });
 
 
-            startingData.equippedCustom = "none";
+            startingData.equippedCustom = "";
             //startingData.equippedCustom   = "devil";
             //startingData.equippedCustom   = "angel";
             //startingData.equippedCustom   = "thor";
@@ -99,50 +99,6 @@ namespace MoveStopMove.Gameplay.SaveLoad.Data
 
             return startingData;
         }
-
-        #endregion
-    }
-
-    [Serializable]
-    public class PlayerSaveData
-    {
-        #region -- Fields --
-
-        public int version = 1;
-
-        public int currentLevel = 0;
-        public int coins = 0;
-
-        public List<string> unlockedCustom = new();
-        public List<string> lockedCustom = new();
-
-        public List<string> unlockedPant = new();
-        public List<string> lockedPant = new();
-
-        public List<string> unlockedWeapon = new();
-        public List<string> lockedWeapon = new();
-
-        public List<string> unlockedHair = new();
-        public List<string> lockedHair = new();
-
-        public string equippedPant;
-        public string equippedCustom;
-        public string equippedWeapon;
-        public string equippedHair;
-
-        public PlayerSettings settings = new();
-
-        #endregion
-    }
-
-    [Serializable]
-    public class PlayerSettings
-    {
-        #region -- Fields --
-
-        public float masterVolume = 100f;
-        public float sfxVolume = 100f;
-        public float musicVolume = 100f;
 
         #endregion
     }
