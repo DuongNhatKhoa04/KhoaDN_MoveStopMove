@@ -1,7 +1,7 @@
-using MoveStopMove.Core.Interfaces;
-using MoveStopMove.Utility.Extension;
 using System;
 using System.Collections.Generic;
+using MoveStopMove.Core.Interfaces;
+using MoveStopMove.Utility.Extension;
 
 namespace MoveStopMove.Core.Events
 {
@@ -14,6 +14,11 @@ namespace MoveStopMove.Core.Events
         #endregion
 
         #region -- Methods --
+
+        private void Awake()
+        {
+            base.Awake();
+        }
 
         /// <summary>
         /// Subscribe to get envent

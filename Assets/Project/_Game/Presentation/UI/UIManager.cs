@@ -27,6 +27,15 @@ namespace MoveStopMove.Presentation.UI
 
         #region - Canvas -
 
+        private void Awake()
+        {
+            base.Awake();
+
+            var noti = GetUI<UINotification>();
+
+            noti.gameObject.SetActive(false);
+        }
+
         public T OpenUI<T>() where T : UICanvas
         {
             UICanvas canvas = GetUI<T>();
@@ -76,6 +85,12 @@ namespace MoveStopMove.Presentation.UI
                 if (m_uiResources == null)
                 {
                     m_uiResources = Resources.LoadAll<UICanvas>("UI/");
+                    Debug.Log($"[UIManager] Loaded {m_uiResources.Length} UI prefabs from Resources/UI/");
+
+                    foreach (var ui in m_uiResources)
+                    {
+                        Debug.Log($"[UIManager] Found UI prefab: {ui.name}");
+                    }
                 }
 
                 for (int i = 0; i < m_uiResources.Length; i++)

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MoveStopMove.Gameplay.SaveLoad.Data
+namespace MoveStopMove.Core.SaveLoad.Data
 {
     [Serializable]
     public class GameData
@@ -20,16 +20,12 @@ namespace MoveStopMove.Gameplay.SaveLoad.Data
 
         #endregion
 
-        #region - Inventory -
+        #region - Shop -
 
         public List<string> unlockedCustom = new();
         public List<string> unlockedPant = new();
         public List<string> unlockedHair = new();
         public List<string> unlockedWeapon = new();
-
-        #endregion
-
-        #region - Shop -
 
         public List<string> lockedCustom = new();
         public List<string> lockedPant = new();
@@ -67,7 +63,7 @@ namespace MoveStopMove.Gameplay.SaveLoad.Data
             //startingData.unlockedCustom.AddRange(new[] { "thor" });
             startingData.unlockedPant.AddRange(new[] { "chambi" });
             startingData.unlockedHair.AddRange(new[] { "arrow" });
-            startingData.unlockedWeapon.AddRange(new[] { "boomerang" });
+            startingData.unlockedWeapon.AddRange(new[] { "z", "boomerang" });
 
             startingData.lockedCustom.AddRange(new[]
                 { "devil", "angel", "thor" });
@@ -82,7 +78,7 @@ namespace MoveStopMove.Gameplay.SaveLoad.Data
             startingData.lockedHair.AddRange(new[]
                 { "cowboy", "ear", "hat", "cap", "hat_yellow", "headphone" });
             startingData.lockedWeapon.AddRange(new[]
-                { "arrow", "axe_0", "axe_1", "z", "candy_0", "candy_1", "harmer", "knife", "uzi" });
+                { "arrow", "axe_0", "axe_1", "candy_0", "candy_1", "harmer", "knife", "uzi" });
 
 
             startingData.equippedCustom = "";

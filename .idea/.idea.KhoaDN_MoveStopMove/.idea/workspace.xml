@@ -5,42 +5,101 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/HairItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/HairItem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/PantItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/PantItem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/WeaponItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/WeaponItem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/ItemUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/ItemUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIOutfitShop.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIOutfitShop.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponCard.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponCard.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/ShopEvents.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/ShopEvents.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/UIEvents.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/UIEvents.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopModel.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops/WeaponShopPresenter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops/WeaponShopPresenter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UINotification.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UINotification.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Shop/Item_Weapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Shop/Item_Weapon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/PlayerVisualProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/PlayerVisualProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/GamePlayManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/GamePlayManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Stats/CustomData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Stats/CustomData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Stats/WeaponData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Stats/WeaponData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Inventory.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data/GameData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Inventory.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shop.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Coldr/Editor/Coldr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Coldr/Editor/Coldr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Coldr/Editor/ColdrPreferences.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Coldr/Editor/ColdrPreferences.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Interfaces/IDataPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Interfaces/IDataPersistence.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data/GameData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data/GameData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/DataPersistenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/DataPersistenceManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/FileDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/FileDataHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/FileDataHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/FileDataHandler.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/Events/UIButtonEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/Events/UIButtonEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponCard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UICanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UICanvas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Helper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Utility/ObjectPoolingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Utility/ObjectPoolingManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01_UGUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01_UGUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark04.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark04.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ChatController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ChatController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SkewTextExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SkewTextExample.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextConsoleSimulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextConsoleSimulator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/WarpTextExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/WarpTextExample.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Joystick Pack/Scripts/Editor/DynamicJoystickEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Joystick Pack/Scripts/Editor/DynamicJoystickEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Joystick Pack/Scripts/Editor/FloatingJoystickEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Joystick Pack/Scripts/Editor/FloatingJoystickEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Joystick Pack/Scripts/Editor/JoystickEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Joystick Pack/Scripts/Editor/JoystickEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Joystick Pack/Scripts/Editor/VariableJoystickEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Joystick Pack/Scripts/Editor/VariableJoystickEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelBeamScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelBeamScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelButtonScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelButtonScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelFireProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelFireProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelLoopScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelLoopScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelOrbit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelOrbit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelProjectileScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelProjectileScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelSceneSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelSceneSelect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Demo/Scripts/VoxelTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Scripts/VoxelLightFade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Scripts/VoxelLightFade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Scripts/VoxelRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Voxel Arsenal/Scripts/VoxelRotation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,12 +134,18 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Events/CombatEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Events/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Events/LevelEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Events/ShopEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Interfaces/ICharacter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Interfaces/IDataPersistence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Interfaces/IMyObserver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/MainCore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Movement/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data/GameData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/FileDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/FiniteStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerAttackState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerDanceState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -111,9 +176,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ProjectileBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data/GameData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/DataPersistenceManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/FileDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops/WeaponShopPresenter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/ChainableWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/NormalWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/PiercingWeapon.cs" root0="FORCE_HIGHLIGHTING" />
@@ -126,6 +189,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UICanvas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UINotification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/CommandManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Command.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Helper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -272,6 +336,10 @@
       <workItem from="1763923309060" duration="179000" />
       <workItem from="1764042392848" duration="10404000" />
       <workItem from="1764069258602" duration="23617000" />
+      <workItem from="1764127162356" duration="8622000" />
+      <workItem from="1764151646570" duration="9485000" />
+      <workItem from="1764205308651" duration="20761000" />
+      <workItem from="1764243898820" duration="13841000" />
     </task>
     <servers />
   </component>

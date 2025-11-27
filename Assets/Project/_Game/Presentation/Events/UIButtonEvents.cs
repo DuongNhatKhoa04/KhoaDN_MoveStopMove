@@ -1,7 +1,12 @@
-namespace MoveStopMove.Project._Game.Presentation.Events
+namespace MoveStopMove.Presentation.Events
 {
-    public class UIButtonEvents
+    public struct UIBuyEvent
     {
-        
+
+    }
+
+    public struct UIEquipItemEvent
+    {
+
     }
 }

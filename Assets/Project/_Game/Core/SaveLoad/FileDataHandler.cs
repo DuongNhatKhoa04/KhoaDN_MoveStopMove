@@ -1,16 +1,22 @@
-using MoveStopMove.Gameplay.SaveLoad.Data;
 using System;
 using System.IO;
+using MoveStopMove.Core.SaveLoad.Data;
 using UnityEngine;
 
-namespace MoveStopMove.Gameplay.SaveLoad
+namespace MoveStopMove.Core.SaveLoad
 {
     public class FileDataHandler
     {
+        #region -- Fields --
+
         private string m_dataDirPath;
         private string m_dataFileName;
         private bool m_useEncryption;
         private readonly string m_encryptionCodeWord = "word";
+
+        #endregion
+
+        #region -- Methods --
 
         public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
         {
@@ -101,5 +107,7 @@ namespace MoveStopMove.Gameplay.SaveLoad
             }
             return modifiedData;
         }
+
+        #endregion
     }
 }

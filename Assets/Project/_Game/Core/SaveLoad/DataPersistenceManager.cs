@@ -1,30 +1,41 @@
-using MoveStopMove.Core.Interfaces;
-using MoveStopMove.Gameplay.SaveLoad.Data;
-using MoveStopMove.Utility.Extension;
 using System.Collections.Generic;
 using System.Linq;
+using MoveStopMove.Core.Interfaces;
+using MoveStopMove.Core.SaveLoad.Data;
+using MoveStopMove.Utility.Extension;
 using UnityEngine;
 
-namespace MoveStopMove.Gameplay.SaveLoad
+namespace MoveStopMove.Core.SaveLoad
 {
     public class DataPersistenceManager : Singleton<DataPersistenceManager>
     {
+        #region -- Fields --
+
         [Header("File Storage Config")]
         [SerializeField] private string fileName;
         [SerializeField] private bool useEncryption;
 
-        private GameData m_gameData;
         private List<IDataPersistence> m_dataPersistenceObjects;
         private FileDataHandler m_dataHandler;
+        private GameData m_gameData;
 
-        public GameData PlayerGameData
+        #endregion
+
+        #region -- Properties --
+
+        public GameData GameData
         {
             get => m_gameData;
             set => m_gameData = value;
         }
 
+        #endregion
+
+        #region -- Methods --
+
         private void Awake()
         {
+            base.Awake();
             this.m_dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
             this.m_dataPersistenceObjects = FindAllDataPersistenceObjects();
             LoadGame();
@@ -43,9 +54,9 @@ namespace MoveStopMove.Gameplay.SaveLoad
         /// </summary>
         public void LoadGame()
         {
-            this.m_gameData = m_dataHandler.Load();
+            m_gameData = m_dataHandler.Load();
 
-            if (this.m_gameData == null)
+            if (m_gameData == null)
             {
                 Debug.Log("No data was found. Initializing data to defaults.");
                 NewGame();
@@ -78,6 +89,10 @@ namespace MoveStopMove.Gameplay.SaveLoad
             SaveGame();
         }
 
+        /// <summary>
+        /// Find all the IDataPersistence implementations
+        /// </summary>
+        /// <returns>List of class implemented IDataPersistence</returns>
         private List<IDataPersistence> FindAllDataPersistenceObjects()
         {
             IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>()
@@ -85,5 +100,7 @@ namespace MoveStopMove.Gameplay.SaveLoad
 
             return new List<IDataPersistence>(dataPersistenceObjects);
         }
+
+        #endregion
     }
 }

@@ -16,6 +16,11 @@ namespace MoveStopMove.Utility
 
         #region -- Methods --
 
+        private void Awake()
+        {
+            base.Awake();
+        }
+
         public void CreateObjectPool<T>(T prefab, string poolKey, int initialSize = 20, int maxSize = 100)
             where T : MonoBehaviour
         {

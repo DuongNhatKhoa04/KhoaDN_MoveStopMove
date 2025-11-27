@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using MoveStopMove.Core.SaveLoad;
+using MoveStopMove.Core.SaveLoad.Data;
 using MoveStopMove.Core.Stats;
-using MoveStopMove.Gameplay.SaveLoad;
-using MoveStopMove.Gameplay.SaveLoad.Data;
 using MoveStopMove.Utility.Extension;
 using UnityEngine;
 
@@ -9,6 +9,8 @@ namespace MoveStopMove.Gameplay.Items
 {
     public class ItemManager : Singleton<ItemManager>
     {
+        #region -- Fields --
+
         private List<WeaponData> m_unlockedWeapons = new();
         private List<WeaponData> m_lockedWeapons = new();
 
@@ -21,23 +23,38 @@ namespace MoveStopMove.Gameplay.Items
         private List<CustomData> m_unlockedCustoms = new();
         private List<CustomData> m_lockedCustoms = new();
 
-        private GameData m_data;
+        private GameData m_gameData;
+
+        #endregion
+
+        #region -- Properties --
+
+        public bool IsDataLoaded { get; private set; }
+
+        #endregion
+
+        #region -- Methods --
+
+        private void Awake()
+        {
+            base.Awake();
+        }
 
         private void Start()
         {
-            m_data = DataPersistenceManager.Instance.PlayerGameData;
+            m_gameData = DataPersistenceManager.Instance.GameData;
 
-            var lockedWeapon = m_data.lockedWeapon;
-            var lockedPant = m_data.lockedPant;
-            var lockedHair = m_data.lockedHair;
-            var lockedCustom = m_data.lockedCustom;
+            var lockedWeapon = m_gameData.lockedWeapon;
+            var lockedPant = m_gameData.lockedPant;
+            var lockedHair = m_gameData.lockedHair;
+            var lockedCustom = m_gameData.lockedCustom;
 
-            var unlockedWeapon = m_data.unlockedWeapon;
-            var unlockedPant = m_data.unlockedPant;
-            var unlockedHair = m_data.unlockedHair;
-            var unlockedCustom = m_data.unlockedCustom;
+            var unlockedWeapon = m_gameData.unlockedWeapon;
+            var unlockedPant = m_gameData.unlockedPant;
+            var unlockedHair = m_gameData.unlockedHair;
+            var unlockedCustom = m_gameData.unlockedCustom;
 
-            if (m_data != null)
+            if (m_gameData != null)
             {
                 CheckAndAddItem(
                     lockedWeapon, unlockedWeapon,
@@ -58,6 +75,7 @@ namespace MoveStopMove.Gameplay.Items
                     lockedCustom, unlockedCustom,
                     m_lockedCustoms, m_unlockedCustoms,
                     PlayerSaveLoader.SO_CUSTOMS_PATH);
+                IsDataLoaded = true;
             }
         }
 
@@ -67,11 +85,13 @@ namespace MoveStopMove.Gameplay.Items
             if (unlockedItemsInFile != null && unlockedItemsInFile.Count > 0)
             {
                 AddItems<T>(unlockedItemsInFile, unlockItemsToList, path);
+                //Debug.Log(unlockItemsToList[0]);
             }
 
             if (lockedItemsInFile != null && lockedItemsInFile.Count > 0)
             {
                 AddItems<T>(lockedItemsInFile, lockItemsToList, path);
+                //Debug.Log(lockItemsToList[0]);
             }
         }
 
@@ -124,5 +144,7 @@ namespace MoveStopMove.Gameplay.Items
         {
             return m_unlockedCustoms;
         }
+
+        #endregion
     }
 }

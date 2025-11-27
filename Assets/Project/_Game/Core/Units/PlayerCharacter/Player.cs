@@ -1,9 +1,9 @@
 using MoveStopMove.Core.Appearance;
 using MoveStopMove.Core.Events;
 using MoveStopMove.Core.Interfaces;
+using MoveStopMove.Core.SaveLoad;
+using MoveStopMove.Core.SaveLoad.Data;
 using MoveStopMove.Core.Stats;
-using MoveStopMove.Gameplay.SaveLoad;
-using MoveStopMove.Gameplay.SaveLoad.Data;
 using MoveStopMove.Utility.Extension;
 using UnityEngine;
 
@@ -47,7 +47,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
         private void Start()
         {
-            m_gameData = DataPersistenceManager.Instance.PlayerGameData;
+            m_gameData = DataPersistenceManager.Instance.GameData;
             m_customContext = BuildCustomContext(m_gameData.equippedCustom);
 
             m_playerVisualProvider = new PlayerVisualProvider(m_customContext, defaultSkinMaterial);
@@ -179,12 +179,12 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
         private void OnEnable()
         {
-            EventManager.Instance?.Subscribe<HitTarget>(this);
+            EventManager.Instance.Subscribe<HitTarget>(this);
         }
 
         private void OnDisable()
         {
-            EventManager.Instance?.Unsubscribe<HitTarget>(this);
+            EventManager.Instance.Unsubscribe<HitTarget>(this);
         }
 
         public void OnNotify(HitTarget data)

@@ -1,10 +1,10 @@
+using System;
 using MoveStopMove.Core.Interfaces;
 using MoveStopMove.Core.StateMachine;
 using MoveStopMove.Core.StateMachine.PlayerState;
 using MoveStopMove.Core.Stats;
 using MoveStopMove.Gameplay.Projectiles;
 using MoveStopMove.Utility.Extension;
-using System;
 using UnityEngine;
 using UnityEngine.Pool;
 

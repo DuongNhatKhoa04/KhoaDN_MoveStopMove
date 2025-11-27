@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
 using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(VariableJoystick))]
 public class VariableJoystickEditor : JoystickEditor

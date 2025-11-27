@@ -9,7 +9,7 @@ namespace MoveStopMove.Presentation.UI
 
         protected RectTransform RectTransform;
 
-        private Animator m_animator;
+        //private Animator m_animator;
         private bool m_isInit = false;
         private float m_offsetY = 0;
 
@@ -21,7 +21,7 @@ namespace MoveStopMove.Presentation.UI
         protected void Init()
         {
             RectTransform = GetComponent<RectTransform>();
-            m_animator = GetComponent<Animator>();
+            //m_animator = GetComponent<Animator>();
 
             //float ratio = (float)Screen.height / (float)Screen.width;
 

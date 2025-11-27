@@ -1,4 +1,4 @@
-using MoveStopMove.Gameplay.SaveLoad.Data;
+using MoveStopMove.Core.SaveLoad.Data;
 
 namespace MoveStopMove.Core.Interfaces
 {

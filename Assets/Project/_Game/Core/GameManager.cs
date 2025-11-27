@@ -1,7 +1,7 @@
-using MoveStopMove.Utility;
-using MoveStopMove.Utility.Extension;
 using MoveStopMove.Core.Units;
 using MoveStopMove.Presentation.UI.Shops.Weapon;
+using MoveStopMove.Utility;
+using MoveStopMove.Utility.Extension;
 using UnityEngine;
 
 namespace MoveStopMove.Core
@@ -16,6 +16,11 @@ namespace MoveStopMove.Core
         #endregion
 
         #region -- Methods --
+
+        private void Awake()
+        {
+            base.Awake();
+        }
 
         private void Start()
         {
