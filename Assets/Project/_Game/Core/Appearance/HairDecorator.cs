@@ -23,7 +23,7 @@ namespace MoveStopMove.Core.Appearance
 
         public HairDecorator(IDecoratable inner) : base(inner)
         {
-            Debug.Log("Hair decorator");
+            //Debug.Log("Hair decorator");
         }
 
         /// <summary>

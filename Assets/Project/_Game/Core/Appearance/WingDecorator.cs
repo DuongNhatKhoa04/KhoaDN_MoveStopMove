@@ -23,7 +23,7 @@ namespace MoveStopMove.Core.Appearance
 
         public WingDecorator(IDecoratable inner) : base(inner)
         {
-            Debug.Log("WingDecorator");
+            //Debug.Log("WingDecorator");
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace MoveStopMove.Core.Appearance
         public override void EquipWing()
         {
             base.EquipWing();
-            Debug.Log(WingPrefab?.name);
+            //Debug.Log(WingPrefab?.name);
 
             if (WingAttachment == null)
             {

@@ -1,3 +1,4 @@
+using System.Collections;
 using MoveStopMove.Core.Appearance;
 using MoveStopMove.Core.Events;
 using MoveStopMove.Core.Interfaces;
@@ -28,6 +29,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         private Vector3 m_direction;
         private bool m_isMoving;
         private bool m_isGrounded;
+        private bool m_isInitialized;
 
         private IDecoratable m_decoratorChain;
         private CustomVisualContext m_customContext;
@@ -52,8 +54,10 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
             base.Initialize();
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
+            yield return this.WaitForGameDataLoaded();
+
             m_gameData = DataPersistenceManager.Instance.GameData;
             m_customContext = BuildCustomContext(m_gameData.equippedCustom);
 
@@ -97,15 +101,22 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
             m_decoratorChain.EquipWeapon();
 
             StateMachine.Initialize(PlayerIdleState);
+            m_isInitialized = true;
         }
 
         private void Update()
         {
+            if (!m_isInitialized || StateMachine.CurrentState == null)
+                return;
+
             StateMachine.CurrentState.LogicUpdate();
         }
 
         private void FixedUpdate()
         {
+            if (!m_isInitialized || StateMachine.CurrentState == null)
+                return;
+
             StateMachine.CurrentState.PhysicsUpdate();
         }
 

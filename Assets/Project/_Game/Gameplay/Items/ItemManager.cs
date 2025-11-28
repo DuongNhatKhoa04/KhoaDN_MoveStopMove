@@ -59,11 +59,6 @@ namespace MoveStopMove.Gameplay.Items
 
         #endregion
 
-        private void Awake()
-        {
-            base.Awake();
-        }
-
         #region -- Methods --
 
         private void CheckAndAddItem<T>(List<string> lockedItemsInFile, List<string> unlockedItemsInFile,
@@ -108,8 +103,9 @@ namespace MoveStopMove.Gameplay.Items
 
         public void LoadData(GameData gameData)
         {
+            //Debug.Log("Loading Weapons");
             m_gameData = gameData;
-            m_coins    = gameData.coins;
+            m_coins = gameData.coins;
 
             m_unlockedWeapons.Clear();
             m_lockedWeapons.Clear();
@@ -165,6 +161,7 @@ namespace MoveStopMove.Gameplay.Items
             );
 
             IsDataLoaded = true;
+            //Debug.Log("Done Loading Weapons");
         }
 
         public void SaveData(GameData data)

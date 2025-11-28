@@ -15,11 +15,6 @@ namespace MoveStopMove.Core.Events
 
         #region -- Methods --
 
-        private void Awake()
-        {
-            base.Awake();
-        }
-
         /// <summary>
         /// Subscribe to get envent
         /// </summary>

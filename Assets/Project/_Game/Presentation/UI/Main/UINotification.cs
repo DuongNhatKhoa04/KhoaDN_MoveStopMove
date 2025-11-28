@@ -1,9 +1,10 @@
 using MoveStopMove.Core.Events;
 using MoveStopMove.Core.Interfaces;
+using MoveStopMove.Presentation.UI;
 using TMPro;
 using UnityEngine;
 
-namespace MoveStopMove.Presentation.UI
+namespace MoveStopMove.Presentation.UI.Main
 {
     public class UINotification : UICanvas, IMyObserver<NotificationPopUpEvent>
     {

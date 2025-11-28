@@ -459,7 +459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CUSTOM
+  m_text: OUTFIT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -737,6 +737,7 @@ GameObject:
   - component: {fileID: 286479547234269595}
   - component: {fileID: 571020598188733427}
   - component: {fileID: 2842182385826274374}
+  - component: {fileID: 4595162988412574401}
   m_Layer: 0
   m_Name: UI_MainScreen
   m_TagString: Untagged
@@ -828,6 +829,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 2039
+--- !u!114 &4595162988412574401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5097192489596075121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fefa882a424460a5f9781baab949f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDestroyOnClose: 0
 --- !u!1 &5832594678766883055
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +855,7 @@ GameObject:
   - component: {fileID: 7904247692801210542}
   - component: {fileID: 2725088999595000497}
   m_Layer: 0
-  m_Name: Btn_Custom
+  m_Name: Btn_Outfit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,7 +962,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7904247692801210542}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4595162988412574401}
+        m_TargetAssemblyTypeName: MoveStopMove.Presentation.UI.Main.UIMain, Assembly-CSharp
+        m_MethodName: OnClickOutfit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7408858581898873103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1216,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5143724830072934884}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4595162988412574401}
+        m_TargetAssemblyTypeName: MoveStopMove.Presentation.UI.Main.UIMain, Assembly-CSharp
+        m_MethodName: OnClickWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8068763850499815506
 GameObject:
   m_ObjectHideFlags: 0

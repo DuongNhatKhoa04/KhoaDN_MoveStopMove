@@ -29,6 +29,8 @@ namespace MoveStopMove.Core.SaveLoad
             set => m_gameData = value;
         }
 
+        public bool IsLoaded { get; private set; }
+
         #endregion
 
         #region -- Methods --
@@ -37,6 +39,10 @@ namespace MoveStopMove.Core.SaveLoad
         {
             base.Awake();
             this.m_dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+        }
+
+        private void Start()
+        {
             this.m_dataPersistenceObjects = FindAllDataPersistenceObjects();
             LoadGame();
         }
@@ -54,6 +60,8 @@ namespace MoveStopMove.Core.SaveLoad
         /// </summary>
         public void LoadGame()
         {
+            IsLoaded = false;
+
             m_gameData = m_dataHandler.Load();
 
             if (m_gameData == null)
@@ -66,6 +74,8 @@ namespace MoveStopMove.Core.SaveLoad
             {
                 dataPersistenceObj.LoadData(m_gameData);
             }
+
+            IsLoaded = true;
         }
 
         /// <summary>

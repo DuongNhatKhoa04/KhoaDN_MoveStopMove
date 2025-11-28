@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using MoveStopMove.Core.Events;
 using MoveStopMove.Core.SaveLoad;
+using MoveStopMove.Gameplay.Camera;
 using MoveStopMove.Gameplay.Items;
 using MoveStopMove.Utility;
 using UnityEngine;
 
 namespace MoveStopMove.Presentation.UI.Shops.Weapon
 {
-    public class UIWeaponShop : MonoBehaviour
+    public class UIWeaponShop : UICanvas
     {
         #region -- Fields --
 
@@ -28,9 +29,14 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
 
         #region -- Methods --
 
-        private void Start()
+        public void Start()
         {
-            StartCoroutine(LoadWeapons());
+            CameraFollower.Instance.offset = new Vector3(0f, 5f, -10f);
+
+            if (!IsLoaded)
+            {
+                StartCoroutine(LoadWeapons());
+            }
         }
 
         /// <summary>
@@ -39,7 +45,10 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
         /// <returns>If loaded, set IsLoaded is true</returns>
         private IEnumerator LoadWeapons()
         {
+            Debug.Log("Loading");
             yield return new WaitUntil(() => ItemManager.Instance.IsDataLoaded);
+
+            Debug.Log("Done");
 
             var unlocked = ItemManager.Instance.UnlockedWeapons;
             var locked = ItemManager.Instance.LockedWeapons;
@@ -92,13 +101,13 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
                 DataPersistenceManager.Instance.SaveGame();
 
                 EventManager.Instance.Notify(
-                    new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
+                    new NotificationPopUpEvent(EEventCode.BuySuccess)
                 );
             }
             else
             {
                 EventManager.Instance.Notify(
-                    new NotificationPopUpEvent(EEventCode.BuySuccess)
+                    new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
                 );
             }
             // Nếu fail thì ItemManager đã bắn event NotEnoughCoins,
@@ -132,7 +141,6 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
                     new NotificationPopUpEvent(EEventCode.EquipSuccess)
                 );
             }
-            // Nếu fail (chưa unlock chẳng hạn), tuỳ bạn có muốn bắn event lỗi hay không.
         }
 
         #endregion

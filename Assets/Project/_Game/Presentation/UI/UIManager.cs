@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MoveStopMove.Presentation.UI.Main;
 using MoveStopMove.Utility.Extension;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,8 +30,6 @@ namespace MoveStopMove.Presentation.UI
 
         private void Awake()
         {
-            base.Awake();
-
             var noti = GetUI<UINotification>();
 
             noti.gameObject.SetActive(false);
@@ -85,12 +84,12 @@ namespace MoveStopMove.Presentation.UI
                 if (m_uiResources == null)
                 {
                     m_uiResources = Resources.LoadAll<UICanvas>("UI/");
-                    Debug.Log($"[UIManager] Loaded {m_uiResources.Length} UI prefabs from Resources/UI/");
+                    /*Debug.Log($"[UIManager] Loaded {m_uiResources.Length} UI prefabs from Resources/UI/");
 
                     foreach (var ui in m_uiResources)
                     {
                         Debug.Log($"[UIManager] Found UI prefab: {ui.name}");
-                    }
+                    }*/
                 }
 
                 for (int i = 0; i < m_uiResources.Length; i++)

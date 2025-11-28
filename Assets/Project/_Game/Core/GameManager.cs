@@ -1,4 +1,8 @@
 using MoveStopMove.Core.Units;
+using MoveStopMove.Gameplay.Camera;
+using MoveStopMove.Presentation.UI;
+using MoveStopMove.Presentation.UI.Main;
+using MoveStopMove.Presentation.UI.Shops.Outfit;
 using MoveStopMove.Presentation.UI.Shops.Weapon;
 using MoveStopMove.Utility;
 using MoveStopMove.Utility.Extension;
@@ -12,6 +16,9 @@ namespace MoveStopMove.Core
 
         [SerializeField] private Character enemyPrefab;
         [SerializeField] private UIWeaponCard weaponCardPrefab;
+        /*[SerializeField] private UIPantShop pantCardPrefab;
+        [SerializeField] private UIHairShop hairCardPrefab;
+        [SerializeField] private UICustomShop customCardPrefab;*/
 
         #endregion
 
@@ -19,29 +26,17 @@ namespace MoveStopMove.Core
 
         private void Awake()
         {
-            base.Awake();
+            ObjectPoolingManager.Instance.CreateObjectPool(enemyPrefab, "EnemyPool");
+            ObjectPoolingManager.Instance.CreateObjectPool(weaponCardPrefab, "WeaponCardPool");
+            /*ObjectPoolingManager.Instance.CreateObjectPool(pantCardPrefab,  "PantCardPool");
+            ObjectPoolingManager.Instance.CreateObjectPool(hairCardPrefab, "HairCardPool");
+            ObjectPoolingManager.Instance.CreateObjectPool(customCardPrefab, "CustomCardPool");*/
         }
 
         private void Start()
         {
-            ObjectPoolingManager.Instance.CreateObjectPool(enemyPrefab, "EnemyPool");
-            ObjectPoolingManager.Instance.CreateObjectPool(weaponCardPrefab, "WeaponCardPool");
+            UIManager.Instance.OpenUI<UIMain>();
         }
-
-        /*private void SpawnEnemy(Vector3 position)
-        {
-            var enemy = ObjectPoolingManager.Instance.GetObjectFromPool<Character>("EnemyPool");
-            enemy.transform.position = position;
-            enemy.gameObject.SetActive(true);
-        }
-
-        private void SpawnProjectile(Vector3 position, Vector3 direction)
-        {
-            var projectile = ObjectPoolingManager.Instance.GetObjectFromPool<Projectile>("ProjectilePool");
-            projectile.transform.position = position;
-            projectile.SetDirection(direction);
-            projectile.gameObject.SetActive(true);
-        }*/
 
         #endregion
     }

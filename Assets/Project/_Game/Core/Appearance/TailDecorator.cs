@@ -23,7 +23,7 @@ namespace MoveStopMove.Core.Appearance
 
         public TailDecorator(IDecoratable inner) : base(inner)
         {
-            Debug.Log("TailDecorator");
+            //Debug.Log("TailDecorator");
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace MoveStopMove.Core.Appearance
         public override void EquipTail()
         {
             base.EquipTail();
-            Debug.Log(TailPrefab?.name);
+            //Debug.Log(TailPrefab?.name);
 
             if (TailAttachment == null)
             {

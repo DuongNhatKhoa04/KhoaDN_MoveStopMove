@@ -55,7 +55,6 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
 
             SetDataToCard();
             RefreshState();
-            //SetupButtons();
         }
 
         /// <summary>
@@ -65,12 +64,12 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
         {
             if (m_weaponData == null) return;
 
-            iconWeapon.sprite    = m_weaponData.icon;
-            weaponName.text      = BuildStatsString("Name: ", m_weaponData.name);
-            weaponSkill.text     = BuildStatsString("Skill: ", m_weaponData.weaponType.ToString());
+            iconWeapon.sprite = m_weaponData.icon;
+            weaponName.text = BuildStatsString("Name: ", m_weaponData.name);
+            weaponSkill.text = BuildStatsString("Skill: ", m_weaponData.weaponType.ToString());
             weaponRangeIncrease.text = BuildStatsString("Range up: ", m_weaponData.rangeIncrease.ToString());
-            weaponMaxRange.text  = BuildStatsString("Max range: ", m_weaponData.maxAttackRange.ToString());
-            weaponPrice.text     = m_weaponData.price.ToString();
+            weaponMaxRange.text = BuildStatsString("Max range: ", m_weaponData.maxAttackRange.ToString());
+            weaponPrice.text = m_weaponData.price.ToString();
         }
 
         /// <summary>

@@ -21,7 +21,7 @@ namespace MoveStopMove.Core.Appearance
 
         public SkinDecorator(IDecoratable inner) : base(inner)
         {
-            Debug.Log("SkinDecorator");
+            //Debug.Log("SkinDecorator");
         }
 
         /// <summary>

@@ -26,7 +26,7 @@ namespace MoveStopMove.Core.Appearance
 
         public WeaponDecorator(IDecoratable inner) : base(inner)
         {
-            Debug.Log("WeaponDecoration");
+            //Debug.Log("WeaponDecoration");
         }
 
         /// <summary>

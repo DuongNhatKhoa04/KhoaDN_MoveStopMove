@@ -11,7 +11,7 @@ namespace MoveStopMove.Core.Appearance
 
         public PantDecorator(IDecoratable inner) : base(inner)
         {
-            Debug.Log("PantDecorator");
+            //Debug.Log("PantDecorator");
         }
 
         /// <summary>

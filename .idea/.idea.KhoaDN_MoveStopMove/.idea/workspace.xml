@@ -5,19 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UICustomShop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UICustomShop.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIHairShop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIHairShop.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIPantShop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIPantShop.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Shop/Item_Weapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Shop/Item_Weapon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/ShopEvents.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/ShopEvents.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/UIEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/UIEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Shop/Canvas_Notification.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Shop/Canvas_Notification.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/HairDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/HairDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/PantDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/PantDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/SkinDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/SkinDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/TailDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/TailDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/WeaponDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/WeaponDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/WingDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/WingDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopModel.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Camera/CameraFollower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Camera/CameraFollower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/HairItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/HairItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemBase.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops/WeaponShopPresenter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops/WeaponShopPresenter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/PantItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/PantItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/WeaponItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/WeaponItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/ItemUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/ItemUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIOutfitShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIOutfitShop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponCard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UINotification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UINotification.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Helper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Utility/ObjectPoolingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Utility/ObjectPoolingManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_MainScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_MainScreen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +88,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Events/CombatEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Events/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Events/LevelEvents.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Events/ShopEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Interfaces/ICharacter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Interfaces/IDataPersistence.cs" root0="FORCE_HIGHLIGHTING" />
@@ -62,8 +97,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data/GameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/FileDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/FiniteStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerAttackState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerDanceState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -84,30 +117,28 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Camera/CameraFollower.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Events/InventoryEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Events/ShopEvents.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/HairItem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/PantItem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/WeaponItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ChainableProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/NormalProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ProjectileBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops/WeaponShopPresenter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/ChainableWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/NormalWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/PiercingWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/ReturnableWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/WeaponBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/Events/UIButtonEvents.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/ItemUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UICustomShop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIHairShop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIOutfitShop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIPantShop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UICanvas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UINotification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/CommandManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Command.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Helper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -258,6 +289,7 @@
       <workItem from="1764151646570" duration="9485000" />
       <workItem from="1764205308651" duration="20761000" />
       <workItem from="1764243898820" duration="13841000" />
+      <workItem from="1764339057809" duration="13711000" />
     </task>
     <servers />
   </component>

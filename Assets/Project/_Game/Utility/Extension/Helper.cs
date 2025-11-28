@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using MoveStopMove.Core;
 using MoveStopMove.Core.Appearance;
 using MoveStopMove.Core.Interfaces;
+using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Core.SaveLoad.Data;
 using MoveStopMove.Core.Units;
 using UnityEngine;
@@ -249,6 +251,26 @@ namespace MoveStopMove.Utility.Extension
         public SkinnedMeshRenderer SkinRenderer;
 
         #endregion
+    }
+
+    #endregion
+
+    #region -- Data Persistence --
+
+    public static class DataPersistenceHelpers
+    {
+        /// <summary>
+        /// Wait until loading data is done.
+        /// </summary>
+        /// <param name="mono"></param>
+        /// <returns></returns>
+        public static IEnumerator WaitForGameDataLoaded(this MonoBehaviour mono)
+        {
+            yield return new WaitUntil(() =>
+                DataPersistenceManager.Instance != null &&
+                DataPersistenceManager.Instance.IsLoaded
+            );
+        }
     }
 
     #endregion
