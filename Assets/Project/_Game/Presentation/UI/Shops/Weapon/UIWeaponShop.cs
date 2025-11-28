@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using MoveStopMove.Core.Events;
-using MoveStopMove.Core.Stats;
+using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Gameplay.Items;
 using MoveStopMove.Utility;
 using UnityEngine;
@@ -10,89 +10,131 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
 {
     public class UIWeaponShop : MonoBehaviour
     {
+        #region -- Fields --
+
         [Header("References")]
         [SerializeField] private Transform itemContext;
 
-        private List<WeaponData> m_unlockedWeapons = new();
-        private List<WeaponData> m_lockedWeapons = new();
-        private UIWeaponCard m_currentEquippedCard = null;
-        private int m_currentCoins;
+        private readonly List<UIWeaponCard> m_cards = new();
+        private UIWeaponCard m_currentEquippedCard;
+
+        #endregion
+
+        #region -- Properties --
 
         public bool IsLoaded { get; private set; }
+
+        #endregion
+
+        #region -- Methods --
 
         private void Start()
         {
             StartCoroutine(LoadWeapons());
         }
 
+        /// <summary>
+        /// Load data from file and spawn weapon cards
+        /// </summary>
+        /// <returns>If loaded, set IsLoaded is true</returns>
         private IEnumerator LoadWeapons()
         {
             yield return new WaitUntil(() => ItemManager.Instance.IsDataLoaded);
 
-            m_unlockedWeapons = ItemManager.Instance.GetUnlockedWeapons();
-            m_lockedWeapons = ItemManager.Instance.GetLockedWeapons();
+            var unlocked = ItemManager.Instance.UnlockedWeapons;
+            var locked = ItemManager.Instance.LockedWeapons;
+            var equipped = ItemManager.Instance.EquippedWeapon;
 
-            foreach (var item in m_unlockedWeapons)
+            foreach (var weapon in unlocked)
             {
-                if (m_unlockedWeapons.Contains(item))
-                {
+                var card = ObjectPoolingManager.Instance.GetObjectFromPool<UIWeaponCard>("WeaponCardPool");
 
-                }
-                var unlockWeapons = ObjectPoolingManager.Instance.GetObjectFromPool<UIWeaponCard>("WeaponCardPool");
-                UpdateWeaponCard(unlockWeapons, item);
-                unlockWeapons.SetLockedWeapons(false);
-                unlockWeapons.SetDataToCard();
-                unlockWeapons.transform.SetParent(itemContext);
-                //unlockWeapons.Initialize(this);
-                //Debug.Log(unlockWeapons.Icon.name + unlockWeapons.WeaponName + unlockWeapons.WeaponMaxRange + unlockWeapons.WeaponBuff + unlockWeapons.WeaponPrice + unlockWeapons.WeaponSkill);
+                card.transform.SetParent(itemContext, false);
+
+                bool isEquipped = (weapon == equipped);
+                card.Initialize(this, weapon, false, isEquipped);
+
+                if (isEquipped)
+                    m_currentEquippedCard = card;
+
+                m_cards.Add(card);
             }
 
-            foreach (var item in m_lockedWeapons)
+            foreach (var weapon in locked)
             {
-                var lockWeapons = ObjectPoolingManager.Instance.GetObjectFromPool<UIWeaponCard>("WeaponCardPool");
-                UpdateWeaponCard(lockWeapons, item);
-                lockWeapons.SetLockedWeapons(true);
-                lockWeapons.SetDataToCard();
-                lockWeapons.transform.SetParent(itemContext);
-                //lockWeapons.Initialize(this);
-                //Debug.Log(lockWeapons.Icon.name + lockWeapons.WeaponName + lockWeapons.WeaponMaxRange + lockWeapons.WeaponBuff + lockWeapons.WeaponPrice + lockWeapons.WeaponSkill);
+                var card = ObjectPoolingManager.Instance
+                    .GetObjectFromPool<UIWeaponCard>("WeaponCardPool");
+
+                card.transform.SetParent(itemContext, false);
+                card.Initialize(this, weapon, isLocked: true, isEquipped: false);
+
+                m_cards.Add(card);
             }
 
             IsLoaded = true;
         }
 
-        private void UpdateWeaponCard(UIWeaponCard card, WeaponData item)
+        /// <summary>
+        /// For weapon card call when click buy button
+        /// </summary>
+        /// <param name="card">Specific weapon</param>
+        public void OnClickBuy(UIWeaponCard card)
         {
-            card.Icon = item.icon;
-            card.WeaponName = item.name;
-            card.WeaponMaxRange = item.maxAttackRange;
-            card.WeaponRangeIncrease = item.rangeIncrease;
-            card.WeaponPrice = item.price;
-            card.WeaponSkill = item.weaponType.ToString();
-        }
+            var weapon = card.WeaponData;
+            if (weapon == null) return;
 
-        public void EquipWeapon(UIWeaponCard weaponCard)
-        {
-            if (m_currentEquippedCard != null)
+            bool success = ItemManager.Instance.TryBuyWeapon(weapon);
+
+            if (success)
             {
-                m_currentEquippedCard.DeactivateEquipButton();
-            }
+                card.SetLocked(false);
 
-            m_currentEquippedCard = weaponCard;
+                DataPersistenceManager.Instance.SaveGame();
 
-            EventManager.Instance.Notify(new NotificationPopUpEvent(EEventCode.EquipSuccess));
-        }
-
-        public void BuyWeapon(string weaponName, int price)
-        {
-            if (m_currentCoins < price)
-            {
-                EventManager.Instance.Notify(new NotificationPopUpEvent(EEventCode.NotEnoughCoins));
+                EventManager.Instance.Notify(
+                    new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
+                );
             }
             else
             {
-
+                EventManager.Instance.Notify(
+                    new NotificationPopUpEvent(EEventCode.BuySuccess)
+                );
             }
+            // Nếu fail thì ItemManager đã bắn event NotEnoughCoins,
+            // UINotification sẽ popup.
         }
+
+        /// <summary>
+        /// For weapon card call when click equip button
+        /// </summary>
+        /// <param name="card">Specific weapon</param>
+        public void OnClickEquip(UIWeaponCard card)
+        {
+            var weapon = card.WeaponData;
+            if (weapon == null) return;
+
+            bool success = ItemManager.Instance.TryEquipWeapon(weapon);
+
+            if (success)
+            {
+                if (m_currentEquippedCard != null)
+                    m_currentEquippedCard.SetEquipped(false);
+
+                m_currentEquippedCard = card;
+                card.SetEquipped(true);
+
+                DataPersistenceManager.Instance.SaveGame();
+                Debug.Log(card.WeaponData.name);
+                EventManager.Instance.Notify(new ItemEquippedEvent(EItem.Weapon, card.WeaponData.name));
+
+                EventManager.Instance.Notify(
+                    new NotificationPopUpEvent(EEventCode.EquipSuccess)
+                );
+            }
+            // Nếu fail (chưa unlock chẳng hạn), tuỳ bạn có muốn bắn event lỗi hay không.
+        }
+
+        #endregion
     }
 }

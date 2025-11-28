@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MoveStopMove.Core.Units.PlayerCharacter
 {
-    public class Player : Character, IDataPersistence, IMyObserver<HitTarget>, IDamageable
+    public class Player : Character, IDataPersistence, IMyObserver<HitTarget>, IDamageable, IMyObserver<ItemEquippedEvent>
     {
         #region -- Fields --
 
@@ -30,11 +30,18 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         private bool m_isGrounded;
 
         private IDecoratable m_decoratorChain;
-
         private CustomVisualContext m_customContext;
         private GameData m_gameData;
-
         private PlayerVisualProvider m_playerVisualProvider;
+        private RendererReferences m_renderRefs;
+        private AttachmentReferences m_attachRefs;
+
+        private WeaponDecorator m_weaponDecorator;
+        private HairDecorator m_hairDecorator;
+        private WingDecorator m_wingDecorator;
+        private TailDecorator m_tailDecorator;
+        private PantDecorator m_pantDecorator;
+        private SkinDecorator m_skinDecorator;
 
         #endregion
 
@@ -52,13 +59,13 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
             m_playerVisualProvider = new PlayerVisualProvider(m_customContext, defaultSkinMaterial);
 
-            var renderRefs = new RendererReferences
+            m_renderRefs = new RendererReferences
             {
                 PantsRenderer = pantsRenderer,
                 SkinRenderer = skinRenderers
             };
 
-            var attachRefs = new AttachmentReferences
+            m_attachRefs = new AttachmentReferences
             {
                 WeaponAttachment = weaponAttachment,
                 HairAttachment = hairAttachment,
@@ -70,10 +77,17 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
                 Core,
                 m_gameData,
                 m_customContext,
-                renderRefs,
-                attachRefs,
+                m_renderRefs,
+                m_attachRefs,
                 m_playerVisualProvider
             );
+
+            m_weaponDecorator = FindDecoratorInChain<WeaponDecorator>(m_decoratorChain);
+            m_hairDecorator = FindDecoratorInChain<HairDecorator>(m_decoratorChain);
+            m_wingDecorator = FindDecoratorInChain<WingDecorator>(m_decoratorChain);
+            m_tailDecorator = FindDecoratorInChain<TailDecorator>(m_decoratorChain);
+            m_pantDecorator = FindDecoratorInChain<PantDecorator>(m_decoratorChain);
+            m_skinDecorator = FindDecoratorInChain<SkinDecorator>(m_decoratorChain);
 
             m_decoratorChain.EquipSkin();
             m_decoratorChain.EquipPant();
@@ -99,7 +113,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
         public void LoadData(GameData data)
         {
-            Debug.Log("Loaded: " + data.equippedWeapon);
+            m_gameData = data;
         }
 
         public void SaveData(GameData data)
@@ -109,7 +123,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
         #endregion
 
-        #region - Get data for decoration -
+        #region - Decoration -
 
         private CustomVisualContext BuildCustomContext(string customName)
         {
@@ -171,26 +185,160 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
             return context;
         }
 
-        #endregion
-
-        #endregion
-
-        #region -- Observer --
-
-        private void OnEnable()
+        private T FindDecoratorInChain<T>(IDecoratable root) where T : class, IDecoratable
         {
-            EventManager.Instance.Subscribe<HitTarget>(this);
+            var current = root;
+            while (current is CharacterDecorator decorator)
+            {
+                if (current is T match)
+                    return match;
+
+                current = decorator.Inner;
+            }
+            return null;
         }
 
-        private void OnDisable()
+        private void UpdateEquippedNameInGameData(ItemEquippedEvent data)
         {
-            EventManager.Instance.Unsubscribe<HitTarget>(this);
+            switch (data.ItemType)
+            {
+                case EItem.Weapon:
+                    m_gameData.equippedWeapon = data.ItemName;
+                    break;
+
+                case EItem.Hair:
+                    m_gameData.equippedHair = data.ItemName;
+                    break;
+
+                case EItem.Pant:
+                    m_gameData.equippedPant = data.ItemName;
+                    break;
+
+                case EItem.Custom:
+                    m_gameData.equippedCustom = data.ItemName;
+                    break;
+            }
         }
 
-        public void OnNotify(HitTarget data)
+        private void ApplyEquippedVisualRuntime(ItemEquippedEvent data)
         {
-            Debug.Log("Defeated " + data.Target + ", increase attack range by " + data.RangeUpdate);
-            core.Combat.GetAttackRange.IncreaseRange(data.RangeUpdate);
+            switch (data.ItemType)
+            {
+                case EItem.Weapon:
+                    EquipWeaponRuntime(data.ItemName);
+                    break;
+
+                case EItem.Hair:
+                    EquipHairRuntime(data.ItemName);
+                    break;
+
+                case EItem.Pant:
+                    EquipPantRuntime(data.ItemName);
+                    break;
+
+                case EItem.Custom:
+                    EquipCustomRuntime(data.ItemName);
+                    break;
+            }
+        }
+
+        private void EquipWeaponRuntime(string weaponName)
+        {
+            var weaponData = PlayerSaveLoader.GetDecoratorData<WeaponData, WeaponData>(
+                weaponName,
+                PlayerSaveLoader.SO_WEAPON_PATH,
+                w => w
+            );
+
+            if (weaponData != null && m_weaponDecorator != null)
+            {
+                m_weaponDecorator.WeaponAttachment = weaponAttachment;
+
+                m_weaponDecorator.WeaponPrefab     = weaponData.prefab;
+                m_weaponDecorator.ProjectilePrefab = weaponData.projectilePrefab;
+
+                m_weaponDecorator.EquipWeapon();
+            }
+        }
+
+        private void EquipHairRuntime(string hairName)
+        {
+            var hairData = PlayerSaveLoader.GetDecoratorData<HairData, HairData>(
+                hairName,
+                PlayerSaveLoader.SO_HAIRS_PATH,
+                hair => hair
+            );
+
+            if (hairData != null && m_hairDecorator != null)
+            {
+                m_hairDecorator.HairPrefab = hairData.prefab;
+                m_hairDecorator.EquipHair();
+            }
+        }
+
+        private void EquipPantRuntime(string pantName)
+        {
+            var pantData = PlayerSaveLoader.GetDecoratorData<PantData, PantData>(
+                pantName,
+                PlayerSaveLoader.SO_PANTS_PATH,
+                pant => pant
+            );
+
+            if (pantData != null && m_pantDecorator != null)
+            {
+                m_pantDecorator.PantsRenderer = pantsRenderer;
+                m_pantDecorator.PantTexture   = pantData.texture;
+                m_pantDecorator.EquipPant();
+            }
+        }
+
+        private void EquipCustomRuntime(string customName)
+        {
+            var customData = PlayerSaveLoader.GetDecoratorData<CustomData, CustomData>(
+                customName,
+                PlayerSaveLoader.SO_CUSTOMS_PATH,
+                custom => custom
+            );
+
+            if (customData != null)
+            {
+                if (customData.hasWeapon)
+                {
+                    m_weaponDecorator.WeaponPrefab = customData.weaponPrefab;
+                    m_weaponDecorator.ProjectilePrefab = customData.projectile;
+                }
+
+                if (customData.hasHair)
+                {
+                    m_hairDecorator.HairPrefab = customData.hairPrefab;
+                }
+
+                if (customData.hasPant)
+                {
+                    m_pantDecorator.PantTexture = customData.pant;
+                }
+
+                if (customData.hasTail)
+                {
+                    m_tailDecorator.TailPrefab = customData.tailPrefab;
+                }
+
+                if (customData.hasWing)
+                {
+                    m_wingDecorator.WingPrefab = customData.wingPrefab;
+                }
+
+                if (customData.hasSkinTexture)
+                {
+                    m_skinDecorator.HasTexture = customData.hasSkinTexture;
+                    m_skinDecorator.SkinTexture = customData.skinTexture;
+                }
+                else
+                {
+                    m_skinDecorator.HasTexture = customData.hasSkinTexture;
+                    m_skinDecorator.SkinMaterial = customData.skinMaterial;
+                }
+            }
         }
 
         #endregion
@@ -199,5 +347,36 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         {
             StateMachine.ChangeState(PlayerDeadState);
         }
+
+        #endregion
+
+        #region -- Observer --
+
+        private void OnEnable()
+        {
+            EventManager.Instance.Subscribe<HitTarget>(this);
+            EventManager.Instance.Subscribe<ItemEquippedEvent>(this);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Instance.Unsubscribe<HitTarget>(this);
+            EventManager.Instance.Unsubscribe<ItemEquippedEvent>(this);
+        }
+
+        public void OnNotify(HitTarget data)
+        {
+            Debug.Log("Defeated " + data.Target + ", increase attack range by " + data.RangeUpdate);
+            core.Combat.GetAttackRange.IncreaseRange(data.RangeUpdate);
+        }
+
+        // Equip item in runtime
+        public void OnNotify(ItemEquippedEvent data)
+        {
+            UpdateEquippedNameInGameData(data);
+            ApplyEquippedVisualRuntime(data);
+        }
+
+        #endregion
     }
 }

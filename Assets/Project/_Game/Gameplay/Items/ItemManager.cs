@@ -1,5 +1,7 @@
 using System.Collections.Generic;
-using MoveStopMove.Core.SaveLoad;
+using System.Linq;
+using MoveStopMove.Core.Events;
+using MoveStopMove.Core.Interfaces;
 using MoveStopMove.Core.SaveLoad.Data;
 using MoveStopMove.Core.Stats;
 using MoveStopMove.Utility.Extension;
@@ -7,23 +9,29 @@ using UnityEngine;
 
 namespace MoveStopMove.Gameplay.Items
 {
-    public class ItemManager : Singleton<ItemManager>
+    public class ItemManager : Singleton<ItemManager>, IDataPersistence
     {
         #region -- Fields --
 
-        private List<WeaponData> m_unlockedWeapons = new();
-        private List<WeaponData> m_lockedWeapons = new();
+        private readonly List<WeaponData> m_unlockedWeapons = new();
+        private readonly List<WeaponData> m_lockedWeapons = new();
 
-        private List<PantData> m_unlockedPants = new();
-        private List<PantData> m_lockedPants = new();
+        private readonly List<PantData> m_unlockedPants = new();
+        private readonly List<PantData> m_lockedPants = new();
 
-        private List<HairData> m_unlockedHairs = new();
-        private List<HairData> m_lockedHairs = new();
+        private readonly List<HairData> m_unlockedHairs = new();
+        private readonly List<HairData> m_lockedHairs = new();
 
-        private List<CustomData> m_unlockedCustoms = new();
-        private List<CustomData> m_lockedCustoms = new();
+        private readonly List<CustomData> m_unlockedCustoms = new();
+        private readonly List<CustomData> m_lockedCustoms = new();
+
+        private WeaponData m_equippedWeapon;
+        private PantData m_equippedPant;
+        private HairData m_equippedHair;
+        private CustomData m_equippedCustom;
 
         private GameData m_gameData;
+        private int m_coins;
 
         #endregion
 
@@ -31,119 +39,340 @@ namespace MoveStopMove.Gameplay.Items
 
         public bool IsDataLoaded { get; private set; }
 
-        #endregion
+        public IReadOnlyList<WeaponData> UnlockedWeapons => m_unlockedWeapons;
+        public IReadOnlyList<WeaponData> LockedWeapons => m_lockedWeapons;
+        public WeaponData EquippedWeapon => m_equippedWeapon;
 
-        #region -- Methods --
+        public IReadOnlyList<PantData> UnlockedPants => m_unlockedPants;
+        public IReadOnlyList<PantData> LockedPants => m_lockedPants;
+        public PantData EquippedPant => m_equippedPant;
+
+        public IReadOnlyList<HairData> UnlockedHairs => m_unlockedHairs;
+        public IReadOnlyList<HairData> LockedHairs => m_lockedHairs;
+        public HairData EquippedHair => m_equippedHair;
+
+        public IReadOnlyList<CustomData> UnlockedCustoms => m_unlockedCustoms;
+        public IReadOnlyList<CustomData> LockedCustoms => m_lockedCustoms;
+        public CustomData EquippedCustom => m_equippedCustom;
+
+        public int Coins => m_coins;
+
+        #endregion
 
         private void Awake()
         {
             base.Awake();
         }
 
-        private void Start()
-        {
-            m_gameData = DataPersistenceManager.Instance.GameData;
-
-            var lockedWeapon = m_gameData.lockedWeapon;
-            var lockedPant = m_gameData.lockedPant;
-            var lockedHair = m_gameData.lockedHair;
-            var lockedCustom = m_gameData.lockedCustom;
-
-            var unlockedWeapon = m_gameData.unlockedWeapon;
-            var unlockedPant = m_gameData.unlockedPant;
-            var unlockedHair = m_gameData.unlockedHair;
-            var unlockedCustom = m_gameData.unlockedCustom;
-
-            if (m_gameData != null)
-            {
-                CheckAndAddItem(
-                    lockedWeapon, unlockedWeapon,
-                    m_lockedWeapons, m_unlockedWeapons,
-                    PlayerSaveLoader.SO_WEAPON_PATH);
-
-                CheckAndAddItem(
-                    lockedPant, unlockedPant,
-                    m_lockedPants, m_unlockedPants,
-                    PlayerSaveLoader.SO_PANTS_PATH);
-
-                CheckAndAddItem(
-                    lockedHair, unlockedHair,
-                    m_lockedHairs, m_unlockedHairs,
-                    PlayerSaveLoader.SO_HAIRS_PATH);
-
-                CheckAndAddItem(
-                    lockedCustom, unlockedCustom,
-                    m_lockedCustoms, m_unlockedCustoms,
-                    PlayerSaveLoader.SO_CUSTOMS_PATH);
-                IsDataLoaded = true;
-            }
-        }
+        #region -- Methods --
 
         private void CheckAndAddItem<T>(List<string> lockedItemsInFile, List<string> unlockedItemsInFile,
-            List<T> lockItemsToList, List<T> unlockItemsToList, string path) where T : ScriptableObject
+            List<T> lockItemsToList, List<T> unlockItemsToList,
+            string path) where T : ScriptableObject
         {
             if (unlockedItemsInFile != null && unlockedItemsInFile.Count > 0)
-            {
-                AddItems<T>(unlockedItemsInFile, unlockItemsToList, path);
-                //Debug.Log(unlockItemsToList[0]);
-            }
+                AddItems(unlockedItemsInFile, unlockItemsToList, path);
 
             if (lockedItemsInFile != null && lockedItemsInFile.Count > 0)
-            {
-                AddItems<T>(lockedItemsInFile, lockItemsToList, path);
-                //Debug.Log(lockItemsToList[0]);
-            }
+                AddItems(lockedItemsInFile, lockItemsToList, path);
         }
 
         private void AddItems<T>(List<string> itemsInFile, List<T> itemsToList, string path)
             where T : ScriptableObject
         {
-            foreach (var lockedItem in itemsInFile)
+            foreach (var itemName in itemsInFile)
             {
-                T item = PlayerSaveLoader.GetDecoratorData<T, T>(lockedItem, path, data => data);
-                itemsToList.Add(item);
+                T item = PlayerSaveLoader.GetDecoratorData<T, T>(
+                    itemName,
+                    path,
+                    data => data
+                );
+
+                if (item != null)
+                    itemsToList.Add(item);
             }
         }
 
-        public List<WeaponData> GetLockedWeapons()
+        private static TData LoadEquipped<TData>(string equippedName, string path)
+            where TData : ScriptableObject
         {
-            return m_lockedWeapons;
+            if (string.IsNullOrEmpty(equippedName))
+                return null;
+
+            return PlayerSaveLoader.GetDecoratorData<TData, TData>(
+                equippedName,
+                path,
+                data => data
+            );
         }
 
-        public List<WeaponData> GetUnlockedWeapons()
+        public void LoadData(GameData gameData)
         {
-            return m_unlockedWeapons;
+            m_gameData = gameData;
+            m_coins    = gameData.coins;
+
+            m_unlockedWeapons.Clear();
+            m_lockedWeapons.Clear();
+            m_unlockedPants.Clear();
+            m_lockedPants.Clear();
+            m_unlockedHairs.Clear();
+            m_lockedHairs.Clear();
+            m_unlockedCustoms.Clear();
+            m_lockedCustoms.Clear();
+
+            CheckAndAddItem(
+                gameData.lockedWeapon, gameData.unlockedWeapon,
+                m_lockedWeapons, m_unlockedWeapons,
+                PlayerSaveLoader.SO_WEAPON_PATH
+            );
+
+            CheckAndAddItem(
+                gameData.lockedPant, gameData.unlockedPant,
+                m_lockedPants, m_unlockedPants,
+                PlayerSaveLoader.SO_PANTS_PATH
+            );
+
+            CheckAndAddItem(
+                gameData.lockedHair, gameData.unlockedHair,
+                m_lockedHairs, m_unlockedHairs,
+                PlayerSaveLoader.SO_HAIRS_PATH
+            );
+
+            CheckAndAddItem(
+                gameData.lockedCustom, gameData.unlockedCustom,
+                m_lockedCustoms, m_unlockedCustoms,
+                PlayerSaveLoader.SO_CUSTOMS_PATH
+            );
+
+            m_equippedWeapon = LoadEquipped<WeaponData>(
+                gameData.equippedWeapon,
+                PlayerSaveLoader.SO_WEAPON_PATH
+            );
+
+            m_equippedPant = LoadEquipped<PantData>(
+                gameData.equippedPant,
+                PlayerSaveLoader.SO_PANTS_PATH
+            );
+
+            m_equippedHair = LoadEquipped<HairData>(
+                gameData.equippedHair,
+                PlayerSaveLoader.SO_HAIRS_PATH
+            );
+
+            m_equippedCustom = LoadEquipped<CustomData>(
+                gameData.equippedCustom,
+                PlayerSaveLoader.SO_CUSTOMS_PATH
+            );
+
+            IsDataLoaded = true;
         }
 
-        public List<PantData> GetLockedPants()
+        public void SaveData(GameData data)
         {
-            return m_lockedPants;
+            data.coins = m_coins;
+
+            data.lockedWeapon = m_lockedWeapons.Select(weapon => weapon.name).ToList();
+            data.unlockedWeapon = m_unlockedWeapons.Select(w => w.name).ToList();
+            data.equippedWeapon = m_equippedWeapon != null ? m_equippedWeapon.name : "";
+
+            data.lockedPant = m_lockedPants.Select(p => p.name).ToList();
+            data.unlockedPant = m_unlockedPants.Select(p => p.name).ToList();
+            data.equippedPant = m_equippedPant != null ? m_equippedPant.name : "";
+
+            data.lockedHair = m_lockedHairs.Select(h => h.name).ToList();
+            data.unlockedHair = m_unlockedHairs.Select(h => h.name).ToList();
+            data.equippedHair = m_equippedHair != null ? m_equippedHair.name : "";
+
+            data.lockedCustom = m_lockedCustoms.Select(c => c.name).ToList();
+            data.unlockedCustom = m_unlockedCustoms.Select(c => c.name).ToList();
+            data.equippedCustom = m_equippedCustom != null ? m_equippedCustom.name : "";
         }
 
-        public List<PantData> GetUnlockedPants()
+        public bool TryBuyWeapon(WeaponData weapon)
         {
-            return m_unlockedPants;
+            if (weapon == null) return false;
+
+            if (m_unlockedWeapons.Contains(weapon))
+                return false;
+
+            if (!m_lockedWeapons.Contains(weapon))
+                return false;
+
+            int price = weapon.price;
+
+            if (m_coins < price)
+            {
+                return false;
+            }
+
+            m_coins -= price;
+            m_lockedWeapons.Remove(weapon);
+            m_unlockedWeapons.Add(weapon);
+
+            return true;
         }
 
-        public List<HairData> GetLockedHairs()
+        public bool TryEquipWeapon(WeaponData weapon)
         {
-            return m_lockedHairs;
+            if (weapon == null) return false;
+
+            if (!m_unlockedWeapons.Contains(weapon))
+                return false;
+
+            m_equippedWeapon = weapon;
+
+            return true;
         }
 
-        public List<HairData> GetUnlockedHairs()
+        #region -- Buy / Equip Pant --
+
+        public bool TryBuyPant(PantData pant)
         {
-            return m_unlockedHairs;
+            if (pant == null) return false;
+
+            if (m_unlockedPants.Contains(pant))
+                return false;
+
+            if (!m_lockedPants.Contains(pant))
+                return false;
+
+            int price = (int)pant.price;
+
+            if (m_coins < price)
+            {
+                EventManager.Instance.Notify(
+                    new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
+                );
+                return false;
+            }
+
+            m_coins -= price;
+            m_lockedPants.Remove(pant);
+            m_unlockedPants.Add(pant);
+
+            EventManager.Instance.Notify(
+                new NotificationPopUpEvent(EEventCode.BuySuccess)
+            );
+
+            return true;
         }
 
-        public List<CustomData> GetLockedCustoms()
+        public bool TryEquipPant(PantData pant)
         {
-            return m_lockedCustoms;
+            if (pant == null) return false;
+            if (!m_unlockedPants.Contains(pant))
+                return false;
+
+            m_equippedPant = pant;
+
+            EventManager.Instance.Notify(
+                new NotificationPopUpEvent(EEventCode.EquipSuccess)
+            );
+
+            return true;
         }
 
-        public List<CustomData> GetUnlockedCustoms()
+        #endregion
+
+        #region -- Buy / Equip Hair --
+
+        public bool TryBuyHair(HairData hair)
         {
-            return m_unlockedCustoms;
+            if (hair == null) return false;
+
+            if (m_unlockedHairs.Contains(hair))
+                return false;
+
+            if (!m_lockedHairs.Contains(hair))
+                return false;
+
+            int price = (int)hair.price;
+
+            if (m_coins < price)
+            {
+                EventManager.Instance.Notify(
+                    new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
+                );
+                return false;
+            }
+
+            m_coins -= price;
+            m_lockedHairs.Remove(hair);
+            m_unlockedHairs.Add(hair);
+
+            EventManager.Instance.Notify(
+                new NotificationPopUpEvent(EEventCode.BuySuccess)
+            );
+
+            return true;
         }
+
+        public bool TryEquipHair(HairData hair)
+        {
+            if (hair == null) return false;
+            if (!m_unlockedHairs.Contains(hair))
+                return false;
+
+            m_equippedHair = hair;
+
+            EventManager.Instance.Notify(
+                new NotificationPopUpEvent(EEventCode.EquipSuccess)
+            );
+
+            return true;
+        }
+
+        #endregion
+
+        #region -- Buy / Equip Custom --
+
+        public bool TryBuyCustom(CustomData custom)
+        {
+            if (custom == null) return false;
+
+            if (m_unlockedCustoms.Contains(custom))
+                return false;
+
+            if (!m_lockedCustoms.Contains(custom))
+                return false;
+
+            int price = (int)custom.price;
+
+            if (m_coins < price)
+            {
+                EventManager.Instance.Notify(
+                    new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
+                );
+                return false;
+            }
+
+            m_coins -= price;
+            m_lockedCustoms.Remove(custom);
+            m_unlockedCustoms.Add(custom);
+
+            EventManager.Instance.Notify(
+                new NotificationPopUpEvent(EEventCode.BuySuccess)
+            );
+
+            return true;
+        }
+
+        public bool TryEquipCustom(CustomData custom)
+        {
+            if (custom == null) return false;
+            if (!m_unlockedCustoms.Contains(custom))
+                return false;
+
+            m_equippedCustom = custom;
+
+            EventManager.Instance.Notify(
+                new NotificationPopUpEvent(EEventCode.EquipSuccess)
+            );
+
+            return true;
+        }
+
+        #endregion
 
         #endregion
     }

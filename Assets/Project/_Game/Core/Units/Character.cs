@@ -132,6 +132,7 @@ namespace MoveStopMove.Core.Units
 
         #region -- Properties --
 
+        public IDecoratable Inner => m_inner;
         public SkinnedMeshRenderer PantsRenderer { get; set; }
         public Texture2D PantTexture { get; set; }
 
@@ -146,32 +147,32 @@ namespace MoveStopMove.Core.Units
 
         public virtual void EquipWeapon()
         {
-            m_inner.EquipWeapon();
+            m_inner?.EquipWeapon();
         }
 
         public virtual void EquipHair()
         {
-            m_inner.EquipHair();
+            m_inner?.EquipHair();
         }
 
         public virtual void EquipWing()
         {
-            m_inner.EquipWing();
+            m_inner?.EquipWing();
         }
 
         public virtual void EquipTail()
         {
-            m_inner.EquipTail();
+            m_inner?.EquipTail();
         }
 
         public virtual void EquipPant()
         {
-            m_inner.EquipPant();
+            m_inner?.EquipPant();
         }
 
         public virtual void EquipSkin()
         {
-            m_inner.EquipSkin();
+            m_inner?.EquipSkin();
         }
 
         #endregion

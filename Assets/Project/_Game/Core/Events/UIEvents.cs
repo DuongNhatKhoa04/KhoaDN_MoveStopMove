@@ -21,6 +21,14 @@ namespace MoveStopMove.Core.Events
         SaveError = 502,
     }
 
+    public enum EItem
+    {
+        Weapon,
+        Hair,
+        Custom,
+        Pant
+    }
+
     public struct NotificationPopUpEvent
     {
         public bool IsSuccess => (int)Code < 400;
@@ -54,6 +62,19 @@ namespace MoveStopMove.Core.Events
             {
                 Message = "Thông báo không xác định.";
             }
+        }
+    }
+
+    public struct ItemEquippedEvent
+    {
+        public EItem ItemType;
+
+        public string ItemName;
+
+        public ItemEquippedEvent(EItem itemType,string name)
+        {
+            ItemType = itemType;
+            ItemName = name;
         }
     }
 }

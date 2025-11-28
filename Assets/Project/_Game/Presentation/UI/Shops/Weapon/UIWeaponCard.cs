@@ -1,105 +1,141 @@
-using System;
-using MoveStopMove.Core.Events;
-using MoveStopMove.Core.Interfaces;
-using MoveStopMove.Core.SaveLoad.Data;
+using System.Text;
 using MoveStopMove.Core.Stats;
-using MoveStopMove.Gameplay.Shops;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace MoveStopMove.Presentation.UI.Shops.Weapon
 {
-    public class UIWeaponCard : MonoBehaviour, IDataPersistence
+    public class UIWeaponCard : MonoBehaviour
     {
+        #region -- Fields --
+
         [SerializeField] private Image iconWeapon;
+
         [Header("Text")]
         [SerializeField] private TextMeshProUGUI weaponName;
         [SerializeField] private TextMeshProUGUI weaponRangeIncrease;
         [SerializeField] private TextMeshProUGUI weaponSkill;
         [SerializeField] private TextMeshProUGUI weaponMaxRange;
         [SerializeField] private TextMeshProUGUI weaponPrice;
-        [Header("Buttons")]
-        [SerializeField] private GameObject buttonBuy;
-        [SerializeField] private GameObject buttonEquip;
-        [SerializeField] private GameObject buttonCanEquip;
 
-        private WeaponShopPresenter m_presenter;
+        [Header("Buttons Root")]
+        [SerializeField] private GameObject buy;
+        [SerializeField] private GameObject equip;
+        [SerializeField] private GameObject canEquip;
+
+        private UIWeaponShop m_shop;
         private WeaponData m_weaponData;
-        //private UIWeaponShop m_weaponShopManager;
         private bool m_isLocked;
+        private bool m_isEquipped;
+
+        #endregion
 
         #region -- Properties --
 
-        public Sprite Icon { get; set; }
-        public string WeaponName { get; set; }
-        public float WeaponRangeIncrease { get; set; }
-        public string WeaponSkill { get; set; }
-        public float WeaponMaxRange { get; set; }
-        public int WeaponPrice { get; set; }
         public WeaponData WeaponData => m_weaponData;
 
         #endregion
 
-        public void Initialize(WeaponShopPresenter presenter)
-        {
-            m_presenter = presenter;
-        }
+        #region -- Methods --
 
-        public void SetDataToCard()
+        /// <summary>
+        /// Init data for weapon card
+        /// </summary>
+        /// <param name="shop">Shop UI</param>
+        /// <param name="data">Weapon data</param>
+        /// <param name="isLocked">Is weapon locked?</param>
+        /// <param name="isEquipped">Is weapon equipped?</param>
+        public void Initialize(UIWeaponShop shop, WeaponData data, bool isLocked, bool isEquipped)
         {
-            iconWeapon.sprite = Icon;
-            weaponName.text = BuildStatsString("Name: ", WeaponName);
-            weaponSkill.text = BuildStatsString("Skill: ", WeaponSkill);
-            weaponRangeIncrease.text = BuildStatsString("Range up: ", WeaponRangeIncrease.ToString());
-            weaponMaxRange.text = BuildStatsString("Max range: ", WeaponMaxRange.ToString());
-            weaponPrice.text = WeaponPrice.ToString();
-        }
-
-        public void SetLockedWeapons(bool isLocked)
-        {
+            m_shop = shop;
+            m_weaponData = data;
             m_isLocked = isLocked;
+            m_isEquipped = isEquipped;
 
+            SetDataToCard();
+            RefreshState();
+            //SetupButtons();
+        }
+
+        /// <summary>
+        /// Setup card information
+        /// </summary>
+        private void SetDataToCard()
+        {
+            if (m_weaponData == null) return;
+
+            iconWeapon.sprite    = m_weaponData.icon;
+            weaponName.text      = BuildStatsString("Name: ", m_weaponData.name);
+            weaponSkill.text     = BuildStatsString("Skill: ", m_weaponData.weaponType.ToString());
+            weaponRangeIncrease.text = BuildStatsString("Range up: ", m_weaponData.rangeIncrease.ToString());
+            weaponMaxRange.text  = BuildStatsString("Max range: ", m_weaponData.maxAttackRange.ToString());
+            weaponPrice.text     = m_weaponData.price.ToString();
+        }
+
+        /// <summary>
+        /// Extensions for build string
+        /// </summary>
+        /// <param name="title">Title</param>
+        /// <param name="info">Stats</param>
+        /// <returns>Stats UI as string</returns>
+        private string BuildStatsString(string title, string info)
+        {
+            var builder = new StringBuilder();
+            builder.Append(title);
+            builder.Append(info);
+            return builder.ToString();
+        }
+
+        /// <summary>
+        /// Refresh state off each button for button click event
+        /// </summary>
+        private void RefreshState()
+        {
             if (m_isLocked)
             {
-                buttonBuy.SetActive(true);
-                buttonCanEquip.SetActive(false);
+                buy.SetActive(true);
+                canEquip.SetActive(false);
+                equip.SetActive(false);
             }
             else
             {
-                buttonBuy.SetActive(false);
-                buttonCanEquip.SetActive(true);
+                buy.SetActive(false);
+                canEquip.SetActive(!m_isEquipped);
+                equip.SetActive(m_isEquipped);
             }
         }
 
-        private string BuildStatsString(string title, string info)
+        /// <summary>
+        /// For locked weapon
+        /// </summary>
+        /// <param name="value">Weapon is locked or not</param>
+        public void SetLocked(bool value)
         {
-            return $"{title}{info}";
+            m_isLocked = value;
+            RefreshState();
         }
 
-        public void OnClickEquipButton()
+        /// <summary>
+        /// For equipped weapon
+        /// </summary>
+        /// <param name="value">Weapon is equipped or not</param>
+        public void SetEquipped(bool value)
         {
-            //m_weaponShopManager.EquipWeapon(this);
-
-            buttonEquip.SetActive(true);
-            buttonCanEquip.SetActive(false);
-            //EventManager.Instance.Notify(new NotificationPopUpEvent(EEventCode.EquipSuccess, "Đã trang bị thành công"));
+            m_isEquipped = value;
+            RefreshState();
         }
 
-        public void DeactivateEquipButton()
+        public void OnClickBuy()
         {
-            buttonEquip.SetActive(false);
-            buttonCanEquip.SetActive(true);
+            m_shop.OnClickBuy(this);
         }
 
-        public void LoadData(GameData data)
+        public void OnClickEquip()
         {
-            throw new NotImplementedException();
+            m_shop.OnClickEquip(this);
         }
 
-        public void SaveData(GameData data)
-        {
-            throw new NotImplementedException();
-        }
+        #endregion
     }
 }

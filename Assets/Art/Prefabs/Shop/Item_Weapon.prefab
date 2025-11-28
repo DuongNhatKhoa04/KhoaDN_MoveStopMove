@@ -156,7 +156,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4755766917613381689}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8131335790423635913}
+        m_TargetAssemblyTypeName: MoveStopMove.Presentation.UI.Shops.Weapon.UIWeaponCard,
+          Assembly-CSharp
+        m_MethodName: OnClickEquipButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1774452202034694452
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +426,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2646529787540373769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8131335790423635913}
+        m_TargetAssemblyTypeName: MoveStopMove.Presentation.UI.Shops.Weapon.UIWeaponCard,
+          Assembly-CSharp
+        m_MethodName: OnClickBuy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2059062236725986975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,9 +1058,11 @@ MonoBehaviour:
   weaponSkill: {fileID: 7904752833397101303}
   weaponMaxRange: {fileID: 911886375448583531}
   weaponPrice: {fileID: 5204045282781221007}
-  buttonBuy: {fileID: 4654656848340918200}
-  buttonEquip: {fileID: 694545878955621965}
-  buttonCanEquip: {fileID: 2968800788536040621}
+  buy: {fileID: 4654656848340918200}
+  equip: {fileID: 694545878955621965}
+  canEquip: {fileID: 2968800788536040621}
+  buyButton: {fileID: 6712814223695190836}
+  equipButton: {fileID: 3030299896953792498}
 --- !u!1 &4639841812115246371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,7 +1253,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8131335790423635913}
         m_TargetAssemblyTypeName: MoveStopMove.Presentation.UI.Shops.Weapon.UIWeaponCard,
           Assembly-CSharp
-        m_MethodName: OnClickEquipButton
+        m_MethodName: OnClickEquip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
