@@ -5,20 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/ShopEvents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/ShopEvents.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/UIEvents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/UIEvents.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Shops/ShopModel.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops/WeaponShopPresenter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Shops/WeaponShopPresenter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UINotification.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UINotification.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Shop/Item_Weapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Shop/Item_Weapon.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Coldr/Editor/Coldr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Coldr/Editor/Coldr.cs" afterDir="false" />
@@ -35,14 +21,14 @@
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Items/ItemManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data/GameData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data/GameData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data/GameData.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/DataPersistenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/DataPersistenceManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/FileDataHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/FileDataHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/FileDataHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/FileDataHandler.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data/GameData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/Data/GameData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/DataPersistenceManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/DataPersistenceManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/FileDataHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/SaveLoad/FileDataHandler.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/Events/UIButtonEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/Events/UIButtonEvents.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponCard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" afterDir="false" />
