@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MoveStopMove.Core.Events;
 using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Gameplay.Camera;
 using MoveStopMove.Gameplay.Items;
+using MoveStopMove.Presentation.UI.Main;
 using MoveStopMove.Utility;
 using UnityEngine;
 
@@ -29,9 +31,9 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
 
         #region -- Methods --
 
-        public void Start()
+        public void OnEnable()
         {
-            CameraFollower.Instance.offset = new Vector3(0f, 5f, -10f);
+            CameraFollower.Instance.offset = new Vector3(0f, 5f, -12f);
 
             if (!IsLoaded)
             {
@@ -45,10 +47,11 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
         /// <returns>If loaded, set IsLoaded is true</returns>
         private IEnumerator LoadWeapons()
         {
-            Debug.Log("Loading");
+            //Debug.Log("Loading");
             yield return new WaitUntil(() => ItemManager.Instance.IsDataLoaded);
 
-            Debug.Log("Done");
+            //
+            //Debug.Log("Done");
 
             var unlocked = ItemManager.Instance.UnlockedWeapons;
             var locked = ItemManager.Instance.LockedWeapons;
@@ -87,7 +90,7 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
         /// For weapon card call when click buy button
         /// </summary>
         /// <param name="card">Specific weapon</param>
-        public void OnClickBuy(UIWeaponCard card)
+        public void OnClickBuyWeapon(UIWeaponCard card)
         {
             var weapon = card.WeaponData;
             if (weapon == null) return;
@@ -118,7 +121,7 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
         /// For weapon card call when click equip button
         /// </summary>
         /// <param name="card">Specific weapon</param>
-        public void OnClickEquip(UIWeaponCard card)
+        public void OnClickEquipWeapon(UIWeaponCard card)
         {
             var weapon = card.WeaponData;
             if (weapon == null) return;
@@ -134,13 +137,24 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
                 card.SetEquipped(true);
 
                 DataPersistenceManager.Instance.SaveGame();
-                Debug.Log(card.WeaponData.name);
+
                 EventManager.Instance.Notify(new ItemEquippedEvent(EItem.Weapon, card.WeaponData.name));
 
-                EventManager.Instance.Notify(
-                    new NotificationPopUpEvent(EEventCode.EquipSuccess)
-                );
+                EventManager.Instance.Notify(new NotificationPopUpEvent(EEventCode.EquipSuccess));
             }
+        }
+
+        public void OnClickTryWeapon(UIWeaponCard card)
+        {
+            EventManager.Instance.Notify(new ItemTryEvent(EItem.Weapon, card.WeaponData.name));
+        }
+
+        public void OnClickBackButton()
+        {
+            EventManager.Instance.Notify(new ItemCancelTryEvent());
+
+            UIManager.Instance.OpenUI<UIMain>();
+            UIManager.Instance.CloseUI<UIWeaponShop>();
         }
 
         #endregion

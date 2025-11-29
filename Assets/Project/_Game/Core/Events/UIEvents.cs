@@ -29,7 +29,7 @@ namespace MoveStopMove.Core.Events
         Pant
     }
 
-    public struct NotificationPopUpEvent
+    public readonly struct NotificationPopUpEvent
     {
         public bool IsSuccess => (int)Code < 400;
         public EEventCode Code { get; }
@@ -65,16 +65,39 @@ namespace MoveStopMove.Core.Events
         }
     }
 
-    public struct ItemEquippedEvent
+    public readonly struct ItemEquippedEvent
     {
-        public EItem ItemType;
+        public readonly EItem ItemType;
 
-        public string ItemName;
+        public readonly string ItemName;
 
         public ItemEquippedEvent(EItem itemType,string name)
         {
             ItemType = itemType;
             ItemName = name;
+        }
+    }
+
+    public readonly struct ItemTryEvent
+    {
+        public readonly EItem ItemType;
+
+        public readonly string ItemName;
+
+        public ItemTryEvent(EItem itemType,string name)
+        {
+            ItemType = itemType;
+            ItemName = name;
+        }
+    }
+
+    public readonly struct ItemCancelTryEvent
+    {
+        public readonly bool IsPreviewing;
+
+        public ItemCancelTryEvent(bool isPreviewing = false)
+        {
+            IsPreviewing = isPreviewing;
         }
     }
 }

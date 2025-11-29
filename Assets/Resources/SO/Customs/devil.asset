@@ -17,7 +17,7 @@ MonoBehaviour:
   hairPrefab: {fileID: 3396304531853809223, guid: 306add868f4275a4e8d596bf49907f47, type: 3}
   tailPrefab: {fileID: 4660063173329206594, guid: 825304b82735f4a4a8bc249715cfe5cd, type: 3}
   wingPrefab: {fileID: 8057827398845575366, guid: 615d34c32f1f01940ad98a9e5d236576, type: 3}
-  icon: {fileID: 2800000, guid: 591bf6bd34c3a3c4e9143ba55a6c7d7b, type: 3}
+  icon: {fileID: 21300000, guid: 591bf6bd34c3a3c4e9143ba55a6c7d7b, type: 3}
   pant: {fileID: 2800000, guid: 49de162ab1ab20c4d88ad87f70ad13af, type: 3}
   skinTexture: {fileID: 0}
   skinMaterial: {fileID: 2100000, guid: 707809027c8189d40a6150a5d7b1304d, type: 2}
@@ -28,6 +28,5 @@ MonoBehaviour:
   hasTail: 1
   hasSkinTexture: 0
   rangeIncrease: 0.2
-  attackSpeedIncrease: 0.5
   movementIncrease: 2
   price: 500

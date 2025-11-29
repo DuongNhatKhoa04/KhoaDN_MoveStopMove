@@ -10,7 +10,8 @@ using UnityEngine;
 
 namespace MoveStopMove.Core.Units.PlayerCharacter
 {
-    public class Player : Character, IDataPersistence, IMyObserver<HitTarget>, IDamageable, IMyObserver<ItemEquippedEvent>
+    public class Player : Character, IDataPersistence, IDamageable,
+        IMyObserver<ItemEquippedEvent>, IMyObserver<HitTarget>, IMyObserver<ItemTryEvent>, IMyObserver<ItemCancelTryEvent>
     {
         #region -- Fields --
 
@@ -44,6 +45,14 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         private TailDecorator m_tailDecorator;
         private PantDecorator m_pantDecorator;
         private SkinDecorator m_skinDecorator;
+
+        private bool m_isPreviewing;
+        private string m_previewOriginWeapon;
+        private string m_previewOriginHair;
+        private string m_previewOriginPant;
+        private string m_previewOriginTail;
+        private string m_previewOriginWing;
+        private string m_previewOriginCustom;
 
         #endregion
 
@@ -140,7 +149,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         {
             var context = new CustomVisualContext();
 
-            if (customName == "none")
+            if (string.IsNullOrEmpty(customName))
             {
                 context.customData = null;
 
@@ -298,7 +307,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
             if (pantData != null && m_pantDecorator != null)
             {
                 m_pantDecorator.PantsRenderer = pantsRenderer;
-                m_pantDecorator.PantTexture   = pantData.texture;
+                m_pantDecorator.PantTexture = pantData.texture;
                 m_pantDecorator.EquipPant();
             }
         }
@@ -311,46 +320,174 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
                 custom => custom
             );
 
-            if (customData != null)
+            Debug.Log(customData.name);
+
+            if (!string.IsNullOrEmpty(customName))
             {
                 if (customData.hasWeapon)
                 {
                     m_weaponDecorator.WeaponPrefab = customData.weaponPrefab;
                     m_weaponDecorator.ProjectilePrefab = customData.projectile;
+                    m_weaponDecorator.EquipWeapon();
                 }
 
                 if (customData.hasHair)
                 {
                     m_hairDecorator.HairPrefab = customData.hairPrefab;
+                    m_hairDecorator.EquipHair();
                 }
 
                 if (customData.hasPant)
                 {
                     m_pantDecorator.PantTexture = customData.pant;
+                    m_pantDecorator.EquipPant();
                 }
 
                 if (customData.hasTail)
                 {
                     m_tailDecorator.TailPrefab = customData.tailPrefab;
+                    m_tailDecorator.EquipTail();
                 }
 
                 if (customData.hasWing)
                 {
                     m_wingDecorator.WingPrefab = customData.wingPrefab;
+                    m_wingDecorator.EquipWing();
                 }
 
                 if (customData.hasSkinTexture)
                 {
                     m_skinDecorator.HasTexture = customData.hasSkinTexture;
                     m_skinDecorator.SkinTexture = customData.skinTexture;
+                    m_skinDecorator.EquipSkin();
                 }
                 else
                 {
                     m_skinDecorator.HasTexture = customData.hasSkinTexture;
                     m_skinDecorator.SkinMaterial = customData.skinMaterial;
+                    m_skinDecorator.EquipSkin();
+                }
+            }
+            else
+            {
+                EquipWeaponRuntime(m_gameData.equippedWeapon);
+                EquipHairRuntime(m_gameData.equippedHair);
+                EquipPantRuntime(m_gameData.equippedPant);
+
+                if (m_tailDecorator != null)
+                {
+                    m_tailDecorator.TailPrefab = null;
+                    m_tailDecorator.EquipTail();
+                }
+
+                if (m_wingDecorator != null)
+                {
+                    m_wingDecorator.WingPrefab = null;
+                    m_wingDecorator.EquipWing();
+                }
+
+                if (m_skinDecorator != null)
+                {
+                    m_skinDecorator.HasTexture   = false;
+                    m_skinDecorator.SkinTexture  = null;
+                    m_skinDecorator.SkinMaterial = defaultSkinMaterial;
+                    m_skinDecorator.EquipSkin();
                 }
             }
         }
+
+        #region -- Try Decorator --
+
+        /// <summary>
+        /// Preview item in shop
+        /// </summary>
+        /// <param name="itemType">Custom/Hair/Pant/Weapon</param>
+        /// <param name="itemName">Name of item</param>
+        private void PreviewItem(EItem itemType, string itemName)
+        {
+            if (!m_isInitialized)
+                return;
+
+            if (!m_isPreviewing)
+            {
+                m_previewOriginWeapon = m_gameData.equippedWeapon;
+                m_previewOriginHair = m_gameData.equippedHair;
+                m_previewOriginPant = m_gameData.equippedPant;
+                m_previewOriginWing = null;
+                m_previewOriginTail = null;
+                m_previewOriginCustom = m_gameData.equippedCustom;
+                m_isPreviewing = true;
+            }
+
+            switch (itemType)
+            {
+                case EItem.Weapon:
+                    EquipWeaponRuntime(itemName);
+                    break;
+
+                case EItem.Hair:
+                    EquipHairRuntime(itemName);
+                    break;
+
+                case EItem.Pant:
+                    EquipPantRuntime(itemName);
+                    break;
+
+                case EItem.Custom:
+                    EquipCustomRuntime(itemName);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Cancel previewing mode in shop
+        /// </summary>
+        private void CancelPreview()
+        {
+            if (!m_isPreviewing)
+                return;
+
+            if (!string.IsNullOrEmpty(m_previewOriginCustom))
+            {
+                EquipCustomRuntime(m_previewOriginCustom);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(m_previewOriginWeapon))
+                    EquipWeaponRuntime(m_previewOriginWeapon);
+
+                if (!string.IsNullOrEmpty(m_previewOriginHair))
+                    EquipHairRuntime(m_previewOriginHair);
+
+                if (!string.IsNullOrEmpty(m_previewOriginPant))
+                    EquipPantRuntime(m_previewOriginPant);
+
+                if (string.IsNullOrEmpty(m_previewOriginWing))
+                {
+                    m_wingDecorator.WingPrefab = null;
+                    m_wingDecorator.EquipWing();
+                }
+
+                if (string.IsNullOrEmpty(m_previewOriginTail))
+                {
+                    m_tailDecorator.TailPrefab = null;
+                    m_tailDecorator.EquipTail();
+                }
+
+                if (m_skinDecorator != null)
+                {
+                    m_skinDecorator.HasTexture   = false;
+                    m_skinDecorator.SkinTexture  = null;
+                    m_skinDecorator.SkinMaterial = defaultSkinMaterial;
+                    m_skinDecorator.EquipSkin();
+                }
+            }
+
+            m_isPreviewing = false;
+        }
+
+        #endregion
+
 
         #endregion
 
@@ -367,12 +504,16 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         {
             EventManager.Instance.Subscribe<HitTarget>(this);
             EventManager.Instance.Subscribe<ItemEquippedEvent>(this);
+            EventManager.Instance.Subscribe<ItemTryEvent>(this);
+            EventManager.Instance.Subscribe<ItemCancelTryEvent>(this);
         }
 
         private void OnDisable()
         {
             EventManager.Instance.Unsubscribe<HitTarget>(this);
             EventManager.Instance.Unsubscribe<ItemEquippedEvent>(this);
+            EventManager.Instance.Unsubscribe<ItemTryEvent>(this);
+            EventManager.Instance.Unsubscribe<ItemCancelTryEvent>(this);
         }
 
         public void OnNotify(HitTarget data)
@@ -381,11 +522,33 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
             core.Combat.GetAttackRange.IncreaseRange(data.RangeUpdate);
         }
 
-        // Equip item in runtime
+        /// <summary>
+        /// Equip item in runtime
+        /// </summary>
+        /// <param name="data">Data of event</param>
         public void OnNotify(ItemEquippedEvent data)
         {
             UpdateEquippedNameInGameData(data);
             ApplyEquippedVisualRuntime(data);
+        }
+
+        /// <summary>
+        /// Try item in runtime
+        /// </summary>
+        /// <param name="data">Data of event</param>
+        public void OnNotify(ItemTryEvent data)
+        {
+            CancelPreview();
+            PreviewItem(data.ItemType, data.ItemName);
+        }
+
+        /// <summary>
+        /// Cancel try item in runtime
+        /// </summary>
+        /// <param name="data">Data of even</param>
+        public void OnNotify(ItemCancelTryEvent data)
+        {
+            CancelPreview();
         }
 
         #endregion

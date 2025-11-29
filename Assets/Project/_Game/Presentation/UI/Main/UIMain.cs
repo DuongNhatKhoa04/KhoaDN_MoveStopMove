@@ -1,4 +1,5 @@
 using MoveStopMove.Gameplay.Camera;
+using MoveStopMove.Presentation.UI.Shops.Outfit;
 using MoveStopMove.Presentation.UI.Shops.Weapon;
 using UnityEngine;
 
@@ -6,6 +7,11 @@ namespace MoveStopMove.Presentation.UI.Main
 {
     public class UIMain : UICanvas
     {
+        public void OnEnable()
+        {
+            CameraFollower.Instance.offset = new Vector3(0f, 5f, -6f);
+        }
+
         public void OnClickWeapon()
         {
             UIManager.Instance.OpenUI<UIWeaponShop>();
@@ -14,7 +20,8 @@ namespace MoveStopMove.Presentation.UI.Main
 
         public void OnClickOutfit()
         {
-
+            UIManager.Instance.OpenUI<UIOutfitShop>();
+            UIManager.Instance.CloseUI<UIMain>();
         }
     }
 }

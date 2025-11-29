@@ -21,7 +21,7 @@ namespace MoveStopMove.Core.Stats
         [CanBeNull] public GameObject wingPrefab;
 
         [Header("Icon")]
-        [CanBeNull] public Texture2D icon;
+        [CanBeNull] public Sprite icon;
 
         [Header("Pant")]
         [CanBeNull] public Texture2D pant;

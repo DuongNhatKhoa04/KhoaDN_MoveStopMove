@@ -1,5 +1,4 @@
 using MoveStopMove.Core.Units;
-using MoveStopMove.Gameplay.Camera;
 using MoveStopMove.Presentation.UI;
 using MoveStopMove.Presentation.UI.Main;
 using MoveStopMove.Presentation.UI.Shops.Outfit;
@@ -16,9 +15,9 @@ namespace MoveStopMove.Core
 
         [SerializeField] private Character enemyPrefab;
         [SerializeField] private UIWeaponCard weaponCardPrefab;
-        /*[SerializeField] private UIPantShop pantCardPrefab;
-        [SerializeField] private UIHairShop hairCardPrefab;
-        [SerializeField] private UICustomShop customCardPrefab;*/
+        [SerializeField] private UIPantCard pantCardPrefab;
+        [SerializeField] private UIHairCard hairCardPrefab;
+        [SerializeField] private UICustomCard customCardPrefab;
 
         #endregion
 
@@ -28,9 +27,9 @@ namespace MoveStopMove.Core
         {
             ObjectPoolingManager.Instance.CreateObjectPool(enemyPrefab, "EnemyPool");
             ObjectPoolingManager.Instance.CreateObjectPool(weaponCardPrefab, "WeaponCardPool");
-            /*ObjectPoolingManager.Instance.CreateObjectPool(pantCardPrefab,  "PantCardPool");
+            ObjectPoolingManager.Instance.CreateObjectPool(pantCardPrefab,  "PantCardPool");
             ObjectPoolingManager.Instance.CreateObjectPool(hairCardPrefab, "HairCardPool");
-            ObjectPoolingManager.Instance.CreateObjectPool(customCardPrefab, "CustomCardPool");*/
+            ObjectPoolingManager.Instance.CreateObjectPool(customCardPrefab, "CustomCardPool");
         }
 
         private void Start()

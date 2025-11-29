@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using MoveStopMove.Core;
 using MoveStopMove.Core.Appearance;
 using MoveStopMove.Core.Interfaces;
@@ -270,6 +271,20 @@ namespace MoveStopMove.Utility.Extension
                 DataPersistenceManager.Instance != null &&
                 DataPersistenceManager.Instance.IsLoaded
             );
+        }
+
+        /// <summary>
+        /// Extensions for build string
+        /// </summary>
+        /// <param name="title">Title</param>
+        /// <param name="info">Stats</param>
+        /// <returns>Stats UI as string</returns>
+        public static string BuildStatsString(string title, string info)
+        {
+            var builder = new StringBuilder();
+            builder.Append(title);
+            builder.Append(info);
+            return builder.ToString();
         }
     }
 

@@ -2,6 +2,7 @@ using System.Text;
 using MoveStopMove.Core.Stats;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace MoveStopMove.Presentation.UI.Shops.Weapon
@@ -20,9 +21,10 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
         [SerializeField] private TextMeshProUGUI weaponPrice;
 
         [Header("Buttons Root")]
-        [SerializeField] private GameObject buy;
-        [SerializeField] private GameObject equip;
-        [SerializeField] private GameObject canEquip;
+        [SerializeField] private GameObject buyButton;
+        [SerializeField] private GameObject tryButton;
+        [SerializeField] private GameObject equipButton;
+        [SerializeField] private GameObject canEquipButton;
 
         private UIWeaponShop m_shop;
         private WeaponData m_weaponData;
@@ -93,15 +95,17 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
         {
             if (m_isLocked)
             {
-                buy.SetActive(true);
-                canEquip.SetActive(false);
-                equip.SetActive(false);
+                buyButton.SetActive(true);
+                tryButton.SetActive(true);
+                canEquipButton.SetActive(false);
+                equipButton.SetActive(false);
             }
             else
             {
-                buy.SetActive(false);
-                canEquip.SetActive(!m_isEquipped);
-                equip.SetActive(m_isEquipped);
+                buyButton.SetActive(false);
+                tryButton.SetActive(false);
+                canEquipButton.SetActive(!m_isEquipped);
+                equipButton.SetActive(m_isEquipped);
             }
         }
 
@@ -127,12 +131,17 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
 
         public void OnClickBuy()
         {
-            m_shop.OnClickBuy(this);
+            m_shop.OnClickBuyWeapon(this);
         }
 
         public void OnClickEquip()
         {
-            m_shop.OnClickEquip(this);
+            m_shop.OnClickEquipWeapon(this);
+        }
+
+        public void OnClickTry()
+        {
+            m_shop.OnClickTryWeapon(this);
         }
 
         #endregion
