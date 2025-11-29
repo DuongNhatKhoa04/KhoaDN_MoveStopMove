@@ -7,6 +7,7 @@ using MoveStopMove.Gameplay.Items;
 using MoveStopMove.Presentation.UI.Main;
 using MoveStopMove.Presentation.UI.Shops.Weapon;
 using MoveStopMove.Utility;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,7 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
 
         [Header("References")]
         [SerializeField] private Transform itemContext;
+        [SerializeField] private TextMeshProUGUI coin;
         [SerializeField] private Button pantSelector;
         [SerializeField] private Button hairSelector;
         [SerializeField] private Button customSelector;
@@ -60,6 +62,8 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
                 StartCoroutine(LoadOutfits());
             else
                 ShowCategory(EOutfitCategory.Pant);
+
+            coin.text = DataPersistenceManager.Instance.GameData.coins.ToString();
         }
 
         /// <summary>

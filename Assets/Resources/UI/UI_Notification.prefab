@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 8812934626095925719}
   - component: {fileID: 7469989871865837829}
   m_Layer: 0
-  m_Name: Canvas_Notification
+  m_Name: UI_Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

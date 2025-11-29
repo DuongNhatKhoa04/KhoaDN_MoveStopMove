@@ -42,7 +42,6 @@ namespace MoveStopMove.Core.Stats
 
         [Header("Buff")]
         public float rangeIncrease = 0.2f;
-        //public float attackSpeedIncrease = 0f;
         public float movementIncrease = 1f;
 
         [Header("Shopping")]

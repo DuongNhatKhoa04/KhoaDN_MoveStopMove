@@ -51,7 +51,7 @@ namespace MoveStopMove.Core.Appearance
             if (WeaponPrefab != null && ProjectilePrefab != null)
             {
                 m_currentWeapon = Object.Instantiate(WeaponPrefab, WeaponAttachment.transform);
-                Core.Combat.SetWeapon(m_currentWeapon.GetComponent<WeaponBase>(), ProjectilePrefab);
+                Core.Battle.SetWeapon(m_currentWeapon.GetComponent<WeaponBase>(), ProjectilePrefab);
             }
         }
 

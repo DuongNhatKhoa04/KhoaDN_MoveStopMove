@@ -320,8 +320,6 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
                 custom => custom
             );
 
-            Debug.Log(customData.name);
-
             if (!string.IsNullOrEmpty(customName))
             {
                 if (customData.hasWeapon)
@@ -519,7 +517,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         public void OnNotify(HitTarget data)
         {
             Debug.Log("Defeated " + data.Target + ", increase attack range by " + data.RangeUpdate);
-            core.Combat.GetAttackRange.IncreaseRange(data.RangeUpdate);
+            core.Battle.GetAttackRange.IncreaseRange(data.RangeUpdate);
         }
 
         /// <summary>

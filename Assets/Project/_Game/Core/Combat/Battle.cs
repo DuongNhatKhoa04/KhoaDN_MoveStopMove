@@ -1,10 +1,11 @@
+using MoveStopMove.Core.Units;
 using MoveStopMove.Gameplay.Projectiles;
 using MoveStopMove.Gameplay.Weapons;
 using UnityEngine;
 
 namespace MoveStopMove.Core.Combat
 {
-    public class Combat : Units.CoreComponents
+    public class Battle : CoreComponents
     {
         #region -- Fields --
 

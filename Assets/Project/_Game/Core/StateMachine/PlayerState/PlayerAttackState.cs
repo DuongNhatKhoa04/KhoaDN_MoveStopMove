@@ -27,16 +27,16 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
                     StateMachine.ChangeState(Character.PlayerIdleState);
                 }
 
-                var entry = Core.Combat.GetAttackRange.PeekEntry();
+                var entry = Core.Battle.GetAttackRange.PeekEntry();
                 if (entry != null)
                 {
                     var targetPos = AttackRange.GetTargetPosition(entry.Value);
-                    Core.Combat.RotateTowards(targetPos);
+                    Core.Battle.RotateTowards(targetPos);
                 }
 
                 if (Character.HasAnimationLooped(EAnim.Attack, out int loop))
                 {
-                    Core.Combat.Attack();
+                    Core.Battle.Attack();
                     //Debug.Log("Fired at loop: " + loop);
                 }
             }

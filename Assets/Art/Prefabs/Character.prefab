@@ -1232,7 +1232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 3999962602095375203}
-  combat: {fileID: 6010890212656696367}
+  battle: {fileID: 6010890212656696367}
 --- !u!1 &3369641166981355160
 GameObject:
   m_ObjectHideFlags: 0

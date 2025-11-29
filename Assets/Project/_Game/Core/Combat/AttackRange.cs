@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using MoveStopMove.Core.SaveLoad;
+using MoveStopMove.Core.Stats;
 using UnityEngine;
 
 namespace MoveStopMove.Core.Combat
@@ -38,6 +40,8 @@ namespace MoveStopMove.Core.Combat
         private readonly Queue<TargetEntry> m_targetQueue = new();
         private readonly HashSet<GameObject> m_set = new();
 
+        private float m_maxAttackRange;
+
         #endregion
 
         #region -- Methods --
@@ -47,6 +51,7 @@ namespace MoveStopMove.Core.Combat
             lineRenderer.loop = true;
             lineRenderer.useWorldSpace = false;
             lineRenderer.positionCount = segments;
+            m_maxAttackRange = DataPersistenceManager.Instance.CharacterData.attackRangeRadius;
         }
 
         public void InitRange(float r)
@@ -63,16 +68,34 @@ namespace MoveStopMove.Core.Combat
 
         private void Redraw()
         {
-            float r = sphereCol.radius;
-            float step = 2f * Mathf.PI / segments;
-            var pts = new Vector3[segments];
-            for (int i = 0; i < segments; i++)
+            Debug.Log(DataPersistenceManager.Instance.MaxAttackRange);
+            if (sphereCol.radius > DataPersistenceManager.Instance.MaxAttackRange)
             {
-                float a = i * step;
-                pts[i] = new Vector3(Mathf.Cos(a) * r, yOffset, Mathf.Sin(a) * r);
+                float r = DataPersistenceManager.Instance.MaxAttackRange;
+                Debug.Log(r);
+                float step = 2f * Mathf.PI / segments;
+                var pts = new Vector3[segments];
+                for (int i = 0; i < segments; i++)
+                {
+                    float a = i * step;
+                    pts[i] = new Vector3(Mathf.Cos(a) * r, yOffset, Mathf.Sin(a) * r);
+                }
+                lineRenderer.positionCount = segments;
+                lineRenderer.SetPositions(pts);
             }
-            lineRenderer.positionCount = segments;
-            lineRenderer.SetPositions(pts);
+            else
+            {
+                float r = sphereCol.radius;
+                float step = 2f * Mathf.PI / segments;
+                var pts = new Vector3[segments];
+                for (int i = 0; i < segments; i++)
+                {
+                    float a = i * step;
+                    pts[i] = new Vector3(Mathf.Cos(a) * r, yOffset, Mathf.Sin(a) * r);
+                }
+                lineRenderer.positionCount = segments;
+                lineRenderer.SetPositions(pts);
+            }
         }
 
         public void SetVisual(bool enable)

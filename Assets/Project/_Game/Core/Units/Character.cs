@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using MoveStopMove.Core.Interfaces;
+using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Core.StateMachine;
 using MoveStopMove.Core.StateMachine.PlayerState;
 using MoveStopMove.Core.Stats;
@@ -45,7 +47,15 @@ namespace MoveStopMove.Core.Units
 
         public virtual void Initialize()
         {
-            //Debug.Log($"[Initialize] {name} tại {transform.position}");
+            StartCoroutine(InitializeRoutine());
+        }
+
+        private IEnumerator InitializeRoutine()
+        {
+            yield return this.WaitForGameDataLoaded();
+            DataPersistenceManager.Instance.UpdateMaxRange();
+            DataPersistenceManager.Instance.UpdateRangeIncreasement();
+            DataPersistenceManager.Instance.UpdateMaxMovement();
             InitAttackRange(characterData.attackRangeRadius);
             animator.SetTrigger(AnimHashes.Map[currentAnimation]);
             InitStateMachine();
@@ -53,12 +63,12 @@ namespace MoveStopMove.Core.Units
 
         private void InitAttackRange(float initRange)
         {
-            core.Combat.GetAttackRange.InitRange(initRange);
+            core.Battle.GetAttackRange.InitRange(initRange);
         }
 
         protected void UpdateRange(float rangeIncrease)
         {
-            core.Combat.GetAttackRange.InitRange(rangeIncrease);
+            core.Battle.GetAttackRange.InitRange(rangeIncrease);
         }
 
         private void InitStateMachine()

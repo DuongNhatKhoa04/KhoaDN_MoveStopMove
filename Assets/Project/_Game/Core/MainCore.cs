@@ -8,14 +8,14 @@ namespace MoveStopMove.Core
         #region -- Fields --
 
         [SerializeField] private PlayerMovement movement;
-        [SerializeField] private Combat.Combat combat;
+        [SerializeField] private Combat.Battle battle;
 
         #endregion
 
         #region -- Properties --
 
         public PlayerMovement Movement => movement;
-        public Combat.Combat Combat => combat;
+        public Combat.Battle Battle => battle;
 
         #endregion
     }

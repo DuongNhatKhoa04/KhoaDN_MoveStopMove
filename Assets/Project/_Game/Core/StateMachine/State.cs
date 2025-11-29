@@ -47,7 +47,7 @@ namespace MoveStopMove.Core.StateMachine
 
         protected bool HasTargetInRange()
         {
-            return Core.Combat.GetAttackRange.PeekEntry() != null;
+            return Core.Battle.GetAttackRange.PeekEntry() != null;
         }
     }
 }
