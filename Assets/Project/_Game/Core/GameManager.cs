@@ -18,6 +18,7 @@ namespace MoveStopMove.Core
         [SerializeField] private UIPantCard pantCardPrefab;
         [SerializeField] private UIHairCard hairCardPrefab;
         [SerializeField] private UICustomCard customCardPrefab;
+        [SerializeField] private FixedJoystick fixedJoystick;
 
         #endregion
 
@@ -35,6 +36,35 @@ namespace MoveStopMove.Core
         private void Start()
         {
             UIManager.Instance.OpenUI<UIMain>();
+        }
+
+        /// <summary>
+        /// Check direction of joystick input
+        /// </summary>
+        /// <returns>Vector3</returns>
+        public Vector3 CheckDirection()
+        {
+            if (fixedJoystick == null)
+            {
+                return Vector3.zero;
+            }
+
+            return new Vector3(fixedJoystick.Horizontal, 0, fixedJoystick.Vertical);
+        }
+
+        /// <summary>
+        /// Check joystick input is moving or not
+        /// </summary>
+        /// <param name="direction">Direction input</param>
+        /// <returns>Bool</returns>
+        public bool IsMoving(Vector3 direction)
+        {
+            return direction.sqrMagnitude > 1e-4f;
+        }
+
+        public void FindController()
+        {
+            fixedJoystick = GameObject.Find("FixedJoystick").GetComponent<FixedJoystick>();
         }
 
         #endregion

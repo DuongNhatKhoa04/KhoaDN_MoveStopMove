@@ -1,4 +1,5 @@
 using MoveStopMove.Gameplay.Camera;
+using MoveStopMove.Presentation.UI.Setting;
 using MoveStopMove.Presentation.UI.Shops.Outfit;
 using MoveStopMove.Presentation.UI.Shops.Weapon;
 using UnityEngine;
@@ -21,6 +22,18 @@ namespace MoveStopMove.Presentation.UI.Main
         public void OnClickOutfit()
         {
             UIManager.Instance.OpenUI<UIOutfitShop>();
+            UIManager.Instance.CloseUI<UIMain>();
+        }
+
+        public void OnClickPlay()
+        {
+            UIManager.Instance.OpenUI<UIController>();
+            UIManager.Instance.CloseUI<UIMain>();
+        }
+
+        public void OnClickSettings()
+        {
+            UIManager.Instance.OpenUI<UISettings>();
             UIManager.Instance.CloseUI<UIMain>();
         }
     }

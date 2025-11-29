@@ -32,8 +32,8 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
         {
             base.LogicUpdate();
 
-            Direction = ControlProvider.Instance.CheckDirection();
-            IsMoving = ControlProvider.Instance.IsMoving(Direction);
+            Direction = GameManager.Instance.CheckDirection();
+            IsMoving = GameManager.Instance.IsMoving(Direction);
         }
 
         #endregion
