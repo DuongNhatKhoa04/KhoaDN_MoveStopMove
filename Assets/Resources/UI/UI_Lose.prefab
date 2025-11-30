@@ -196,10 +196,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MoveStopMove.Presentation.UI.Shops.Outfit.UIOutfitShop,
-          Assembly-CSharp
-        m_MethodName: OnClickBackButton
+      - m_Target: {fileID: 4508690121781639219}
+        m_TargetAssemblyTypeName: MoveStopMove.Presentation.UI.Main.UILose, Assembly-CSharp
+        m_MethodName: OnClickRetryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -301,6 +300,7 @@ GameObject:
   - component: {fileID: 6466340658559789803}
   - component: {fileID: 5807400772452493810}
   - component: {fileID: 9161587377927047763}
+  - component: {fileID: 4508690121781639219}
   m_Layer: 5
   m_Name: UI_Lose
   m_TagString: Untagged
@@ -391,6 +391,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 2039
+--- !u!114 &4508690121781639219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947999388344611335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94a867eeed57447ea23cfea3c9a43de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDestroyOnClose: 0
+  scoreText: {fileID: 7079250931566170493}
 --- !u!1 &2780929821967867687
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,10 +696,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MoveStopMove.Presentation.UI.Shops.Outfit.UIOutfitShop,
-          Assembly-CSharp
-        m_MethodName: OnClickBackButton
+      - m_Target: {fileID: 4508690121781639219}
+        m_TargetAssemblyTypeName: MoveStopMove.Presentation.UI.Main.UILose, Assembly-CSharp
+        m_MethodName: OnClickBackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

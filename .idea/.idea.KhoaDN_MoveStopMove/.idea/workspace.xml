@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingGameplay.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingGameplay.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/arrow.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/arrow.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/cap.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/cap.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/cowboy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/cowboy.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/ear.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/ear.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/hat.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/hat.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/hat_yellow.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/hat_yellow.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/headphone.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Hairs/headphone.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_Controller.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_Controller.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_SettingGamePlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_SettingGamePlay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_Lose.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_Lose.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_Win.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_Win.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +87,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/WeaponBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/Events/UIButtonEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingGameplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingMain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIOutfitShop.cs" root0="FORCE_HIGHLIGHTING" />
@@ -256,7 +252,7 @@
       <workItem from="1764382844940" duration="2473000" />
       <workItem from="1764386926765" duration="6747000" />
       <workItem from="1764407369371" duration="28414000" />
-      <workItem from="1764469865817" duration="4065000" />
+      <workItem from="1764469865817" duration="5302000" />
     </task>
     <servers />
   </component>
