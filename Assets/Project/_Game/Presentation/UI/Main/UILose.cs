@@ -6,7 +6,13 @@ namespace MoveStopMove.Presentation.UI.Main
 {
     public class UILose : UICanvas
     {
+        #region -- Fields --
+
         [SerializeField] private TextMeshProUGUI scoreText;
+
+        #endregion
+
+        #region -- Methods --
 
         private void OnEnable()
         {
@@ -27,5 +33,7 @@ namespace MoveStopMove.Presentation.UI.Main
             UIManager.Instance.CloseUI<UILose>();
             UIManager.Instance.OpenUI<UIMain>();
         }
+
+        #endregion
     }
 }

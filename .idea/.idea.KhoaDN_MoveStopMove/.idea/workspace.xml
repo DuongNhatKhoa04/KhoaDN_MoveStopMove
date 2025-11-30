@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_Lose.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_Lose.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_Win.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_Win.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingGameplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingGameplay.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +251,7 @@
       <workItem from="1764382844940" duration="2473000" />
       <workItem from="1764386926765" duration="6747000" />
       <workItem from="1764407369371" duration="28414000" />
-      <workItem from="1764469865817" duration="5302000" />
+      <workItem from="1764469865817" duration="5640000" />
     </task>
     <servers />
   </component>

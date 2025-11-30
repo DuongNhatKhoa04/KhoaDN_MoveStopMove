@@ -7,9 +7,15 @@ namespace MoveStopMove.Presentation.UI.Setting
 {
     public class UISettingGameplay : UICanvas
     {
+        #region -- Fields --
+
         [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private GameObject soundOn;
         [SerializeField] private GameObject soundOff;
+
+        #endregion
+
+        #region -- Methods --
 
         private void OnEnable()
         {
@@ -44,5 +50,7 @@ namespace MoveStopMove.Presentation.UI.Setting
         {
             UIManager.Instance.CloseUI<UISettingGameplay>();
         }
+
+        #endregion
     }
 }

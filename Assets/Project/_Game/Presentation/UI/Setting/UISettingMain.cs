@@ -5,8 +5,14 @@ namespace MoveStopMove.Presentation.UI.Setting
 {
     public class UISettingMain : UICanvas
     {
+        #region -- Fields --
+
         [SerializeField] private GameObject soundOn;
         [SerializeField] private GameObject soundOff;
+
+        #endregion
+
+        #region -- Methods --
 
         private void OnEnable()
         {
@@ -35,5 +41,7 @@ namespace MoveStopMove.Presentation.UI.Setting
             soundOn.SetActive(true);
             soundOff.SetActive(false);
         }
+
+        #endregion
     }
 }

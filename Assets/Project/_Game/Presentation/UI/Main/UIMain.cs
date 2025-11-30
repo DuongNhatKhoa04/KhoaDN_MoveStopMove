@@ -8,6 +8,8 @@ namespace MoveStopMove.Presentation.UI.Main
 {
     public class UIMain : UICanvas
     {
+        #region -- Methods --
+
         public void OnEnable()
         {
             CameraFollower.Instance.offset = new Vector3(0f, 5f, -6f);
@@ -36,5 +38,7 @@ namespace MoveStopMove.Presentation.UI.Main
             UIManager.Instance.OpenUI<UISettingMain>();
             UIManager.Instance.CloseUI<UIMain>();
         }
+
+        #endregion
     }
 }

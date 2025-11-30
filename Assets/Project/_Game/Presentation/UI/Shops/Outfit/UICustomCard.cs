@@ -1,4 +1,3 @@
-using System.Text;
 using MoveStopMove.Core.Stats;
 using MoveStopMove.Utility.Extension;
 using TMPro;

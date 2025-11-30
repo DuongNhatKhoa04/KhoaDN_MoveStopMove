@@ -3,16 +3,23 @@ using MoveStopMove.Core.Interfaces;
 using MoveStopMove.Presentation.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MoveStopMove.Presentation.UI.Main
 {
     public class UINotification : UICanvas, IMyObserver<NotificationPopUpEvent>
     {
-        [SerializeField] private TextMeshProUGUI m_message;
+        #region -- Fields --
+
+        [SerializeField] private TextMeshProUGUI message;
+
+        #endregion
+
+        #region -- Methods --
 
         public void OnNotify(NotificationPopUpEvent data)
         {
-            m_message.text = data.Message;
+            message.text = data.Message;
 
             UIManager.Instance.OpenUI<UINotification>();
         }
@@ -32,5 +39,7 @@ namespace MoveStopMove.Presentation.UI.Main
         {
             UIManager.Instance.CloseUI<UINotification>();
         }
+
+        #endregion
     }
 }
