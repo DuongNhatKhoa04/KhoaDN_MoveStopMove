@@ -40,7 +40,6 @@ namespace MoveStopMove.Core.StateMachine.EnemyState
             m_timer += Time.deltaTime;
             if (m_timer >= m_idleTime)
             {
-                TargetPosition = GetRandomPointAroundSelf(5f);
                 StateMachine.ChangeState(Character.EnemyMoveState);
             }
         }

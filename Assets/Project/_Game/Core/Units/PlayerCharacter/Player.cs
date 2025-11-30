@@ -58,6 +58,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         private string m_previewOriginCustom;
 
         private float m_rangeUp;
+        private int m_currentCoin;
 
         #endregion
 
@@ -73,6 +74,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         {
             yield return this.WaitForGameDataLoaded();
 
+            m_currentCoin = DataPersistenceManager.Instance.GameData.coins;
             m_gameData = DataPersistenceManager.Instance.GameData;
             m_customContext = BuildCustomContext(m_gameData.equippedCustom);
 
@@ -532,15 +534,22 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
         public void OnNotify(HitTarget data)
         {
-            m_rangeUp = DataPersistenceManager.Instance.MaxRangeIncrease;
-            //Debug.Log("Defeated " + data.Target + ", increase attack range by " + data.RangeUpdate);
-            //Debug.Log(m_rangeUp);
-            SoundManager.Instance.PlaySFX(ESfxType.ProjectileHit);
-            base.UpdateRange(m_rangeUp);
-            //return target to pool
-            var enemy = data.Target.GetComponent<Character>();
-            ObjectPoolingManager.Instance.ReleaseObjectToPool(enemy, "EnemyPool");
-            //return target to pool
+            if (data.Victim.name == "Character")
+            {
+                m_rangeUp = DataPersistenceManager.Instance.MaxRangeIncrease;
+                base.UpdateRange(m_rangeUp);
+
+                DataPersistenceManager.Instance.GameData.coins = m_currentCoin++;
+
+                SoundManager.Instance.PlaySFX(ESfxType.ProjectileHit);
+
+                var enemy = data.Target.GetComponent<Character>();
+                ObjectPoolingManager.Instance.ReleaseObjectToPool(enemy, "EnemyPool");
+            }
+            else if (data.Victim.name == "Enemy")
+            {
+                TakeHit();
+            }
         }
 
         /// <summary>

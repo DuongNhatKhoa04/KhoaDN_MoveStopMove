@@ -20,6 +20,8 @@ namespace MoveStopMove.Core
         [SerializeField] private UICustomCard customCardPrefab;
         [SerializeField] private FixedJoystick fixedJoystick;
 
+        public int EnemyCount { get; set; } = 100;
+
         #endregion
 
         #region -- Methods --

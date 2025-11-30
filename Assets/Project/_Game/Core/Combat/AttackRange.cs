@@ -123,7 +123,7 @@ namespace MoveStopMove.Core.Combat
             {
                 var entry = new TargetEntry(go, go.transform.position);
                 m_targetQueue.Enqueue(entry);
-                Debug.Log($"[ENTER] {go.name} vào vùng tấn công của {name}");
+                //Debug.Log($"[ENTER] {go.name} vào vùng tấn công của {name}");
             }
         }
 

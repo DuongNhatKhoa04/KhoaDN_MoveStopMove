@@ -7,6 +7,9 @@ namespace MoveStopMove.Core.Movement
     public class EnemyMovement : CoreComponents
     {
         [SerializeField] private NavMeshAgent agent;
+        [SerializeField] private float rotationSpeed = 10f;
+        [SerializeField] private Transform modelRoot;
+
 
         private void Awake()
         {
@@ -31,7 +34,7 @@ namespace MoveStopMove.Core.Movement
             if (agent == null) return;
 
             agent.isStopped = true;
-            agent.ResetPath();
+            agent.velocity = Vector3.zero;
         }
 
         public bool HasReachedDestination(float stopDistance = 0.1f)
@@ -47,6 +50,22 @@ namespace MoveStopMove.Core.Movement
         {
             if (agent == null) return false;
             return !agent.isStopped && agent.velocity.sqrMagnitude > 0.001f;
+        }
+
+        private void Update()
+        {
+            if (agent == null) return;
+
+            Vector3 vel = agent.desiredVelocity;
+
+            if (vel.sqrMagnitude > 0.0001f)
+            {
+                vel.y = 0f;
+                Quaternion targetRot = Quaternion.LookRotation(vel.normalized);
+
+                var tf = modelRoot != null ? modelRoot : transform;
+                tf.rotation = Quaternion.Slerp(tf.rotation, targetRot, rotationSpeed * Time.deltaTime);
+            }
         }
     }
 }

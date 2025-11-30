@@ -6,13 +6,11 @@ namespace MoveStopMove.Core.Events
     {
         public readonly GameObject Victim;
         public readonly GameObject Target;
-        public readonly int Coin;
 
-        public HitTarget(GameObject victim, GameObject target, int coin)
+        public HitTarget(GameObject victim, GameObject target)
         {
             this.Victim = victim;
             this.Target = target;
-            this.Coin = coin;
         }
     }
 }

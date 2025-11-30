@@ -39,11 +39,11 @@ namespace MoveStopMove.Gameplay.Weapons
 
             if (attacker == null)
             {
-                attacker = GameObject.FindGameObjectWithTag("Player");
+                attacker = GameObject.FindGameObjectWithTag("Enemy");
 
                 if (attacker == null)
                 {
-                    attacker = GameObject.FindGameObjectWithTag("Enemy");
+                    attacker = GameObject.FindGameObjectWithTag("Player");
                 }
             }
 

@@ -35,7 +35,7 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
                     Core.Battle.RotateTowards(targetPos);
                 }
 
-                if (Character.HasAnimationLooped(EAnim.Attack, out int loop))
+                if (Character.HasAnimationLooped(EAnim.Attack, out int _))
                 {
                     Core.Battle.Attack();
                     SoundManager.Instance.PlaySFX(ESfxType.PlayerAttack);

@@ -11,7 +11,7 @@ namespace MoveStopMove.Core.SaveLoad.Data
         #region - Player -
 
         public int coins;
-        public int kills;
+        //public int kills;
 
         public string equippedCustom;
         public string equippedPant;
@@ -55,7 +55,7 @@ namespace MoveStopMove.Core.SaveLoad.Data
             var startingData = new GameData();
 
             startingData.coins = 0;
-            startingData.kills = 0;
+            //startingData.kills = 0;
 
             startingData.unlockedCustom.Clear();
             //startingData.unlockedCustom.AddRange(new[] { "devil" });

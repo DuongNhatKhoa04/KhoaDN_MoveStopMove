@@ -37,7 +37,7 @@ namespace MoveStopMove.Gameplay.Projectiles
 
             if (!m_hitTargets.Add(target)) return;
 
-            EventManager.Instance.Notify(new HitTarget(Owner, target, 1));
+            EventManager.Instance.Notify(new HitTarget(Owner, target));
 
             if (m_chainCount >= maxChains)
             {

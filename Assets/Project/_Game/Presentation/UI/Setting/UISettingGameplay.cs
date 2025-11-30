@@ -20,7 +20,8 @@ namespace MoveStopMove.Presentation.UI.Setting
         private void OnEnable()
         {
             Time.timeScale = 0f;
-            scoreText.text = DataPersistenceManager.Instance.GameData.kills.ToString();
+            scoreText.text = DataPersistenceManager.Instance.GameData.coins.ToString();
+            DataPersistenceManager.Instance.SaveGame();
         }
 
         private void OnDisable()

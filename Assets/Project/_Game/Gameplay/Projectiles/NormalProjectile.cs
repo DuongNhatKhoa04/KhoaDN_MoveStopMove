@@ -1,6 +1,4 @@
 using MoveStopMove.Core.Events;
-using MoveStopMove.Core.Stats;
-using MoveStopMove.Utility.Extension;
 using UnityEngine;
 
 namespace MoveStopMove.Gameplay.Projectiles
@@ -19,7 +17,7 @@ namespace MoveStopMove.Gameplay.Projectiles
                 return;
             }
 
-            EventManager.Instance.Notify(new HitTarget(Owner, target, 1));
+            EventManager.Instance.Notify(new HitTarget(Owner, target));
 
             ReturnToPool();
         }

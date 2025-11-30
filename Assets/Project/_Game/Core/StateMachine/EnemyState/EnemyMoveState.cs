@@ -25,11 +25,9 @@ namespace MoveStopMove.Core.StateMachine.EnemyState
             base.Enter();
 
             TargetPosition = GetRandomPointAroundSelf(5f);
+            //Debug.Log($"[MoveState] TargetPosition = {TargetPosition}");
 
-            Debug.Log($"[MoveState] TargetPosition = {TargetPosition}");
-
-            EnemyMovement?.MoveTo(TargetPosition,
-                m_enemyData.speed);
+            EnemyMovement?.MoveTo(TargetPosition, m_enemyData.speed);
         }
 
         public override void LogicUpdate()

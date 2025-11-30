@@ -116,7 +116,7 @@ namespace MoveStopMove.Gameplay.Projectiles
             if ((hittableLayers.value & (1 << target.layer)) == 0)
                 return;
 
-            EventManager.Instance.Notify(new HitTarget(Owner, target, 1));
+            EventManager.Instance.Notify(new HitTarget(Owner, target));
 
             //ReturnToPool();
         }
