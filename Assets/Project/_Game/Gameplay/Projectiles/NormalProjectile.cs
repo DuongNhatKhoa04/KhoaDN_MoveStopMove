@@ -19,12 +19,7 @@ namespace MoveStopMove.Gameplay.Projectiles
                 return;
             }
 
-            var attackRangeBuff = PlayerSaveLoader.GetDecoratorData<WeaponData, float>(
-                weaponName,
-                PlayerSaveLoader.SO_WEAPON_PATH,
-                data => data.rangeIncrease);
-
-            EventManager.Instance.Notify(new HitTarget(Owner, attackRangeBuff, target));
+            EventManager.Instance.Notify(new HitTarget(Owner, target, 1));
 
             ReturnToPool();
         }

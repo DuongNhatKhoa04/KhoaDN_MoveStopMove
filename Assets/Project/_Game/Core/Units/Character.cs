@@ -3,6 +3,7 @@ using System.Collections;
 using MoveStopMove.Core.Interfaces;
 using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Core.StateMachine;
+using MoveStopMove.Core.StateMachine.EnemyState;
 using MoveStopMove.Core.StateMachine.PlayerState;
 using MoveStopMove.Core.Stats;
 using MoveStopMove.Gameplay.Projectiles;
@@ -31,11 +32,18 @@ namespace MoveStopMove.Core.Units
         #region -- Properties --
 
         public MainCore Core => core;
-        protected FiniteStateMachine StateMachine { get; private set; }
-        public PlayerIdleState PlayerIdleState { get; private set; }
-        public PlayerMoveState PlayerMoveState { get; private set; }
-        public PlayerAttackState PlayerAttackState {  get; private set; }
-        public PlayerDeadState PlayerDeadState { get; private set; }
+        protected FiniteStateMachine StateMachine { get; set; }
+        public PlayerIdleState PlayerIdleState { get; set; }
+        public PlayerMoveState PlayerMoveState { get; set; }
+        public PlayerAttackState PlayerAttackState {  get; set; }
+        public PlayerDeadState PlayerDeadState { get; set; }
+        public PlayerDanceState PlayerDanceState { get; set; }
+
+        public EnemyIdleState EnemyIdleState { get; set; }
+        public EnemyMoveState EnemyMoveState { get; set; }
+        public EnemyAttackState EnemyAttackState {  get; set; }
+        public EnemyDeadState EnemyDeadState { get; set; }
+
         public IObjectPool<Character> ObjectPool
         {
             set => CharacterPool = value;
@@ -47,18 +55,21 @@ namespace MoveStopMove.Core.Units
 
         public virtual void Initialize()
         {
-            StartCoroutine(InitializeRoutine());
+            //StartCoroutine(InitializeRoutine());
+            InitAttackRange(characterData.attackRangeRadius);
+            animator.SetTrigger(AnimHashes.Map[currentAnimation]);
+            InitStateMachine();
         }
 
-        private IEnumerator InitializeRoutine()
+        protected IEnumerator InitializeRoutine()
         {
             yield return this.WaitForGameDataLoaded();
             DataPersistenceManager.Instance.UpdateMaxRange();
             DataPersistenceManager.Instance.UpdateRangeIncreasement();
             DataPersistenceManager.Instance.UpdateMaxMovement();
-            InitAttackRange(characterData.attackRangeRadius);
+            /*InitAttackRange(characterData.attackRangeRadius);
             animator.SetTrigger(AnimHashes.Map[currentAnimation]);
-            InitStateMachine();
+            InitStateMachine();*/
         }
 
         private void InitAttackRange(float initRange)
@@ -71,14 +82,14 @@ namespace MoveStopMove.Core.Units
             core.Battle.GetAttackRange.IncreaseRange(rangeIncrease);
         }
 
-        private void InitStateMachine()
+        public virtual void InitStateMachine()
         {
             StateMachine = new FiniteStateMachine();
 
-            PlayerIdleState = new PlayerIdleState(this, StateMachine, characterData, EAnim.Idle);
+            /*PlayerIdleState = new PlayerIdleState(this, StateMachine, characterData, EAnim.Idle);
             PlayerMoveState = new PlayerMoveState(this, StateMachine, characterData, EAnim.Run);
             PlayerAttackState = new PlayerAttackState(this, StateMachine, characterData, EAnim.Attack);
-            PlayerDeadState = new PlayerDeadState(this, StateMachine, characterData, EAnim.Dead);
+            PlayerDeadState = new PlayerDeadState(this, StateMachine, characterData, EAnim.Dead);*/
         }
 
         public void ChangeAnimation(EAnim animationName, float speed = 1)

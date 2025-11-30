@@ -1,6 +1,7 @@
 using MoveStopMove.Core.Combat;
 using MoveStopMove.Core.Stats;
 using MoveStopMove.Core.Units;
+using MoveStopMove.Utility.Audio;
 using MoveStopMove.Utility.Extension;
 
 namespace MoveStopMove.Core.StateMachine.PlayerState
@@ -37,7 +38,7 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
                 if (Character.HasAnimationLooped(EAnim.Attack, out int loop))
                 {
                     Core.Battle.Attack();
-                    //Debug.Log("Fired at loop: " + loop);
+                    SoundManager.Instance.PlaySFX(ESfxType.PlayerAttack);
                 }
             }
         }

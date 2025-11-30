@@ -10,7 +10,7 @@ namespace MoveStopMove.Core.StateMachine
 
         protected Character Character;
         protected FiniteStateMachine StateMachine;
-        protected CharacterData PlayerData;
+        protected CharacterData CharacterData;
 
         protected bool IsExitingState;
 
@@ -20,7 +20,7 @@ namespace MoveStopMove.Core.StateMachine
         {
             this.Character = character;
             this.StateMachine = stateMachine;
-            this.PlayerData = playerData;
+            this.CharacterData = playerData;
             this.m_animation = animation;
             Core = character.Core;
         }

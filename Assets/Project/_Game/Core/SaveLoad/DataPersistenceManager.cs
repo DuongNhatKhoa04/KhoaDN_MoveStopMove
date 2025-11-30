@@ -12,8 +12,8 @@ namespace MoveStopMove.Core.SaveLoad
     {
         #region -- Fields --
 
-        [Header("File Storage Config")] [SerializeField]
-        private string fileName;
+        [Header("File Storage Config")]
+        [SerializeField] private string fileName;
 
         [SerializeField] private bool useEncryption;
         [SerializeField] private CharacterData characterData;
@@ -165,7 +165,7 @@ namespace MoveStopMove.Core.SaveLoad
                 data => data.rangeIncrease);
 
             rangeIncrease += rangeFromWeapon;
-            Debug.Log("range up: " + rangeIncrease);
+            //Debug.Log("range up: " + rangeIncrease);
 
             m_maxRangeIncrease = Mathf.Max(0.1f, rangeIncrease);
         }

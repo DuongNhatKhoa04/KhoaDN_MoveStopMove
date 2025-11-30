@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using MoveStopMove.Core.Combat;
 using MoveStopMove.Core.Movement;
+using MoveStopMove.Core.Stats;
 using UnityEngine;
 
 namespace MoveStopMove.Core
@@ -8,7 +10,8 @@ namespace MoveStopMove.Core
     {
         #region -- Fields --
 
-        [SerializeField] private PlayerMovement movement;
+        [CanBeNull] [SerializeField] private PlayerMovement movement;
+        [CanBeNull] [SerializeField] private EnemyMovement enemyMovement;
         [SerializeField] private Battle battle;
 
         #endregion
@@ -16,6 +19,7 @@ namespace MoveStopMove.Core
         #region -- Properties --
 
         public PlayerMovement Movement => movement;
+        public EnemyMovement EnemyMovement => enemyMovement;
         public Battle Battle => battle;
 
         #endregion

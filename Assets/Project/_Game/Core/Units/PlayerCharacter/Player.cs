@@ -4,7 +4,10 @@ using MoveStopMove.Core.Events;
 using MoveStopMove.Core.Interfaces;
 using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Core.SaveLoad.Data;
+using MoveStopMove.Core.StateMachine.PlayerState;
 using MoveStopMove.Core.Stats;
+using MoveStopMove.Utility;
+using MoveStopMove.Utility.Audio;
 using MoveStopMove.Utility.Extension;
 using UnityEngine;
 
@@ -62,6 +65,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
         private void Awake()
         {
+            StartCoroutine(InitializeRoutine());
             base.Initialize();
         }
 
@@ -131,6 +135,16 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
             StateMachine.CurrentState.PhysicsUpdate();
         }
 
+        public override void InitStateMachine()
+        {
+            base.InitStateMachine();
+            PlayerIdleState = new PlayerIdleState(this, StateMachine, characterData, EAnim.Idle);
+            PlayerMoveState = new PlayerMoveState(this, StateMachine, characterData, EAnim.Run);
+            PlayerAttackState = new PlayerAttackState(this, StateMachine, characterData, EAnim.Attack);
+            PlayerDeadState = new PlayerDeadState(this, StateMachine, characterData, EAnim.Dead);
+            PlayerDanceState = new PlayerDanceState(this, StateMachine, characterData, EAnim.Dance);
+        }
+
         #region - Player Data -
 
         public void LoadData(GameData data)
@@ -140,7 +154,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
         public void SaveData(GameData data)
         {
-            data.equippedPant = "chambi";
+            m_gameData = data;
         }
 
         #endregion
@@ -520,8 +534,13 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         {
             m_rangeUp = DataPersistenceManager.Instance.MaxRangeIncrease;
             //Debug.Log("Defeated " + data.Target + ", increase attack range by " + data.RangeUpdate);
-            Debug.Log(m_rangeUp);
+            //Debug.Log(m_rangeUp);
+            SoundManager.Instance.PlaySFX(ESfxType.ProjectileHit);
             base.UpdateRange(m_rangeUp);
+            //return target to pool
+            var enemy = data.Target.GetComponent<Character>();
+            ObjectPoolingManager.Instance.ReleaseObjectToPool(enemy, "EnemyPool");
+            //return target to pool
         }
 
         /// <summary>
@@ -542,6 +561,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         {
             CancelPreview();
             PreviewItem(data.ItemType, data.ItemName);
+            StateMachine.ChangeState(PlayerDanceState);
         }
 
         /// <summary>

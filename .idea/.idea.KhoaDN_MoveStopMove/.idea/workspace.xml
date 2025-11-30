@@ -5,12 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingGameplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingGameplay.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Movement/EnemyMovement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Movement/EnemyMovement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyAttackState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyAttackState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyDeadState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyDeadState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyGroundedState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyGroundedState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyIdleState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyIdleState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyMoveState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyMoveState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/EnemyCharacter.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/EnemyCharacter/Enemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/EnemyCharacter/Enemy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Audio/AudioSetup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Audio/AudioSetup.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Audio/SoundManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Audio/SoundManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/CombatEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/CombatEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerMoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerWinState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerWinState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ChainableProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ChainableProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/NormalProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/NormalProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +78,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Interfaces/IDataPersistence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Interfaces/IMyObserver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/MainCore.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Movement/EnemyMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Movement/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data/GameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/FileDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyAttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyDeadState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyGroundedState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyIdleState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyMoveState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/FiniteStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerAttackState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerDanceState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -69,6 +104,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Stats/WeaponData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Units/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Units/CoreComponents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Units/EnemyCharacter/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Camera/CameraFollower.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Events/InventoryEvents.cs" root0="FORCE_HIGHLIGHTING" />
@@ -84,7 +120,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/PiercingWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/ReturnableWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Weapons/WeaponBase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/Events/UIButtonEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,6 +132,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UICanvas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/Audio/AudioSetup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/Audio/SoundManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/CommandManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Command.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/_Game/Utility/Extension/Helper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -251,7 +288,8 @@
       <workItem from="1764382844940" duration="2473000" />
       <workItem from="1764386926765" duration="6747000" />
       <workItem from="1764407369371" duration="28414000" />
-      <workItem from="1764469865817" duration="5640000" />
+      <workItem from="1764469865817" duration="5864000" />
+      <workItem from="1764488002541" duration="9788000" />
     </task>
     <servers />
   </component>

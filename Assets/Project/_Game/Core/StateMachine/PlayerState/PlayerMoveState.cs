@@ -1,6 +1,7 @@
 using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Core.Stats;
 using MoveStopMove.Core.Units;
+using MoveStopMove.Utility.Audio;
 using MoveStopMove.Utility.Extension;
 
 namespace MoveStopMove.Core.StateMachine.PlayerState
@@ -18,10 +19,12 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
 
             if (IsMoving)
             {
-                Core.Movement.Moving(Direction, DataPersistenceManager.Instance.MaxMovement, PlayerData.acceleration);
+                Core.Movement.Moving(Direction, DataPersistenceManager.Instance.MaxMovement, CharacterData.acceleration);
+                SoundManager.Instance.PlayLoopSFX(ESfxType.PlayerRun);
             }
             else
             {
+                SoundManager.Instance.StopLoopSFX();
                 StateMachine.ChangeState(Character.PlayerIdleState);
             }
         }
