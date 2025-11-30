@@ -29,28 +29,23 @@ namespace MoveStopMove.Core.StateMachine.EnemyState
         protected Vector3 GetRandomPointAroundSelf(float radius)
         {
             Vector3 origin = Character.transform.position;
-            //Debug.Log($"[RandomPoint] Current pos: {origin}");
 
             Vector2 random2D = Random.insideUnitCircle * radius;
-            //Debug.Log($"[RandomPoint] random2D: {random2D}");
 
             Vector3 candidate = new Vector3(
                 origin.x + random2D.x,
                 origin.y,
                 origin.z + random2D.y
             );
-            //Debug.Log($"[RandomPoint] candidate: {candidate}");
 
             NavMeshHit hit;
             bool found = NavMesh.SamplePosition(candidate, out hit, radius, NavMesh.AllAreas);
 
             if (found)
             {
-                //Debug.Log($"[RandomPoint] hit: {hit.position}");
                 return hit.position;
             }
 
-            //Debug.LogWarning("[RandomPoint] SamplePosition FAILED -> return origin");
             return origin;
         }
 

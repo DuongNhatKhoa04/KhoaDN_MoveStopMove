@@ -10,6 +10,8 @@ namespace MoveStopMove.Core.Units.EnemyCharacter
 {
     public class Enemy : Character
     {
+        #region -- Fields --
+
         [Header("Skinned Mesh Renderer")]
         [SerializeField] private SkinnedMeshRenderer pantsRenderer;
 
@@ -20,7 +22,15 @@ namespace MoveStopMove.Core.Units.EnemyCharacter
 
         private IDecoratable m_decoratorChain;
 
+        #endregion
+
+        #region -- Properties --
+
         public NavMeshAgent Agent { get; private set; }
+
+        #endregion
+
+        #region -- Methods --
 
         private void Awake()
         {
@@ -52,13 +62,13 @@ namespace MoveStopMove.Core.Units.EnemyCharacter
             var pant = new PantDecorator(nullDeco)
             {
                 PantsRenderer = pantsRenderer,
-                PantTexture   = pantTexture
+                PantTexture = pantTexture
             };
 
             var weapon = new WeaponDecorator(pant)
             {
                 WeaponAttachment = weaponAttachment,
-                WeaponPrefab     = weaponData.prefab,
+                WeaponPrefab = weaponData.prefab,
                 ProjectilePrefab = weaponData.projectilePrefab,
                 Core = core
             };
@@ -73,5 +83,7 @@ namespace MoveStopMove.Core.Units.EnemyCharacter
         {
             StateMachine.CurrentState.LogicUpdate();
         }
+
+        #endregion
     }
 }

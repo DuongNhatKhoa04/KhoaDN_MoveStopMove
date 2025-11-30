@@ -19,10 +19,7 @@ namespace MoveStopMove.Core.Appearance
 
         #region -- Methods --
 
-        public SkinDecorator(IDecoratable inner) : base(inner)
-        {
-            //Debug.Log("SkinDecorator");
-        }
+        public SkinDecorator(IDecoratable inner) : base(inner) { }
 
         /// <summary>
         /// Equip skin by change texture or material

@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using MoveStopMove.Core.Events;
-using MoveStopMove.Core.Stats;
-using MoveStopMove.Utility.Extension;
 using UnityEngine;
 
 namespace MoveStopMove.Gameplay.Projectiles

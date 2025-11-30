@@ -7,6 +7,8 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
 {
     public class PlayerDanceState : PlayerGroundedState
     {
+        #region -- Methods --
+
         public PlayerDanceState(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
             : base(character, stateMachine, playerData, animation) { }
 
@@ -15,5 +17,7 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
             base.Enter();
             SoundManager.Instance.PlayLoopSFX(ESfxType.PlayerDance);
         }
+
+        #endregion
     }
 }

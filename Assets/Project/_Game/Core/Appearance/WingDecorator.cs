@@ -21,10 +21,7 @@ namespace MoveStopMove.Core.Appearance
 
         #region -- Methods --
 
-        public WingDecorator(IDecoratable inner) : base(inner)
-        {
-            //Debug.Log("WingDecorator");
-        }
+        public WingDecorator(IDecoratable inner) : base(inner) { }
 
         /// <summary>
         /// Equip wing to wing attachment
@@ -32,7 +29,6 @@ namespace MoveStopMove.Core.Appearance
         public override void EquipWing()
         {
             base.EquipWing();
-            //Debug.Log(WingPrefab?.name);
 
             if (WingAttachment == null)
             {

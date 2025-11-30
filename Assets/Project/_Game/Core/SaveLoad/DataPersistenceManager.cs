@@ -20,7 +20,6 @@ namespace MoveStopMove.Core.SaveLoad
 
         private List<IDataPersistence> m_dataPersistenceObjects;
         private FileDataHandler m_dataHandler;
-        //private GameData m_gameData;
 
         private float m_maxAttackRange;
         private float m_maxRangeIncrease;

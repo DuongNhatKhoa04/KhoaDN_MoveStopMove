@@ -6,10 +6,15 @@ namespace MoveStopMove.Core.Movement
 {
     public class EnemyMovement : CoreComponents
     {
+        #region -- Fields --
+
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private float rotationSpeed = 10f;
         [SerializeField] private Transform modelRoot;
 
+        #endregion
+
+        #region -- Methods --
 
         private void Awake()
         {
@@ -67,5 +72,7 @@ namespace MoveStopMove.Core.Movement
                 tf.rotation = Quaternion.Slerp(tf.rotation, targetRot, rotationSpeed * Time.deltaTime);
             }
         }
+
+        #endregion
     }
 }

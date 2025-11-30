@@ -8,7 +8,6 @@ namespace MoveStopMove.Core.Stats
         public float speed = 5;
         public float acceleration = 60;
 
-        public float attackSpeed = 1;
         public float attackRangeRadius = 4;
     }
 }

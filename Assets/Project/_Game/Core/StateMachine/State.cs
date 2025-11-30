@@ -6,6 +6,8 @@ namespace MoveStopMove.Core.StateMachine
 {
     public abstract class State
     {
+        #region -- Fields --
+
         protected MainCore Core;
 
         protected Character Character;
@@ -16,7 +18,11 @@ namespace MoveStopMove.Core.StateMachine
 
         private EAnim m_animation;
 
-        public State(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
+        #endregion
+
+        #region -- Methods --
+
+        protected State(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
         {
             this.Character = character;
             this.StateMachine = stateMachine;
@@ -49,5 +55,7 @@ namespace MoveStopMove.Core.StateMachine
         {
             return Core.Battle.GetAttackRange.PeekEntry() != null;
         }
+
+        #endregion
     }
 }

@@ -21,10 +21,7 @@ namespace MoveStopMove.Core.Appearance
 
         #region -- Methods --
 
-        public HairDecorator(IDecoratable inner) : base(inner)
-        {
-            //Debug.Log("Hair decorator");
-        }
+        public HairDecorator(IDecoratable inner) : base(inner) { }
 
         /// <summary>
         /// Equip hair to hair attachment
@@ -32,7 +29,6 @@ namespace MoveStopMove.Core.Appearance
         public override void EquipHair()
         {
             base.EquipHair();
-            //Debug.Log(HairPrefab.name);
 
             if (HairAttachment == null)
             {

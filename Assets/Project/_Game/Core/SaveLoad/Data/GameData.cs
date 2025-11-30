@@ -11,7 +11,6 @@ namespace MoveStopMove.Core.SaveLoad.Data
         #region - Player -
 
         public int coins;
-        //public int kills;
 
         public string equippedCustom;
         public string equippedPant;
@@ -55,24 +54,14 @@ namespace MoveStopMove.Core.SaveLoad.Data
             var startingData = new GameData();
 
             startingData.coins = 500;
-            //startingData.kills = 0;
 
             startingData.unlockedCustom.Clear();
-            //startingData.unlockedCustom.AddRange(new[] { "devil" });
-            //startingData.unlockedCustom.AddRange(new[] { "angel" });
-            //startingData.unlockedCustom.AddRange(new[] { "thor" });
             startingData.unlockedPant.AddRange(new[] { "chambi" });
             startingData.unlockedHair.AddRange(new[] { "arrow" });
             startingData.unlockedWeapon.AddRange(new[] { "z", "boomerang" });
 
             startingData.lockedCustom.AddRange(new[]
                 { "devil", "angel", "thor" });
-            /*startingData.lockedCustom.AddRange(new[]
-                { "none", "angel", "thor" });*/
-            /*startingData.lockedCustom.AddRange(new[]
-                { "none", "devil", "thor" });*/
-            /*startingData.lockedCustom.AddRange(new[]
-                { "none", "angel", "devil" });*/
             startingData.lockedPant.AddRange(new[]
                 { "batman", "comy", "dabao", "onion", "pokemon", "rainbow", "skull", "vantim" });
             startingData.lockedHair.AddRange(new[]
@@ -82,9 +71,6 @@ namespace MoveStopMove.Core.SaveLoad.Data
 
 
             startingData.equippedCustom = "";
-            //startingData.equippedCustom   = "devil";
-            //startingData.equippedCustom   = "angel";
-            //startingData.equippedCustom   = "thor";
             startingData.equippedPant   = "chambi";
             startingData.equippedHair   = "arrow";
             startingData.equippedWeapon = "boomerang";

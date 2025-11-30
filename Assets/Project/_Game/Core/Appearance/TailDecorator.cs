@@ -21,10 +21,7 @@ namespace MoveStopMove.Core.Appearance
 
         #region -- Methods --
 
-        public TailDecorator(IDecoratable inner) : base(inner)
-        {
-            //Debug.Log("TailDecorator");
-        }
+        public TailDecorator(IDecoratable inner) : base(inner) { }
 
         /// <summary>
         /// Equip tail to the tail attachment
@@ -32,7 +29,6 @@ namespace MoveStopMove.Core.Appearance
         public override void EquipTail()
         {
             base.EquipTail();
-            //Debug.Log(TailPrefab?.name);
 
             if (TailAttachment == null)
             {

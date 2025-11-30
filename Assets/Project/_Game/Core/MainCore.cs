@@ -1,7 +1,6 @@
 using JetBrains.Annotations;
 using MoveStopMove.Core.Combat;
 using MoveStopMove.Core.Movement;
-using MoveStopMove.Core.Stats;
 using UnityEngine;
 
 namespace MoveStopMove.Core

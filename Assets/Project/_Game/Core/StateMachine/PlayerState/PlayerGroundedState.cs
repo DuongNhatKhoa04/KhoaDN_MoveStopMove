@@ -1,7 +1,6 @@
 using MoveStopMove.Core.Stats;
 using MoveStopMove.Core.Units;
 using MoveStopMove.Utility.Extension;
-using MoveStopMove.Utility.Input;
 using UnityEngine;
 
 namespace MoveStopMove.Core.StateMachine.PlayerState
@@ -18,7 +17,7 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
 
         #region -- Methods --
 
-        public PlayerGroundedState(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
+        protected PlayerGroundedState(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
             : base(character, stateMachine, playerData, animation) { }
 
         public override void DoChecks()

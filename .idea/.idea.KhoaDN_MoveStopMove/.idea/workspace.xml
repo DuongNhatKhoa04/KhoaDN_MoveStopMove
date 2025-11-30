@@ -5,30 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Cube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Cube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/LevelEvents.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/LevelEvents.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/UIEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Events/UIEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/HairDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/HairDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/PantDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/PantDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/SkinDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/SkinDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/TailDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/TailDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/WeaponDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/WeaponDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/WingDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Appearance/WingDecorator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Combat/AttackRange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Combat/AttackRange.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/MainCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/MainCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Movement/EnemyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Movement/EnemyMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/Data/GameData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyGroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/EnemyState/EnemyMoveState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerDanceState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerDanceState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerIdleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UILose.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UINotification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIWin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingGameplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingGameplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettingMain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIOutfitShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIOutfitShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Weapon/UIWeaponShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Audio/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Audio/SoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Utility/VFX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_Controller.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_Controller.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_Notification.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_Notification.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerDeadState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerDeadState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerGroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Stats/CharacterData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Stats/CharacterData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/EnemyCharacter/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/EnemyCharacter/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Events.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Events/InventoryEvents.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Events/InventoryEvents.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Events/ShopEvents.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Events/ShopEvents.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ChainableProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ChainableProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/PiercingProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Gameplay/Projectiles/ReturnableProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/HUD.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Input.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Input/ControlProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Utility/Input/ControlProvider.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +286,7 @@
       <workItem from="1764407369371" duration="28414000" />
       <workItem from="1764469865817" duration="5864000" />
       <workItem from="1764488002541" duration="14984000" />
-      <workItem from="1764512479201" duration="18631000" />
+      <workItem from="1764512479201" duration="19926000" />
     </task>
     <servers />
   </component>

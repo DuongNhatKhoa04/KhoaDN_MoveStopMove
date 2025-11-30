@@ -24,10 +24,7 @@ namespace MoveStopMove.Core.Appearance
 
         #region -- Methods --
 
-        public WeaponDecorator(IDecoratable inner) : base(inner)
-        {
-            //Debug.Log("WeaponDecoration");
-        }
+        public WeaponDecorator(IDecoratable inner) : base(inner) { }
 
         /// <summary>
         /// Equip weapon to weapon attachment and setup weapon, projectile

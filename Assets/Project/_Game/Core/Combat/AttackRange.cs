@@ -40,8 +40,6 @@ namespace MoveStopMove.Core.Combat
         private readonly Queue<TargetEntry> m_targetQueue = new();
         private readonly HashSet<GameObject> m_set = new();
 
-        private float m_maxAttackRange;
-
         #endregion
 
         #region -- Methods --
@@ -51,7 +49,6 @@ namespace MoveStopMove.Core.Combat
             lineRenderer.loop = true;
             lineRenderer.useWorldSpace = false;
             lineRenderer.positionCount = segments;
-            m_maxAttackRange = DataPersistenceManager.Instance.CharacterData.attackRangeRadius;
         }
 
         public void InitRange(float r)
@@ -71,7 +68,6 @@ namespace MoveStopMove.Core.Combat
             if (sphereCol.radius > DataPersistenceManager.Instance.MaxAttackRange)
             {
                 float r = DataPersistenceManager.Instance.MaxAttackRange;
-                //Debug.Log(r);
                 float step = 2f * Mathf.PI / segments;
                 var pts = new Vector3[segments];
                 for (int i = 0; i < segments; i++)
@@ -144,7 +140,7 @@ namespace MoveStopMove.Core.Combat
                     m_targetQueue.Enqueue(enemy);
                 }
 
-                Debug.Log($"[EXIT] {go.name} rời vùng tấn công của {name}");
+                //Debug.Log($"[EXIT] {go.name} rời vùng tấn công của {name}");
             }
         }
 

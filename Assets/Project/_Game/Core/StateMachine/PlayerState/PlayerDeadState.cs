@@ -9,6 +9,8 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
 {
     public class PlayerDeadState : PlayerGroundedState
     {
+        #region -- Methods --
+
         public PlayerDeadState(Character character, FiniteStateMachine stateMachine, CharacterData playerData, EAnim animation)
             : base(character, stateMachine, playerData, animation) { }
 
@@ -18,5 +20,7 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
             SoundManager.Instance.PlaySFX(ESfxType.PlayerDie);
             UIManager.Instance.OpenUI<UILose>();
         }
+
+        #endregion
     }
 }

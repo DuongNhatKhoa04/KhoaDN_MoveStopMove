@@ -1,7 +1,6 @@
 using MoveStopMove.Core.Interfaces;
 using MoveStopMove.Core.Units;
 using MoveStopMove.Utility.Extension;
-using UnityEngine;
 
 namespace MoveStopMove.Core.Appearance
 {
@@ -9,10 +8,7 @@ namespace MoveStopMove.Core.Appearance
     {
         #region -- Methods --
 
-        public PantDecorator(IDecoratable inner) : base(inner)
-        {
-            //Debug.Log("PantDecorator");
-        }
+        public PantDecorator(IDecoratable inner) : base(inner) { }
 
         /// <summary>
         /// Equip pant by change texture

@@ -9,7 +9,11 @@ namespace MoveStopMove.Core.StateMachine.EnemyState
 {
     public class EnemyMoveState : EnemyGroundedState
     {
+        #region -- Fields --
+
         private CharacterData m_enemyData;
+
+        #endregion
 
         #region -- Methods --
 
@@ -25,7 +29,6 @@ namespace MoveStopMove.Core.StateMachine.EnemyState
             base.Enter();
 
             TargetPosition = GetRandomPointAroundSelf(5f);
-            //Debug.Log($"[MoveState] TargetPosition = {TargetPosition}");
 
             EnemyMovement?.MoveTo(TargetPosition, m_enemyData.speed);
         }
