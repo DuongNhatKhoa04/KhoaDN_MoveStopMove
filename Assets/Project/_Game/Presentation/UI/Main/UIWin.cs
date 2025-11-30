@@ -1,3 +1,4 @@
+using MoveStopMove.Core.Events;
 using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Utility.Audio;
 using TMPro;
@@ -25,6 +26,7 @@ namespace MoveStopMove.Presentation.UI.Main
 
         public void OnClickRetryButton()
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             Time.timeScale = 1;
             UIManager.Instance.CloseUI<UILose>();
             //GameManager restart
@@ -32,7 +34,9 @@ namespace MoveStopMove.Presentation.UI.Main
 
         public void OnClickBackToMenu()
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             Time.timeScale = 1;
+            EventManager.Instance.Notify(new RestartGame(new Vector3(0,1,0)));
             UIManager.Instance.CloseUI<UILose>();
             UIManager.Instance.OpenUI<UIMain>();
         }

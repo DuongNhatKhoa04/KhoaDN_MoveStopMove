@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace MoveStopMove.Core.Events
 {
@@ -100,4 +101,16 @@ namespace MoveStopMove.Core.Events
             IsPreviewing = isPreviewing;
         }
     }
+
+    public readonly struct RestartGame
+    {
+        public readonly Vector3 Location;
+
+        public RestartGame(Vector3 location)
+        {
+            Location = location;
+        }
+    }
+
+    public readonly struct ResetState { }
 }

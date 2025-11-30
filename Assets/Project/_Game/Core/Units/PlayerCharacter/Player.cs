@@ -6,6 +6,8 @@ using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Core.SaveLoad.Data;
 using MoveStopMove.Core.StateMachine.PlayerState;
 using MoveStopMove.Core.Stats;
+using MoveStopMove.Presentation.UI;
+using MoveStopMove.Presentation.UI.Main;
 using MoveStopMove.Utility;
 using MoveStopMove.Utility.Audio;
 using MoveStopMove.Utility.Extension;
@@ -14,7 +16,8 @@ using UnityEngine;
 namespace MoveStopMove.Core.Units.PlayerCharacter
 {
     public class Player : Character, IDataPersistence, IDamageable,
-        IMyObserver<ItemEquippedEvent>, IMyObserver<HitTarget>, IMyObserver<ItemTryEvent>, IMyObserver<ItemCancelTryEvent>
+        IMyObserver<ItemEquippedEvent>, IMyObserver<HitTarget>, IMyObserver<ItemTryEvent>, IMyObserver<ItemCancelTryEvent>,
+        IMyObserver<RestartGame>, IMyObserver<ResetState>
     {
         #region -- Fields --
 
@@ -58,7 +61,7 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         private string m_previewOriginCustom;
 
         private float m_rangeUp;
-        private int m_currentCoin;
+        private int m_coins;
 
         #endregion
 
@@ -74,7 +77,6 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         {
             yield return this.WaitForGameDataLoaded();
 
-            m_currentCoin = DataPersistenceManager.Instance.GameData.coins;
             m_gameData = DataPersistenceManager.Instance.GameData;
             m_customContext = BuildCustomContext(m_gameData.equippedCustom);
 
@@ -156,7 +158,8 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
         public void SaveData(GameData data)
         {
-            m_gameData = data;
+            //data = m_gameData;
+            data.coins = m_coins;
         }
 
         #endregion
@@ -522,6 +525,8 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
             EventManager.Instance.Subscribe<ItemEquippedEvent>(this);
             EventManager.Instance.Subscribe<ItemTryEvent>(this);
             EventManager.Instance.Subscribe<ItemCancelTryEvent>(this);
+            EventManager.Instance.Subscribe<RestartGame>(this);
+            EventManager.Instance.Subscribe<ResetState>(this);
         }
 
         private void OnDisable()
@@ -530,6 +535,8 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
             EventManager.Instance.Unsubscribe<ItemEquippedEvent>(this);
             EventManager.Instance.Unsubscribe<ItemTryEvent>(this);
             EventManager.Instance.Unsubscribe<ItemCancelTryEvent>(this);
+            EventManager.Instance.Unsubscribe<RestartGame>(this);
+            EventManager.Instance.Unsubscribe<ResetState>(this);
         }
 
         public void OnNotify(HitTarget data)
@@ -539,12 +546,30 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
                 m_rangeUp = DataPersistenceManager.Instance.MaxRangeIncrease;
                 base.UpdateRange(m_rangeUp);
 
-                DataPersistenceManager.Instance.GameData.coins = m_currentCoin++;
+                DataPersistenceManager.Instance.AddCoin(1);
+
+                m_coins = DataPersistenceManager.Instance.GameData.coins;
+
+                if (m_coins % 4 == 0)
+                {
+                    GameManager.Instance.SpawnEnemy();
+                }
 
                 SoundManager.Instance.PlaySFX(ESfxType.ProjectileHit);
 
                 var enemy = data.Target.GetComponent<Character>();
-                ObjectPoolingManager.Instance.ReleaseObjectToPool(enemy, "EnemyPool");
+
+                GameManager.Instance.EnemyCount--;
+                if (GameManager.Instance.EnemyCount == 0)
+                {
+                    ObjectPoolingManager.Instance.ReleaseObjectToPool(enemy, "EnemyPool");
+                    UIManager.Instance.OpenUI<UIWin>();
+                    UIManager.Instance.CloseUI<UIController>();
+                }
+                else
+                {
+                    ObjectPoolingManager.Instance.ReleaseObjectToPool(enemy, "EnemyPool");
+                }
             }
             else if (data.Victim.name == "Enemy")
             {
@@ -580,6 +605,18 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         public void OnNotify(ItemCancelTryEvent data)
         {
             CancelPreview();
+        }
+
+        public void OnNotify(RestartGame data)
+        {
+            gameObject.transform.position = data.Location;
+            GameManager.Instance.RestartTheGame();
+            StateMachine.ChangeState(PlayerIdleState);
+        }
+
+        public void OnNotify(ResetState data)
+        {
+            StateMachine.ChangeState(PlayerIdleState);
         }
 
         #endregion

@@ -13,7 +13,7 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
         public override void Enter()
         {
             base.Enter();
-            SoundManager.Instance.PlaySFX(ESfxType.PlayerDance);
+            SoundManager.Instance.PlayLoopSFX(ESfxType.PlayerDance);
         }
     }
 }

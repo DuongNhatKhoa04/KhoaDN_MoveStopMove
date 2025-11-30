@@ -1,5 +1,6 @@
 using MoveStopMove.Core.Stats;
 using MoveStopMove.Core.Units;
+using MoveStopMove.Utility.Audio;
 using MoveStopMove.Utility.Extension;
 
 namespace MoveStopMove.Core.StateMachine.PlayerState
@@ -21,6 +22,7 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
         {
             base.Enter();
             Core.Movement.Stop();
+            SoundManager.Instance.StopLoopSFX();
         }
 
         public override void LogicUpdate()

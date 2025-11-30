@@ -7,6 +7,7 @@ using MoveStopMove.Gameplay.Items;
 using MoveStopMove.Presentation.UI.Main;
 using MoveStopMove.Presentation.UI.Shops.Weapon;
 using MoveStopMove.Utility;
+using MoveStopMove.Utility.Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -182,12 +183,16 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.BuySuccess)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.BuySuccess);
             }
             else
             {
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.NotEnoughCoins);
             }
         }
 
@@ -217,6 +222,8 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.EquipSuccess)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.EquipSuccess);
             }
         }
 
@@ -240,12 +247,16 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.BuySuccess)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.BuySuccess);
             }
             else
             {
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.NotEnoughCoins);
             }
         }
 
@@ -275,6 +286,8 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.EquipSuccess)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.EquipSuccess);
             }
         }
 
@@ -298,12 +311,16 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.BuySuccess)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.BuySuccess);
             }
             else
             {
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.NotEnoughCoins);
             }
         }
 
@@ -333,6 +350,8 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.EquipSuccess)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.EquipSuccess);
             }
         }
 
@@ -353,7 +372,9 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
 
         public void OnClickBackButton()
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             EventManager.Instance.Notify(new ItemCancelTryEvent());
+            EventManager.Instance.Notify(new ResetState());
 
             UIManager.Instance.OpenUI<UIMain>();
             UIManager.Instance.CloseUI<UIOutfitShop>();
@@ -361,16 +382,19 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
 
         public void OnClickTryPant(UIPantCard card)
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             EventManager.Instance.Notify(new ItemTryEvent(EItem.Pant, card.PantData.name));
         }
 
         public void OnClickTryHair(UIHairCard card)
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             EventManager.Instance.Notify(new ItemTryEvent(EItem.Hair, card.HairData.name));
         }
 
         public void OnClickTryCustom(UICustomCard card)
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             EventManager.Instance.Notify(new ItemTryEvent(EItem.Custom, card.CustomData.name));
         }
 

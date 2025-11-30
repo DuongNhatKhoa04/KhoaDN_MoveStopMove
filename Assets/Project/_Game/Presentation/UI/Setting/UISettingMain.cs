@@ -1,4 +1,5 @@
 using MoveStopMove.Presentation.UI.Main;
+using MoveStopMove.Utility.Audio;
 using UnityEngine;
 
 namespace MoveStopMove.Presentation.UI.Setting
@@ -26,6 +27,7 @@ namespace MoveStopMove.Presentation.UI.Setting
 
         public void OnClickBackButton()
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             UIManager.Instance.OpenUI<UIMain>();
             UIManager.Instance.CloseUI<UISettingMain>();
         }
@@ -34,12 +36,14 @@ namespace MoveStopMove.Presentation.UI.Setting
         {
             soundOn.SetActive(false);
             soundOff.SetActive(true);
+            SoundManager.Instance.SetMute(true);
         }
 
         public void OnClickTurnOnSound()
         {
             soundOn.SetActive(true);
             soundOff.SetActive(false);
+            SoundManager.Instance.SetMute(false);
         }
 
         #endregion

@@ -56,6 +56,20 @@ namespace MoveStopMove.Utility.Audio
             }
         }
 
+        public void SetMute(bool isMuted)
+        {
+            float volume = isMuted ? 0f : 1f;
+
+            if (sfxSource != null)
+                sfxSource.volume = volume;
+
+            if (sfxLoopSource != null)
+                sfxLoopSource.volume = volume;
+
+            if (bgmSource != null)
+                bgmSource.volume = volume - 0.4f;
+        }
+
         #region SFX
 
         public void PlaySFX(ESfxType type)
@@ -83,7 +97,6 @@ namespace MoveStopMove.Utility.Audio
                 return;
             }
 
-            // Nếu đang phát đúng clip rồi thì khỏi làm gì
             if (sfxLoopSource.isPlaying && sfxLoopSource.clip == clip)
                 return;
 

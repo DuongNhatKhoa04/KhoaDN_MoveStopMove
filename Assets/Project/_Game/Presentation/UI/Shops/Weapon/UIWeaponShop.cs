@@ -6,6 +6,7 @@ using MoveStopMove.Gameplay.Camera;
 using MoveStopMove.Gameplay.Items;
 using MoveStopMove.Presentation.UI.Main;
 using MoveStopMove.Utility;
+using MoveStopMove.Utility.Audio;
 using TMPro;
 using UnityEngine;
 
@@ -109,15 +110,17 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.BuySuccess)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.BuySuccess);
             }
             else
             {
                 EventManager.Instance.Notify(
                     new NotificationPopUpEvent(EEventCode.NotEnoughCoins)
                 );
+
+                SoundManager.Instance.PlaySFX(ESfxType.NotEnoughCoins);
             }
-            // Nếu fail thì ItemManager đã bắn event NotEnoughCoins,
-            // UINotification sẽ popup.
         }
 
         /// <summary>
@@ -144,17 +147,22 @@ namespace MoveStopMove.Presentation.UI.Shops.Weapon
                 EventManager.Instance.Notify(new ItemEquippedEvent(EItem.Weapon, card.WeaponData.name));
 
                 EventManager.Instance.Notify(new NotificationPopUpEvent(EEventCode.EquipSuccess));
+
+                SoundManager.Instance.PlaySFX(ESfxType.EquipSuccess);
             }
         }
 
         public void OnClickTryWeapon(UIWeaponCard card)
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             EventManager.Instance.Notify(new ItemTryEvent(EItem.Weapon, card.WeaponData.name));
         }
 
         public void OnClickBackButton()
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             EventManager.Instance.Notify(new ItemCancelTryEvent());
+            EventManager.Instance.Notify(new ResetState());
 
             UIManager.Instance.OpenUI<UIMain>();
             UIManager.Instance.CloseUI<UIWeaponShop>();

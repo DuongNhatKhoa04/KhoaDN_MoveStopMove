@@ -54,7 +54,7 @@ namespace MoveStopMove.Core.SaveLoad.Data
         {
             var startingData = new GameData();
 
-            startingData.coins = 0;
+            startingData.coins = 500;
             //startingData.kills = 0;
 
             startingData.unlockedCustom.Clear();

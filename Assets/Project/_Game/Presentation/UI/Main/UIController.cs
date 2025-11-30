@@ -1,6 +1,7 @@
 using MoveStopMove.Core;
 using MoveStopMove.Gameplay.Camera;
 using MoveStopMove.Presentation.UI.Setting;
+using MoveStopMove.Utility.Audio;
 using UnityEngine;
 
 namespace MoveStopMove.Presentation.UI.Main
@@ -17,6 +18,7 @@ namespace MoveStopMove.Presentation.UI.Main
 
         public void OnClickSettingButton()
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             UIManager.Instance.OpenUI<UISettingGameplay>();
         }
 

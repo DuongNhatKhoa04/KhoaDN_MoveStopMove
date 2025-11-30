@@ -1,6 +1,7 @@
 using MoveStopMove.Core.Events;
 using MoveStopMove.Core.Interfaces;
 using MoveStopMove.Presentation.UI;
+using MoveStopMove.Utility.Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -19,6 +20,7 @@ namespace MoveStopMove.Presentation.UI.Main
 
         public void OnNotify(NotificationPopUpEvent data)
         {
+            SoundManager.Instance.PlaySFX(ESfxType.Notification);
             message.text = data.Message;
 
             UIManager.Instance.OpenUI<UINotification>();
@@ -37,6 +39,7 @@ namespace MoveStopMove.Presentation.UI.Main
 
         public void OnClickCloseButton()
         {
+            SoundManager.Instance.PlaySFX(ESfxType.ButtonClick);
             UIManager.Instance.CloseUI<UINotification>();
         }
 

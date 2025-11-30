@@ -20,7 +20,7 @@ namespace MoveStopMove.Core.SaveLoad
 
         private List<IDataPersistence> m_dataPersistenceObjects;
         private FileDataHandler m_dataHandler;
-        private GameData m_gameData;
+        //private GameData m_gameData;
 
         private float m_maxAttackRange;
         private float m_maxRangeIncrease;
@@ -30,7 +30,7 @@ namespace MoveStopMove.Core.SaveLoad
 
         #region -- Properties --
 
-        public GameData GameData => m_gameData;
+        public GameData GameData { get; private set; }
 
         public CharacterData CharacterData => characterData;
 
@@ -62,7 +62,7 @@ namespace MoveStopMove.Core.SaveLoad
         /// </summary>
         public void NewGame()
         {
-            this.m_gameData = GameData.CreateDefault();
+            this.GameData = GameData.CreateDefault();
         }
 
         /// <summary>
@@ -72,9 +72,9 @@ namespace MoveStopMove.Core.SaveLoad
         {
             IsLoaded = false;
 
-            m_gameData = m_dataHandler.Load();
+            GameData = m_dataHandler.Load();
 
-            if (m_gameData == null)
+            if (GameData == null)
             {
                 Debug.Log("No data was found. Initializing data to defaults.");
                 NewGame();
@@ -82,7 +82,7 @@ namespace MoveStopMove.Core.SaveLoad
 
             foreach (IDataPersistence dataPersistenceObj in m_dataPersistenceObjects)
             {
-                dataPersistenceObj.LoadData(m_gameData);
+                dataPersistenceObj.LoadData(GameData);
             }
 
             IsLoaded = true;
@@ -95,10 +95,10 @@ namespace MoveStopMove.Core.SaveLoad
         {
             foreach (IDataPersistence dataPersistenceObj in m_dataPersistenceObjects)
             {
-                dataPersistenceObj.SaveData(m_gameData);
+                dataPersistenceObj.SaveData(GameData);
             }
 
-            m_dataHandler.Save(m_gameData);
+            m_dataHandler.Save(GameData);
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace MoveStopMove.Core.SaveLoad
         public void UpdateMaxRange()
         {
             var newRange = PlayerSaveLoader.GetDecoratorData<WeaponData, float>(
-                m_gameData.equippedWeapon,
+                GameData.equippedWeapon,
                 PlayerSaveLoader.SO_WEAPON_PATH,
                 data => data.maxAttackRange);
 
@@ -133,9 +133,9 @@ namespace MoveStopMove.Core.SaveLoad
 
         public void UpdateRangeIncreasement()
         {
-            var custom = m_gameData.equippedCustom;
-            var hair = m_gameData.equippedHair;
-            var weapon = m_gameData.equippedWeapon;
+            var custom = GameData.equippedCustom;
+            var hair = GameData.equippedHair;
+            var weapon = GameData.equippedWeapon;
             float rangeIncrease = 0;
 
             if (string.IsNullOrEmpty(custom))
@@ -172,7 +172,7 @@ namespace MoveStopMove.Core.SaveLoad
 
         public void UpdateMaxMovement()
         {
-            var pant = m_gameData.equippedPant;
+            var pant = GameData.equippedPant;
             float movementIncrease = 0;
 
             var rangeFromHair = PlayerSaveLoader.GetDecoratorData<PantData, float>(
@@ -183,6 +183,11 @@ namespace MoveStopMove.Core.SaveLoad
             movementIncrease += rangeFromHair;
 
             m_maxMovement = characterData.speed + movementIncrease;
+        }
+
+        public void AddCoin(int amount)
+        {
+            GameData.coins += amount;
         }
 
         #endregion

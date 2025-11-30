@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using MoveStopMove.Core.Units;
 using MoveStopMove.Presentation.UI;
 using MoveStopMove.Presentation.UI.Main;
@@ -19,8 +20,13 @@ namespace MoveStopMove.Core
         [SerializeField] private UIHairCard hairCardPrefab;
         [SerializeField] private UICustomCard customCardPrefab;
         [SerializeField] private FixedJoystick fixedJoystick;
+        [SerializeField] private Transform[] spawnPoints;
+
+        private List<Character> m_spawnedEnemies = new();
+
 
         public int EnemyCount { get; set; } = 100;
+        public int SpawnCount { get; set; } = 100;
 
         #endregion
 
@@ -67,6 +73,35 @@ namespace MoveStopMove.Core
         public void FindController()
         {
             fixedJoystick = GameObject.Find("FixedJoystick").GetComponent<FixedJoystick>();
+        }
+
+        public void SpawnEnemy()
+        {
+            foreach (var point in spawnPoints)
+            {
+                if (SpawnCount == 0) return;
+                var enemy = ObjectPoolingManager.Instance.GetObjectFromPool<Character>("EnemyPool");
+
+                enemy.transform.position = point.position;
+                enemy.transform.rotation = point.rotation;
+                enemy.gameObject.SetActive(true);
+                m_spawnedEnemies.Add(enemy);
+
+                SpawnCount--;
+            }
+        }
+
+        public void RestartTheGame()
+        {
+            EnemyCount = 100;
+            SpawnCount = 100;
+
+            foreach (var enemy in m_spawnedEnemies)
+            {
+                ObjectPoolingManager.Instance.ReleaseObjectToPool(enemy, "EnemyPool");
+            }
+
+            m_spawnedEnemies.Clear();
         }
 
         #endregion
