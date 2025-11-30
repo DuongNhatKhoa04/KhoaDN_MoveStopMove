@@ -123,20 +123,19 @@ namespace MoveStopMove.Core.SaveLoad
 
         public void UpdateMaxRange()
         {
-            Debug.Log(m_gameData.equippedWeapon);
             var newRange = PlayerSaveLoader.GetDecoratorData<WeaponData, float>(
                 m_gameData.equippedWeapon,
                 PlayerSaveLoader.SO_WEAPON_PATH,
                 data => data.maxAttackRange);
 
             m_maxAttackRange = Mathf.Max(characterData.attackRangeRadius, newRange);
-            Debug.Log("hi " + m_maxAttackRange);
         }
 
         public void UpdateRangeIncreasement()
         {
             var custom = m_gameData.equippedCustom;
             var hair = m_gameData.equippedHair;
+            var weapon = m_gameData.equippedWeapon;
             float rangeIncrease = 0;
 
             if (string.IsNullOrEmpty(custom))
@@ -160,6 +159,14 @@ namespace MoveStopMove.Core.SaveLoad
 
             rangeIncrease += rangeFromHair;
 
+            var rangeFromWeapon = PlayerSaveLoader.GetDecoratorData<WeaponData, float>(
+                weapon,
+                PlayerSaveLoader.SO_WEAPON_PATH,
+                data => data.rangeIncrease);
+
+            rangeIncrease += rangeFromWeapon;
+            Debug.Log("range up: " + rangeIncrease);
+
             m_maxRangeIncrease = Mathf.Max(0.1f, rangeIncrease);
         }
 
@@ -170,12 +177,12 @@ namespace MoveStopMove.Core.SaveLoad
 
             var rangeFromHair = PlayerSaveLoader.GetDecoratorData<PantData, float>(
                 pant,
-                PlayerSaveLoader.SO_HAIRS_PATH,
+                PlayerSaveLoader.SO_PANTS_PATH,
                 data => data.movementIncrease);
 
             movementIncrease += rangeFromHair;
 
-            m_maxMovement = Mathf.Max(0.1f, movementIncrease);
+            m_maxMovement = characterData.speed + movementIncrease;
         }
 
         #endregion

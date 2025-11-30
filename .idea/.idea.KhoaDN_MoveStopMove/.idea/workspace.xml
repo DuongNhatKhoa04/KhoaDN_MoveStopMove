@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f66e4d86-be0d-49cf-a45a-005bc2119116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Setting/UISettings.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KhoaDN_MoveStopMove/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Main/UIMain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SO/Customs/angel.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SO/Customs/angel.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/UI_MainScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/UI_MainScreen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Combat/AttackRange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Combat/AttackRange.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/MainCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/MainCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/SaveLoad/DataPersistenceManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/StateMachine/PlayerState/PlayerMoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Core/Units/PlayerCharacter/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIPantCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/_Game/Presentation/UI/Shops/Outfit/UIPantCard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -251,7 +251,8 @@
       <workItem from="1764339057809" duration="13711000" />
       <workItem from="1764382844940" duration="2473000" />
       <workItem from="1764386926765" duration="6747000" />
-      <workItem from="1764407369371" duration="18727000" />
+      <workItem from="1764407369371" duration="28414000" />
+      <workItem from="1764469865817" duration="2270000" />
     </task>
     <servers />
   </component>

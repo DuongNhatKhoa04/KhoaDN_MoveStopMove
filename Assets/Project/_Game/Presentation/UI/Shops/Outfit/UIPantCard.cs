@@ -65,7 +65,7 @@ namespace MoveStopMove.Presentation.UI.Shops.Outfit
 
             iconPant.sprite = m_pantData.icon;
             pantName.text = DataPersistenceHelpers.BuildStatsString("Name: ", m_pantData.name);
-            pantMovementIncrease.text = DataPersistenceHelpers.BuildStatsString("Range up: ", m_pantData.movementIncrease.ToString());
+            pantMovementIncrease.text = DataPersistenceHelpers.BuildStatsString("Movement up: ", m_pantData.movementIncrease.ToString());
             pantPrice.text = m_pantData.price.ToString();
         }
 

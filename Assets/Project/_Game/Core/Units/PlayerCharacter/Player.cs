@@ -54,6 +54,8 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
         private string m_previewOriginWing;
         private string m_previewOriginCustom;
 
+        private float m_rangeUp;
+
         #endregion
 
         #region -- Methods --
@@ -516,8 +518,10 @@ namespace MoveStopMove.Core.Units.PlayerCharacter
 
         public void OnNotify(HitTarget data)
         {
-            Debug.Log("Defeated " + data.Target + ", increase attack range by " + data.RangeUpdate);
-            core.Battle.GetAttackRange.IncreaseRange(data.RangeUpdate);
+            m_rangeUp = DataPersistenceManager.Instance.MaxRangeIncrease;
+            //Debug.Log("Defeated " + data.Target + ", increase attack range by " + data.RangeUpdate);
+            Debug.Log(m_rangeUp);
+            base.UpdateRange(m_rangeUp);
         }
 
         /// <summary>

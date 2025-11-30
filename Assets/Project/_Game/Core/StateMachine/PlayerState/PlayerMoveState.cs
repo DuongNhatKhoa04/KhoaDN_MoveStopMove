@@ -1,3 +1,4 @@
+using MoveStopMove.Core.SaveLoad;
 using MoveStopMove.Core.Stats;
 using MoveStopMove.Core.Units;
 using MoveStopMove.Utility.Extension;
@@ -17,7 +18,7 @@ namespace MoveStopMove.Core.StateMachine.PlayerState
 
             if (IsMoving)
             {
-                Core.Movement.Moving(Direction, PlayerData.speed, PlayerData.acceleration);
+                Core.Movement.Moving(Direction, DataPersistenceManager.Instance.MaxMovement, PlayerData.acceleration);
             }
             else
             {

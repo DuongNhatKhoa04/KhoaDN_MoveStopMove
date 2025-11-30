@@ -68,11 +68,10 @@ namespace MoveStopMove.Core.Combat
 
         private void Redraw()
         {
-            Debug.Log(DataPersistenceManager.Instance.MaxAttackRange);
             if (sphereCol.radius > DataPersistenceManager.Instance.MaxAttackRange)
             {
                 float r = DataPersistenceManager.Instance.MaxAttackRange;
-                Debug.Log(r);
+                //Debug.Log(r);
                 float step = 2f * Mathf.PI / segments;
                 var pts = new Vector3[segments];
                 for (int i = 0; i < segments; i++)

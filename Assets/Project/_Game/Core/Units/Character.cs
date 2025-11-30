@@ -68,7 +68,7 @@ namespace MoveStopMove.Core.Units
 
         protected void UpdateRange(float rangeIncrease)
         {
-            core.Battle.GetAttackRange.InitRange(rangeIncrease);
+            core.Battle.GetAttackRange.IncreaseRange(rangeIncrease);
         }
 
         private void InitStateMachine()

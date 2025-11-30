@@ -1,3 +1,4 @@
+using MoveStopMove.Core.Combat;
 using MoveStopMove.Core.Movement;
 using UnityEngine;
 
@@ -8,14 +9,14 @@ namespace MoveStopMove.Core
         #region -- Fields --
 
         [SerializeField] private PlayerMovement movement;
-        [SerializeField] private Combat.Battle battle;
+        [SerializeField] private Battle battle;
 
         #endregion
 
         #region -- Properties --
 
         public PlayerMovement Movement => movement;
-        public Combat.Battle Battle => battle;
+        public Battle Battle => battle;
 
         #endregion
     }
