@@ -1,0 +1,48 @@
+using System;
+using MoveStopMove.Core.SaveLoad;
+using TMPro;
+using UnityEngine;
+
+namespace MoveStopMove.Presentation.UI.Setting
+{
+    public class UISettingGameplay : UICanvas
+    {
+        [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private GameObject soundOn;
+        [SerializeField] private GameObject soundOff;
+
+        private void OnEnable()
+        {
+            Time.timeScale = 0f;
+            scoreText.text = DataPersistenceManager.Instance.GameData.kills.ToString();
+        }
+
+        private void OnDisable()
+        {
+            Time.timeScale = 1f;
+        }
+
+        public void OnClickTurnOffSound()
+        {
+            soundOn.SetActive(false);
+            soundOff.SetActive(true);
+        }
+
+        public void OnClickTurnOnSound()
+        {
+            soundOn.SetActive(true);
+            soundOff.SetActive(false);
+        }
+
+        public void OnClickRestartGame()
+        {
+            UIManager.Instance.CloseUI<UISettingGameplay>();
+            //GameManager restart
+        }
+
+        public void OnClickResumeGame()
+        {
+            UIManager.Instance.CloseUI<UISettingGameplay>();
+        }
+    }
+}
