@@ -33,7 +33,7 @@ namespace MoveStopMove.Presentation.UI.Main
 
         public void OnClickSettings()
         {
-            UIManager.Instance.OpenUI<UISettings>();
+            UIManager.Instance.OpenUI<UISettingMain>();
             UIManager.Instance.CloseUI<UIMain>();
         }
     }
